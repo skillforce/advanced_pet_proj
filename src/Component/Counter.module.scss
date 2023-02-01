@@ -1,14 +1,14 @@
-div{
+.counterContainer{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-h1{
+.counterValueTitle{
   color: red;
 }
 
-button{
+.counterIncreaseBtn{
   padding: 10px;
   border-radius: 4px;
 }
