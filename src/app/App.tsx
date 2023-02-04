@@ -1,10 +1,10 @@
 import React, {Suspense} from 'react';
 import {Link, Route, Routes} from 'react-router-dom';
 import './styles/index.scss'
-import {MainPageAsync} from './MainPage/MainPage.async';
-import {AboutPageAsync} from './AboutPage/AboutPage.async';
-import {useTheme} from './theme/useTheme';
-import {classNames} from './helpers/classNames';
+import {classNames} from 'shared/lib/classNames/classNames';
+import {useTheme} from 'app/providers/ThemeProvider';
+import {MainPage} from 'pages/MainPage';
+import {AboutPage} from 'pages/AboutPage';
 
 
 const App = () => {
@@ -22,8 +22,8 @@ const App = () => {
             </Link>
             <Suspense fallback={<div>...Loading</div>}>
                 <Routes>
-                    <Route path={'/'} element={<MainPageAsync/>}/>
-                    <Route path={'/about'} element={<AboutPageAsync/>}/>
+                    <Route path={'/'} element={<MainPage/>}/>
+                    <Route path={'/about'} element={<AboutPage/>}/>
                 </Routes>
             </Suspense>
         </div>
