@@ -1,0 +1,20 @@
+.appLinkContainer{
+  color: var(--primary-text-color);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.primary{
+  color:var(--primary-text-color);
+  &:hover{
+    color:var(--inverted-secondary-text-color);
+  }
+}
+
+.secondary{
+  color:var(--secondary-text-color);
+  &:hover{
+    color:var(--inverted-primary-text-color);
+  }
+}
