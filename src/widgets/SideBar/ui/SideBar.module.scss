@@ -13,7 +13,12 @@
 .switchers{
   position: absolute;
   justify-content: center;
+  align-items: center;
   display: flex;
   bottom: 20px;
   width: 100%;
+}
+
+.langSwitcher{
+  margin-left: 10px;
 }
