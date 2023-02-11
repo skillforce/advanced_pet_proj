@@ -16,6 +16,18 @@ export const buildLoaders = (buildOptions: BuildOptions): webpack.RuleSetRule[] 
     }
 
 
+    const babelLoader= {
+        test: /\.m?(js|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env']
+            }
+        }
+    }
+
+
     const svgLoader ={
         test: /\.svg$/,
         use: ['@svgr/webpack'],
@@ -56,6 +68,7 @@ export const buildLoaders = (buildOptions: BuildOptions): webpack.RuleSetRule[] 
     return [
         svgLoader,
         fileLoader,
+        babelLoader,
         typescriptLoader,
         scssLoader
     ];
