@@ -1,24 +1,24 @@
-.sideBarContainer{
-  height: var(--sidebar-height);
-  width:var(--sidebar-width);
-  background:  var(--inverted-bg-color);
-  position: relative;
-  transition: width 0.3s;
+.sideBarContainer {
+    height: var(--sidebar-height);
+    width: var(--sidebar-width);
+    background: var(--inverted-bg-color);
+    position: relative;
+    transition: width 0.3s;
 }
 
-.collapsed{
-  width:var(--sidebar-width-collapsed);
+.collapsed {
+    width: var(--sidebar-width-collapsed);
 }
 
-.switchers{
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  bottom: 20px;
-  width: 100%;
+.switchers {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    bottom: 20px;
+    width: 100%;
 }
 
-.langSwitcher{
-  margin-left: 10px;
+.langSwitcher {
+    margin-left: 10px;
 }

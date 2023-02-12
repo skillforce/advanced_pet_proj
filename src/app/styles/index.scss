@@ -3,22 +3,19 @@
 @import "themes/common";
 @import "themes/dark";
 
-
 .app {
-  font: var(--font-m);
-  font-weight: var(--font-weight-m);
-
-  background-color: var(--bg-color);
-  color: var(--primary-text-color);
-
-  min-height: 100vh;
+    font: var(--font-m);
+    font-weight: var(--font-weight-m);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    min-height: 100vh;
 }
 
-.main-content-block{
-  display: flex;
+.main-content-block {
+    display: flex;
 }
 
-.page-wrapper{
-  flex-grow: 1;
-  padding:40px 20px
+.page-wrapper {
+    flex-grow: 1;
+    padding: 40px 20px;
 }
