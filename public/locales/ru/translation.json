@@ -5,5 +5,8 @@
   "About": "О проекте",
   "en": "ru",
   "toggle": "Изменить",
-  "Page not found": "Страница не найдена"
+  "Page not found": "Страница не найдена",
+  "Unexpected error occurred": "Произошла непредвиденная ошибка",
+  "Press to reload the page": "Нажмите чтобы перезагрузить страницу",
+  "Click to throw error": "Нажать чтобы выкинуть ошибку"
 }

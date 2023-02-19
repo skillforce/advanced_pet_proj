@@ -8,6 +8,7 @@ import { SideBar } from 'widgets/SideBar';
 
 function App() {
     const { theme } = useTheme();
+
     return (
         <div className={classNames('app', {}, [theme])}>
             <NavBar />
