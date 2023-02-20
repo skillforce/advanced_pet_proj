@@ -55,6 +55,7 @@ module.exports = {
         'no-underscore-dangle': 0,
         'no-shadow': 0,
         'quote-props': 0,
+        'func-names': 0,
     },
     globals: {
         __IS_DEV__: true,
