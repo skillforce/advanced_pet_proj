@@ -8,3 +8,9 @@
     background: none;
     padding: 0;
 }
+
+.outline {
+    background: var(--bg-color);
+    padding: 5px 10px;
+    border: 1px solid var(--inverted-bg-color);
+}

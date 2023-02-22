@@ -37,6 +37,9 @@ module.exports = {
         'import/extensions': 0,
         '@typescript-eslint/no-empty-interface': 0,
         'import/no-extraneous-dependencies': 0,
+        'import/no-import-module-exports': ['error', {
+            'exceptions': ['**/*/webpack.config.ts'],
+        }],
         'react/require-default-props': 0,
         'react/function-component-definition': 0,
         'react/jsx-props-no-spreading': 1,
