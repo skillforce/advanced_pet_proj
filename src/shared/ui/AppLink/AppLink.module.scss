@@ -20,3 +20,12 @@
         color: var(--inverted-primary-text-color);
     }
 }
+
+.active {
+    color: #a61010;
+    opacity: 0.6;
+
+    &:hover {
+        opacity: 1;
+    }
+}
