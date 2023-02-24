@@ -28,6 +28,6 @@ jobs:
      - name: Run screenshot tests 1 step "build storybook"
        run: npm run storybook:build
      - name: Run screenshot tests 2 step "screenshot test"
-       run: npm run loki:test:ci
+       run: npm run test:ui:ci
      - name: Generate application build
        run: npm run build:prod

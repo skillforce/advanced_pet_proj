@@ -15,10 +15,10 @@
     "analyze:dev": "npm run build:dev --env analyze=true",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:ui:approve": "npx loki approve",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "storybook:build": "build-storybook -c ./config/storybook",
-    "loki:test:ci": "npx loki --requireReference --reactUri file:./storybook-static"
+    "storybook:build": "build-storybook -c ./config/storybook"
   },
   "keywords": [],
   "author": "",
