@@ -26,6 +26,6 @@ jobs:
      - name: Run unit tests
        run: npm run test:unit
      - name: Run screenshot tests...
-       run: npm run storybook:build && loki --requireReference --reactUri file:./storybook-static
+       run: npm run loki:screenshot:test
      - name: Generate application build
        run: npm run build:prod
