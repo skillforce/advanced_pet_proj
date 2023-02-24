@@ -25,7 +25,9 @@ jobs:
        run: npm run lint:scss
      - name: Run unit tests
        run: npm run test:unit
-     - name: Run screenshot tests...
-       run: npm run loki:screenshot:test
+     - name: Run screenshot tests 1 step "build storybook"
+       run: npm run storybook:build
+     - name: Run screenshot tests 2 step "screenshot test"
+       run: npm run loki:test:ci
      - name: Generate application build
        run: npm run build:prod
