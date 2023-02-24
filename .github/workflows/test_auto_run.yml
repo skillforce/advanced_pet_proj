@@ -18,10 +18,10 @@ jobs:
       - name: Install application dependencies
         run: npm install
       - name: Run unit tests
-        run: npm test:unit
+        run: npm run test:unit
       - name: Run eslint checking ...
-        run: npm lint:ts
+        run: npm run lint:ts
       - name: Run stylelint checking ...
-        run: npm lint:ts
+        run: npm run lint:scss
       - name: Generate application build
         run: npm run build
