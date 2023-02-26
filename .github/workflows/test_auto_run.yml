@@ -21,10 +21,13 @@ jobs:
        run: npm install
      - name: Run eslint checking ...
        run: npm run lint:ts
+       if: always()
      - name: Run stylelint checking ...
        run: npm run lint:scss
+       if: always()
      - name: Run unit tests
        run: npm run test:unit
+       if: always()
      - name: Run screenshot tests 1 step "build storybook"
        run: npm run storybook:build
      - name: Run screenshot tests 2 step "screenshot test"
