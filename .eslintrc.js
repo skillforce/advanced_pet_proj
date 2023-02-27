@@ -23,6 +23,7 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'i18next',
+        'react-hooks',
     ],
     rules: {
     // 0 - off,1-warning, 2 - error
@@ -59,6 +60,10 @@ module.exports = {
         'no-shadow': 0,
         'quote-props': 0,
         'func-names': 0,
+        'jsx-a11y/click-events-have-key-events': 0,
+        'jsx-a11y/no-static-element-interactions': 0,
+        'react-hooks/rules-of-hooks': 2,
+        'react-hooks/exhaustive-deps': 2,
     },
     globals: {
         __IS_DEV__: true,
