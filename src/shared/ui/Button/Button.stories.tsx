@@ -33,6 +33,12 @@ ClearDark.args = {
     children: 'Test',
 };
 ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const ClearWithHover = Template.bind({});
+ClearWithHover.args = {
+    theme: ButtonTheme.CLEAR_HOVER,
+    children: 'Test',
+};
 export const Outlined = Template.bind({});
 Outlined.args = {
     theme: ButtonTheme.OUTLINE,

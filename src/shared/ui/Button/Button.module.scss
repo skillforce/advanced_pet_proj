@@ -15,6 +15,16 @@
     border: 1px solid var(--inverted-bg-color);
 }
 
+.clearHover {
+    background: none;
+    padding: 0;
+    opacity: 0.75;
+    color: var(--inverted-primary-text-color);
+    &:hover {
+        opacity: 1;
+    }
+}
+
 .background_transparent {
     background: var(--bg-color);
     color: var(--primary-text-color);

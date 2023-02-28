@@ -9,6 +9,11 @@
     pointer-events: none;
 }
 
+.modalContainer.dark {
+    --bg-color: #0190a0;
+    --primary-text-color: #f3f3f3;
+}
+
 .overlay {
     height: 100%;
     width: 100%;
@@ -19,13 +24,13 @@
 }
 
 .content {
-    width: 600px;
+    max-width: 60%;
     background-color: var(--bg-color);
     color: var(--primary-text-color);
     border-radius: 6px;
     padding: 10px 15px;
     cursor: default;
-    transition: 0.2s transform;
+    transition: 0.3s transform;
     transform: scale(0.5);
 }
 

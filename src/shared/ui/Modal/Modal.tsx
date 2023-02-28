@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
+import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -13,15 +14,16 @@ interface ModalProps {
 }
 
 export const Modal = ({
-    className, children, isOpen, onClose,
+    className,
+    children,
+    isOpen,
+    onClose,
 }: ModalProps) => {
-    const [isClosing, setIsClosing] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
     const ANIMATION_DELAY = 200;
-    const mods: Record<string, boolean> = {
-        [cls.opened]: isOpen,
-        [cls.closing]: isClosing,
-    };
+    const [isClosing, setIsClosing] = useState(false);
+    const { theme } = useTheme();
+    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
     const onClickModalContent = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
@@ -49,10 +51,14 @@ export const Modal = ({
         };
     }, [isOpen, onKeyDown]);
 
-    if (!isOpen) return null;
+    const mods: Record<string, boolean> = {
+        [cls.opened]: isOpen,
+        [cls.closing]: isClosing,
+    };
+
     return (
         <Portal>
-            <div className={classNames(cls.modalContainer, mods, [className])}>
+            <div className={classNames(cls.modalContainer, mods, [className, theme])}>
                 <div className={cls.overlay} onClick={onCloseHandler}>
                     <div className={cls.content} onClick={onClickModalContent}>
                         {children}
