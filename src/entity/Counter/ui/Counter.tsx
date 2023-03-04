@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { counterActions } from '../model/slice/counterSlice';
 import cls from './Counter.module.scss';
@@ -8,6 +9,7 @@ import cls from './Counter.module.scss';
 export const Counter = () => {
     const dispatch = useDispatch();
     const counterValue = useSelector(getCounterValue);
+    const { t } = useTranslation();
     const increment = () => {
         dispatch(counterActions.increment());
     };
@@ -25,7 +27,7 @@ export const Counter = () => {
                     size={ButtonSize.L}
                     theme={ButtonTheme.BACKGROUND_INVERTED}
                 >
-                    +
+                    {t('+')}
                 </Button>
                 <Button
                     data-testid="counter_decrement_button"
@@ -34,7 +36,7 @@ export const Counter = () => {
                     size={ButtonSize.L}
                     theme={ButtonTheme.BACKGROUND_INVERTED}
                 >
-                    -
+                    {t('-')}
                 </Button>
             </div>
         </div>

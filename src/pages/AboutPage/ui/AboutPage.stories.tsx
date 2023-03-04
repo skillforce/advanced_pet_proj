@@ -11,7 +11,11 @@ export default {
 
 } as ComponentMeta<typeof AboutPage>;
 
-const Template: ComponentStory<typeof AboutPage> = (args) => <StoreProvider initialState={{ counter: { value: 0 } }}><AboutPage {...args} /></StoreProvider>;
+const Template: ComponentStory<typeof AboutPage> = (args) => (
+    <StoreProvider initialState={{ counter: { value: 0 } }}>
+        <AboutPage {...args} />
+    </StoreProvider>
+);
 
 export const Light = Template.bind({});
 Light.args = {};
