@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import path from 'path';
-import { Linter, Rule } from 'eslint';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
@@ -26,6 +25,11 @@ module.exports = ({ config }:{ config: webpack.Configuration }) => {
         return rule;
     });
     config.module.rules.push(buildSvgLoader());
+    config.plugins.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: true,
+        }),
+    );
 
     return config;
 };

@@ -14,7 +14,7 @@ export interface componentRenderOptions{
 export const componentRender = (component:any, options:componentRenderOptions = {}) => {
     const {
         route = '/',
-        initialStoreState,
+        initialStoreState = { counter: { value: 0 } },
     } = options;
 
     return render(
