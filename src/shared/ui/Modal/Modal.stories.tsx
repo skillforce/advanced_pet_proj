@@ -16,7 +16,6 @@ White.args = {
     children: 'WhiteTheme',
     isOpen: true,
 };
-
 export const Dark = Template.bind({});
 Dark.args = {
     children: 'DarkTheme',

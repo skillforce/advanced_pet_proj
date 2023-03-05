@@ -22,7 +22,7 @@ export const Modal = ({
     const ANIMATION_DELAY = 200;
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
-
+    const { theme } = useTheme();
     const onClickModalContent = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
@@ -57,7 +57,7 @@ export const Modal = ({
 
     return (
         <Portal>
-            <div className={classNames(cls.modalContainer, mods, [className])}>
+            <div className={classNames(cls.modalContainer, mods, [className, theme])}>
                 <div className={cls.overlay} onClick={onCloseHandler}>
                     <div className={cls.content} onClick={onClickModalContent}>
                         {children}

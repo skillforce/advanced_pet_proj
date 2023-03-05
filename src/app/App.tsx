@@ -6,11 +6,6 @@ import { SideBar } from 'widgets/SideBar';
 import { useTheme } from 'app/providers/ThemeProvider';
 
 function App() {
-    const { theme } = useTheme();
-    useEffect(() => {
-        document.body.className = theme;
-    }, [theme]);
-
     return (
         <div className={classNames('app', {}, [])}>
             <NavBar />
