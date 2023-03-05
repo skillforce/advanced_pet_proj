@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
 import { NavBar } from 'widgets/NavBar';
 import { SideBar } from 'widgets/SideBar';
+import { useTheme } from 'app/providers/ThemeProvider';
 
 function App() {
     const { theme } = useTheme();
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme]);
 
     return (
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app', {}, [])}>
             <NavBar />
             <div className="main-content-block">
                 <SideBar />
