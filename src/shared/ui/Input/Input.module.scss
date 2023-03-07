@@ -31,10 +31,10 @@
     bottom: 0;
     left: 0;
     position: absolute;
-    animation: blink_caret 0.7s forwards infinite;
+    animation: blink-caret 0.7s forwards infinite;
 }
 
-@keyframes blink_caret {
+@keyframes blink-caret {
     0% {
         opacity: 0;
     }
