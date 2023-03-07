@@ -11,8 +11,20 @@ export default {
 
 } as ComponentMeta<typeof AboutPage>;
 
-const Template: ComponentStory<typeof AboutPage> = (args) => (
-    <StoreProvider initialState={{ counter: { value: 0 } }}>
+const initialStateMock = {
+    counter: { value: 0 },
+    user: {
+        authData:
+            {
+                id: '123',
+                username: 'Denis',
+            },
+    },
+
+};
+
+const Template: ComponentStory <typeof AboutPage> = (args) => (
+    <StoreProvider initialState={initialStateMock}>
         <AboutPage {...args} />
     </StoreProvider>
 );

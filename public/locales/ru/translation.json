@@ -8,5 +8,7 @@
   "Unexpected error occurred": "Произошла непредвиденная ошибка",
   "Press to reload the page": "Нажмите чтобы перезагрузить страницу",
   "Click to throw error": "Нажать чтобы выкинуть ошибку",
-  "Log In": "Войти"
+  "Log In": "Войти",
+  "Enter your login": "Введите свой логин",
+  "Enter your password": "Введите свой пароль"
 }

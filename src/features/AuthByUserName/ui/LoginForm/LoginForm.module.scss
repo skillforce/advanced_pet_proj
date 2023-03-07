@@ -1,0 +1,14 @@
+.loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.formBtn {
+    align-self: flex-end;
+    margin-top: 20px;
+}
+
+.input {
+    margin-top: 20px;
+}

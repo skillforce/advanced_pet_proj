@@ -6,11 +6,12 @@ import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
-interface ModalProps {
+export interface ModalProps {
     className?: string
     children: ReactNode,
     isOpen?: boolean,
     onClose?: () => void
+    isLazy?:boolean
 }
 
 export const Modal = ({
@@ -18,9 +19,11 @@ export const Modal = ({
     children,
     isOpen,
     onClose,
+    isLazy,
 }: ModalProps) => {
     const ANIMATION_DELAY = 200;
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
     const { theme } = useTheme();
     const onClickModalContent = (e: React.MouseEvent) => {
@@ -50,10 +53,22 @@ export const Modal = ({
         };
     }, [isOpen, onKeyDown]);
 
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        } else {
+            setIsMounted(false);
+        }
+    }, [isOpen]);
+
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.closing]: isClosing,
     };
+
+    if (isLazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
