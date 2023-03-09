@@ -10,5 +10,7 @@
   "Click to throw error": "Click to throw error",
   "Log In": "Log In",
   "Enter your login": "Enter your login",
-  "Enter your password": "Enter your password"
+  "Enter your password": "Enter your password",
+  "Authorization form": "Authorization form",
+  "Incorrect username or password": "Incorrect username or password"
 }

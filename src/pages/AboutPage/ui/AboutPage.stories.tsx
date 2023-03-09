@@ -20,6 +20,11 @@ const initialStateMock = {
                 username: 'Denis',
             },
     },
+    loginForm: {
+        password: '',
+        login: '',
+        isLoading: false,
+    },
 
 };
 

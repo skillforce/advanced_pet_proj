@@ -1,0 +1,19 @@
+.title {
+    font: var(--font-l);
+    color: var(--primary-text-color);
+}
+
+.bodyText {
+    font: var(--font-m);
+    color: var(--inverted-primary-text-color);
+}
+
+.error {
+    .title {
+        color: #e51c1c;
+    }
+
+    .bodyText {
+        color: #ff4b4b;
+    }
+}

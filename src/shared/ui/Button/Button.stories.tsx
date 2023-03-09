@@ -118,3 +118,10 @@ OutlinedDark.args = {
     children: 'Test',
 };
 OutlinedDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Disabled = Template.bind({});
+OutlinedDark.args = {
+    theme: ButtonTheme.OUTLINE,
+    children: 'Test',
+    disabled: true,
+};

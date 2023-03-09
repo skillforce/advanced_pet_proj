@@ -26,6 +26,10 @@
     }
 }
 
+.disabled {
+    opacity: 0.5;
+}
+
 .background_transparent {
     background: var(--bg-color);
     color: var(--primary-text-color);

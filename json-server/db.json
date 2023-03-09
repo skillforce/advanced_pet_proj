@@ -6,7 +6,7 @@
     { "id": 1, "body": "some comment", "postId": 1 }
   ],
   "users": [
-    {"username": "Denis", "password": "12345!q", "id": 1}
+    {"username": "Denis", "password": "12345", "id": 1}
   ],
   "profile": { "name": "typicode" }
 }
