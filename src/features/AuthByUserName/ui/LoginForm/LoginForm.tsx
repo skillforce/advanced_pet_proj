@@ -39,7 +39,7 @@ export const LoginForm = memo(({ className } : LoginFormProps) => {
 
     return (
         <div className={classNames(cls.loginFormContainer, {}, [className])}>
-            {error && <Text bodyText={error} theme={TextTheme.ERROR} />}
+            {error && <Text bodyText={t('Incorrect username or password')} theme={TextTheme.ERROR} />}
             <Text title={t('Authorization form')} />
             <Input
                 autofocus

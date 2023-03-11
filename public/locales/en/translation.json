@@ -12,5 +12,6 @@
   "Enter your login": "Enter your login",
   "Enter your password": "Enter your password",
   "Authorization form": "Authorization form",
-  "Incorrect username or password": "Incorrect username or password"
+  "Incorrect username or password": "Incorrect username or password",
+  "Log out": "Log out"
 }
