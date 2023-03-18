@@ -10,10 +10,10 @@
 
 .error {
     .title {
-        color: #e51c1c;
+        color: var(--red-dark);
     }
 
     .bodyText {
-        color: #ff4b4b;
+        color: var(--red-light);
     }
 }
