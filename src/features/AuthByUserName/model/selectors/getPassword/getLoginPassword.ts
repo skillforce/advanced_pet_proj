@@ -2,4 +2,5 @@ import { createSelector } from '@reduxjs/toolkit';
 import { getLoginState } from '../../selectors/getLoginState/getLoginState';
 import { LoginSchema } from '../../types/loginSchema';
 
-export const getError = createSelector(getLoginState, (loginState:LoginSchema) => loginState.error);
+// eslint-disable-next-line max-len
+export const getLoginPassword = createSelector(getLoginState, (loginState:LoginSchema) => loginState?.password);
