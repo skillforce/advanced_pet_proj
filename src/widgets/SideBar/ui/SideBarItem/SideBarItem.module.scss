@@ -1,0 +1,30 @@
+.linkIcon {
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    fill: var(--secondary-text-color);
+}
+
+.link {
+    margin-top: 20px;
+    white-space: nowrap;
+
+    span {
+        opacity: 1;
+        transition: opacity 0.3s;
+    }
+
+    &.collapsed {
+        span {
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+    }
+
+    &:hover {
+        .linkIcon {
+            fill: var(--inverted-primary-text-color);
+        }
+    }
+}

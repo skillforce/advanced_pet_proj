@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -6,7 +6,7 @@ import { getCounterValue } from '../model/selectors/getCounterValue/getCounterVa
 import { counterActions } from '../model/slice/counterSlice';
 import cls from './Counter.module.scss';
 
-export const Counter = () => {
+export const Counter = memo(() => {
     const dispatch = useDispatch();
     const counterValue = useSelector(getCounterValue);
     const { t } = useTranslation();
@@ -41,4 +41,4 @@ export const Counter = () => {
             </div>
         </div>
     );
-};
+});

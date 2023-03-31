@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import cls from './PageError.module.scss';
@@ -9,7 +9,7 @@ interface PageErrorProps {
 const onReloadPage = () => {
     window.location.reload();
 };
-export const PageError = ({ className } : PageErrorProps) => {
+export const PageError = memo(({ className } : PageErrorProps) => {
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.pageErrorContainer, {}, [className])}>
@@ -17,4 +17,4 @@ export const PageError = ({ className } : PageErrorProps) => {
             <button type="button" onClick={onReloadPage}>{t('Press to reload the page')}</button>
         </div>
     );
-};
+});

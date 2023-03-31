@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { memo, Suspense } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { Loader } from 'shared/ui/Loader/Loader';
@@ -11,7 +11,7 @@ interface LoginModalProps {
     onClose: () => void
 }
 
-export const LoginModal = ({ className, isOpen, onClose } : LoginModalProps) => (
+export const LoginModal = memo(({ className, isOpen, onClose } : LoginModalProps) => (
     <Modal
         isLazy
         isOpen={isOpen}
@@ -20,8 +20,8 @@ export const LoginModal = ({ className, isOpen, onClose } : LoginModalProps) => 
     >
 
         <Suspense fallback={<Loader />}>
-            <LoginFormAsync />
+            <LoginFormAsync onClose={onClose} />
         </Suspense>
 
     </Modal>
-);
+));

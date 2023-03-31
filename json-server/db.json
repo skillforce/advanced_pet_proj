@@ -8,5 +8,14 @@
   "users": [
     {"username": "Denis", "password": "12345", "id": "1"}
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstName": "Deniska",
+    "lastName": "Tatarincev",
+    "age": 22,
+    "currency": "BYN",
+    "country": "Belarus",
+    "city": "Minsk",
+    "userName": "sarcasm1613",
+    "avatar": "https://logos-download.com/wp-content/uploads/2017/07/Apple_Logo_1977-700x816.png"
+  }
 }

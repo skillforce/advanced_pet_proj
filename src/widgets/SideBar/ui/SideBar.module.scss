@@ -24,31 +24,10 @@
     right: 6px;
 }
 
-.linkIcon {
-    margin-right: 10px;
-    fill: var(--secondary-text-color);
-}
-
 .links {
     display: flex;
     flex-direction: column;
     margin: 40px 0 0 30px;
-}
-
-.link {
-    margin-top: 20px;
-    white-space: nowrap;
-
-    span {
-        opacity: 1;
-        transition: opacity 0.3s;
-    }
-
-    &:hover {
-        .linkIcon {
-            fill: var(--inverted-primary-text-color);
-        }
-    }
 }
 
 .collapsed {
@@ -60,11 +39,5 @@
 
     .langSwitcher {
         margin: 0 0 10px;
-    }
-
-    .link span {
-        opacity: 0;
-        transition: opacity 0.3s;
-        pointer-events: none;
     }
 }
