@@ -5,7 +5,9 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
 
-export const buildPlugins = ({ paths, isDev, isAnalyze }:BuildOptions):webpack.WebpackPluginInstance[] => {
+export const buildPlugins = ({
+    paths, isDev, isAnalyze, apiUrl,
+}:BuildOptions):webpack.WebpackPluginInstance[] => {
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
@@ -17,6 +19,7 @@ export const buildPlugins = ({ paths, isDev, isAnalyze }:BuildOptions):webpack.W
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
         new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: isAnalyze ? 'server' : 'disabled' }),
 
