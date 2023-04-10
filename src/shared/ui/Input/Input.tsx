@@ -8,7 +8,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLButtonElement>, 'value' | 'on
 interface InputProps extends HTMLInputProps{
     className?: string
     value?: string
-    onChange:(value:string)=>void;
+    onChange?:(value:string)=>void;
     autofocus?: boolean,
 
 }
