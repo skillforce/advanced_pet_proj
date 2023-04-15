@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { LoginSchema } from 'features/AuthByUserName';
 import { getLoginState } from './getLoginState';
@@ -23,7 +22,7 @@ describe('getLoginState', () => {
     });
     test('should return undefined(error case)', () => {
         const state:DeepPartial<StateSchema> = {};
-        const expectedLoginError: string = undefined;
+        const expectedLoginError: string|undefined = undefined;
         expect(getLoginState(state as StateSchema)).toBe(expectedLoginError);
     });
 });

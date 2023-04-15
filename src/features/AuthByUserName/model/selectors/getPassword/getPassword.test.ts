@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getLoginPassword } from './getLoginPassword';
 
@@ -10,7 +9,7 @@ describe('getPassword', () => {
     });
     test('should return undefined(error case)', () => {
         const state:DeepPartial<StateSchema> = {};
-        const expectedLoginError: string = undefined;
+        const expectedLoginError: string|undefined = undefined;
         expect(getLoginPassword(state as StateSchema)).toBe(expectedLoginError);
     });
 });

@@ -43,6 +43,7 @@ module.exports = {
         }],
         'react/require-default-props': 0,
         'react/function-component-definition': 0,
+        'no-undef': 0,
         'react/jsx-props-no-spreading': 1,
         'max-len': [
             2,

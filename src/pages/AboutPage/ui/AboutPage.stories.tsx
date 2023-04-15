@@ -28,9 +28,9 @@ const initialStateMock = {
 
 };
 
-const Template: ComponentStory <typeof AboutPage> = (args) => (
+const Template: ComponentStory <typeof AboutPage> = () => (
     <StoreProvider initialState={initialStateMock}>
-        <AboutPage {...args} />
+        <AboutPage />
     </StoreProvider>
 );
 
