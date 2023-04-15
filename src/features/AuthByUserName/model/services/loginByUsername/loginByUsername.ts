@@ -19,7 +19,7 @@ export const loginByUsername = createAsyncThunk<UserScheme, LoginByUserNameData,
             }
             localStorage.setItem(AUTH_USER_LOCAL_STORAGE, JSON.stringify(response.data));
             dispatch(userActions.setAuthData(response.data));
-            extra.navigate('/profile');
+            extra.navigate?.('/profile');
 
             return response.data;
         } catch (error) {
