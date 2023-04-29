@@ -1,6 +1,10 @@
 {
   "Profile":"Profile",
   "Edit":"Edit",
+  "Save":"Save",
+  "Cancel":"Cancel",
   "Your name":"Your name",
-  "Your surname":"Your surname"
+  "Your surname":"Your surname",
+  "Error was occurred during profile uploading": "Error was occurred during profile uploading",
+  "Reload the page, please": "Reload the page, please"
 }

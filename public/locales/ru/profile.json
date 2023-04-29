@@ -1,6 +1,10 @@
 {
   "Profile":"Профиль",
   "Edit":"Редактировать",
+  "Save":"Сохранить",
+  "Cancel":"Отменить",
   "Your name":"Ваше имя",
-  "Your surname":"Ваша фамилия"
+  "Your surname":"Ваша фамилия",
+  "Error was occurred during profile uploading": "Произошла ошибка во время загрузки профиля",
+  "Reload the page, please": "Перезагрузите страницу пожалуйста"
 }

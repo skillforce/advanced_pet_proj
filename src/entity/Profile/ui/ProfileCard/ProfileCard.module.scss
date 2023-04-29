@@ -1,9 +1,7 @@
-.pageTitleLabel {
-    margin-bottom: 20px;
-}
-
-.input {
-    margin-top: 20px;
+.data {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .profileCardContainer {
@@ -12,8 +10,10 @@
     border-radius: 4px;
 }
 
-.header {
+.loading,
+.error {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    height: 300px;
 }
