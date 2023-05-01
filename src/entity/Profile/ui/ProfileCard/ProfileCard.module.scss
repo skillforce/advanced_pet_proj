@@ -8,6 +8,16 @@
     padding: 20px 40px;
     border: 2px solid var(--inverted-bg-color);
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.AvatarWrapper {
+    margin-right: 20px;
+}
+
+.editing {
+    border: 2px solid var(--primary-text-color);
 }
 
 .loading,

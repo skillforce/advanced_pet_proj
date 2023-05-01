@@ -7,6 +7,8 @@
   "Your surname":"Ваша фамилия",
   "Your age":"Ваш возраст",
   "Your city":"Ваш город",
+  "Your user name":"Ваше имя пользователя",
+  "Your avatar":"Ссылка на ваш аватар",
   "Error was occurred during profile uploading": "Произошла ошибка во время загрузки профиля",
   "Reload the page, please": "Перезагрузите страницу пожалуйста"
 }
