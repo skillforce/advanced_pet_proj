@@ -4,6 +4,9 @@ export { getProfileError } from './model/selectors/getProfileError/getProfileErr
 export { getProfileReadOnly } from './model/selectors/getProfileReadOnly/getProfileReadOnly';
 
 export { ProfileCard } from './ui/ProfileCard/ProfileCard';
+
 export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
+export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
+
 export { profileActions, profileReducer } from './model/slice/profileSlice';
 export { Profile, ProfileSchema } from './model/types/profile';

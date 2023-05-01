@@ -1,16 +1,28 @@
 {
   "posts": [
-    { "id": "1", "title": "json-server", "author": "typicode" }
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": "1", "body": "some comment", "postId": "1" }
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
   ],
   "users": [
-    {"username": "Denis", "password": "12345", "id": "1"}
+    {
+      "username": "Denis",
+      "password": "12345",
+      "id": "1"
+    }
   ],
   "profile": {
-    "firstName": "Deniska",
-    "lastName": "Tatarincev",
+    "firstName": "Denis",
+    "lastName": "Tatarinov",
     "age": 22,
     "currency": "BYN",
     "country": "Belarus",

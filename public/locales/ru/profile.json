@@ -5,6 +5,8 @@
   "Cancel":"Отменить",
   "Your name":"Ваше имя",
   "Your surname":"Ваша фамилия",
+  "Your age":"Ваш возраст",
+  "Your city":"Ваш город",
   "Error was occurred during profile uploading": "Произошла ошибка во время загрузки профиля",
   "Reload the page, please": "Перезагрузите страницу пожалуйста"
 }

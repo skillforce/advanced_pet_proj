@@ -17,6 +17,8 @@ interface ProfileCardProps {
     readonly?:boolean
     onChangeLastName:(value?:string)=>void
     onChangeFirstName:(value?:string)=>void
+    onChangeCity:(value?:string)=>void
+    onChangeAge:(value?:string)=>void
 }
 
 export const ProfileCard = (props : ProfileCardProps) => {
@@ -29,6 +31,8 @@ export const ProfileCard = (props : ProfileCardProps) => {
         readonly,
         onChangeLastName,
         onChangeFirstName,
+        onChangeCity,
+        onChangeAge,
     } = props;
 
     if (isLoading) {
@@ -68,6 +72,20 @@ export const ProfileCard = (props : ProfileCardProps) => {
                         value={data?.lastName}
                         onChange={onChangeLastName}
                         placeholder={t('Your surname')}
+                    />
+                    <Input
+                        readonly={readonly}
+                        className={cls.input}
+                        value={data?.age}
+                        onChange={onChangeAge}
+                        placeholder={t('Your age')}
+                    />
+                    <Input
+                        readonly={readonly}
+                        className={cls.input}
+                        value={data?.city}
+                        onChange={onChangeCity}
+                        placeholder={t('Your city')}
                     />
                 </div>
             </div>

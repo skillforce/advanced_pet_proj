@@ -5,6 +5,8 @@
   "Cancel":"Cancel",
   "Your name":"Your name",
   "Your surname":"Your surname",
+  "Your age":"Your age",
+  "Your city":"Your city",
   "Error was occurred during profile uploading": "Error was occurred during profile uploading",
   "Reload the page, please": "Reload the page, please"
 }

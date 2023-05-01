@@ -40,6 +40,12 @@ function ProfilePage({ className }:ProfilePageProps) {
     const onChangeLastName = useCallback((value?:string) => {
         dispatch(profileActions.updateProfile({ lastName: value || '' }));
     }, [dispatch]);
+    const onChangeCity = useCallback((value?:string) => {
+        dispatch(profileActions.updateProfile({ city: value || '' }));
+    }, [dispatch]);
+    const onChangeAge = useCallback((value?:string) => {
+        if ((/^[0-9]*$/).test(value || '')) dispatch(profileActions.updateProfile({ age: Number(value) || 0 }));
+    }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -52,6 +58,8 @@ function ProfilePage({ className }:ProfilePageProps) {
                     readonly={readonly}
                     onChangeFirstName={onChangeFirstName}
                     onChangeLastName={onChangeLastName}
+                    onChangeCity={onChangeCity}
+                    onChangeAge={onChangeAge}
                 />
             </div>
         </DynamicModuleLoader>
