@@ -5,15 +5,23 @@ import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import MainPageIcon from 'shared/assets/icons/mainPageIcon.svg';
 import { SideBarItemType } from 'widgets/SideBar/model/items';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entity/User';
 import cls from './SideBarItem.module.scss';
 
 interface SideBarItemProps {
     item:SideBarItemType
     collapsed:boolean
+    isAuthOnly?:boolean
 }
 
-export const SideBarItem = memo(({ item, collapsed }:SideBarItemProps) => {
+export const SideBarItem = memo(({ item, collapsed, isAuthOnly }:SideBarItemProps) => {
     const { t } = useTranslation();
+    const isAuth = useSelector(getUserAuthData);
+
+    if (!isAuth && isAuthOnly) {
+        return null;
+    }
     return (
         <AppLink
             className={classNames(cls.link, { [cls.collapsed]: collapsed }, [])}

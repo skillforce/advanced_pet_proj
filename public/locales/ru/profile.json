@@ -9,6 +9,8 @@
   "Your city":"Ваш город",
   "Your user name":"Ваше имя пользователя",
   "Your avatar":"Ссылка на ваш аватар",
+  "Your currency":"Ваша валюта",
+  "Your country":"Ваша страна",
   "Error was occurred during profile uploading": "Произошла ошибка во время загрузки профиля",
   "Reload the page, please": "Перезагрузите страницу пожалуйста"
 }
