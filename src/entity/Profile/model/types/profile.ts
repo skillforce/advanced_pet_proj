@@ -11,6 +11,13 @@ export interface Profile{
     userName?: string,
     avatar?: string,
 }
+export enum ValidateProfileError {
+    INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
+    INCORRECT_COUNTRY = 'INCORRECT_COUNTRY',
+    INCORRECT_AGE = 'INCORRECT_AGE',
+    NO_DATA='NO_DATA',
+    SERVER_ERROR='SERVER_ERROR'
+}
 
 export interface ProfileSchema {
     data?:Profile;
@@ -18,4 +25,5 @@ export interface ProfileSchema {
     error?:string;
     isLoading:boolean;
     readonly:boolean;
+    validateErrors?:ValidateProfileError[];
 }

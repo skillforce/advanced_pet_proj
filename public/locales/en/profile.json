@@ -12,5 +12,10 @@
   "Your currency":"Your currency",
   "Your country":"Your country",
   "Error was occurred during profile uploading": "Error was occurred during profile uploading",
-  "Reload the page, please": "Reload the page, please"
+  "Reload the page, please": "Reload the page, please",
+  "Server error": "Server error",
+  "Incorrect country value": "Incorrect country value",
+  "No data": "No data",
+  "Incorrect age value": "Incorrect age value",
+  "Incorrect user name value": "Incorrect user name value"
 }

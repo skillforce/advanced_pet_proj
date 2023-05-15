@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
-import { Profile, ProfileSchema } from '../types/profile';
+import { Profile, ProfileSchema, ValidateProfileError } from '../types/profile';
 
 const initialState:ProfileSchema = {
     readonly: true,
@@ -9,6 +9,7 @@ const initialState:ProfileSchema = {
     error: undefined,
     data: undefined,
     form: undefined,
+    validateErrors: undefined,
 };
 
 export const profileSlice = createSlice({
@@ -29,12 +30,13 @@ export const profileSlice = createSlice({
                 ...state.data,
             };
             state.readonly = true;
+            state.validateErrors = undefined;
         },
 
     },
     extraReducers: (builder) => {
         builder.addCase(fetchProfileData.pending, (state, action) => {
-            state.error = undefined;
+            state.validateErrors = undefined;
             state.isLoading = true;
         });
         builder.addCase(fetchProfileData.fulfilled, (state, action:PayloadAction<Profile>) => {
@@ -48,6 +50,7 @@ export const profileSlice = createSlice({
         });
         builder.addCase(updateProfileData.pending, (state, action) => {
             state.error = undefined;
+            state.validateErrors = undefined;
             state.isLoading = true;
         });
         builder.addCase(updateProfileData.fulfilled, (state, action:PayloadAction<Profile>) => {
@@ -55,10 +58,11 @@ export const profileSlice = createSlice({
             state.data = action.payload;
             state.form = action.payload;
             state.readonly = true;
+            state.validateErrors = undefined;
         });
         builder.addCase(updateProfileData.rejected, (state, action) => {
             state.isLoading = false;
-            state.error = action.payload;
+            state.validateErrors = action.payload;
         });
     },
 });

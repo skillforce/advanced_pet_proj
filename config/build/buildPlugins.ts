@@ -6,7 +6,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 export const buildPlugins = ({
-    paths, isDev, isAnalyze, apiUrl,
+    paths, isDev, isAnalyze, apiUrl, project,
 }:BuildOptions):webpack.WebpackPluginInstance[] => {
     const plugins = [
         new HtmlWebpackPlugin({
@@ -20,6 +20,7 @@ export const buildPlugins = ({
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
         new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: isAnalyze ? 'server' : 'disabled' }),
 
