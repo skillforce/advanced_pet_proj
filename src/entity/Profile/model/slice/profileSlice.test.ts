@@ -1,7 +1,8 @@
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
+import { updateProfileData } from 'entity/Profile';
 import { profileActions, profileReducer } from '../slice/profileSlice';
-import { Profile, ProfileSchema } from '../types/profile';
+import { Profile, ProfileSchema, ValidateProfileError } from '../types/profile';
 
 const profileMockData:Profile = {
     currency: Currency.USD,
@@ -44,6 +45,36 @@ describe('ProfileSlice test', () => {
                     currency: Currency.BYN,
                     age: 12,
                 },
+            });
+    });
+    test('test update profile service pending', () => {
+        const state:DeepPartial<ProfileSchema> = {
+            isLoading: false,
+            validateErrors: [ValidateProfileError.SERVER_ERROR],
+            error: 'Error!',
+        };
+        expect(profileReducer(state as ProfileSchema, updateProfileData.pending))
+            .toEqual({
+                error: undefined,
+                validateErrors: undefined,
+                isLoading: true,
+            });
+    });
+    test('test update profile service fulfilled', () => {
+        const state:DeepPartial<ProfileSchema> = {
+            isLoading: true,
+            readonly: false,
+            validateErrors: [ValidateProfileError.SERVER_ERROR],
+            data: undefined,
+            form: undefined,
+        };
+        expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(profileMockData, '')))
+            .toEqual({
+                validateErrors: undefined,
+                isLoading: false,
+                readonly: true,
+                data: profileMockData,
+                form: profileMockData,
             });
     });
 });
