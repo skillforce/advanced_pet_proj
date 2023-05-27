@@ -1,8 +1,7 @@
-import { Profile } from 'entity/Profile';
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
 import { validateProfile } from './validateProfile';
-import { ValidateProfileError } from '../../types/profile';
+import { ValidateProfileError, Profile } from '../../types/profile';
 
 const profileDataMockCorrect:Profile = {
     currency: Currency.USD,

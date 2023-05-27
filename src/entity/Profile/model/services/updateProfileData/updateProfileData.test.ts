@@ -1,8 +1,8 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { Profile, updateProfileData } from 'entity/Profile';
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
-import { ValidateProfileError } from 'entity/Profile/model/types/profile';
+import { Profile, ValidateProfileError } from '../../types/profile';
+import { updateProfileData } from './updateProfileData';
 
 const profileDataMock:Profile = {
     currency: Currency.USD,
