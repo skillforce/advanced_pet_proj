@@ -17,6 +17,7 @@ export const loginByUsername = createAsyncThunk<UserScheme, LoginByUserNameData,
             if (!response.data) {
                 throw new Error();
             }
+            console.log(response.data);
             localStorage.setItem(AUTH_USER_LOCAL_STORAGE, JSON.stringify(response.data));
             dispatch(userActions.setAuthData(response.data));
             extra.navigate?.('/profile');

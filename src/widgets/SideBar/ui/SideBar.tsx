@@ -1,12 +1,9 @@
-import React, { memo, useMemo, useState } from 'react';
+import React, { memo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LanguageSwitcher } from 'shared/ui/LanguageSwitcher/LanguageSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entity/User';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
-import { sideBarItems, SideBarItemType } from '../model/items';
+import { sideBarItems } from '../model/items';
 import { SideBarItem } from './SideBarItem/SideBarItem';
 import cls from './SideBar.module.scss';
 
