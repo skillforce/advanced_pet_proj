@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { BuildOptions } from './types/config';
 import { buildCssLoaders } from './loaders/buildCssLoaders';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
@@ -13,16 +14,7 @@ export const buildLoaders = (buildOptions: BuildOptions): webpack.RuleSetRule[] 
         exclude: /node_modules/,
     };
 
-    const babelLoader = {
-        test: /\.m?(js|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-            },
-        },
-    };
+    const babelLoader = buildBabelLoader(buildOptions);
 
     const svgLoader = buildSvgLoader();
 

@@ -22,7 +22,7 @@ PrimaryCard.args = {
         city: 'Mogilev',
         age: 22,
         userName: 'sarcasm1613',
-        avatar: testAvatar,
+        avatar: 'https://www.freecodecamp.org/news/content/images/2022/02/arrows-2889040_1920.jpg',
 
     },
 };

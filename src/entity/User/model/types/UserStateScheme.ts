@@ -5,4 +5,5 @@ export interface UserScheme {
 
 export interface UserStateScheme {
  authData?: UserScheme;
+ _inited?:boolean
 }
