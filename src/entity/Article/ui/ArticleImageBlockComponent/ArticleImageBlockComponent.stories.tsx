@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleImageBlockComponent } from './ArticleImageBlockComponent';
 
 export default {
-    title: 'shared/ArticleImageBlockComponent',
+    title: 'entity/ArticleImageBlockComponent',
     component: ArticleImageBlockComponent,
 
 } as ComponentMeta<typeof ArticleImageBlockComponent>;

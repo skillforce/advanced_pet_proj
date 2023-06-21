@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleCodeBlockComponent } from './ArticleCodeBlockComponent';
 
 export default {
-    title: 'shared/ArticleCodeBlockComponent',
+    title: 'entity/ArticleCodeBlockComponent',
     component: ArticleCodeBlockComponent,
 
 } as ComponentMeta<typeof ArticleCodeBlockComponent>;
