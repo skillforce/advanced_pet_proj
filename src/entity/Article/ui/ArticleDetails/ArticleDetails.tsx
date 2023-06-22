@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -10,6 +10,10 @@ import {
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleCodeBlockComponent } from 'entity/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from 'entity/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from 'entity/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleBlocks, ArticlesBlocksType } from '../../model/types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import CalendarIcon from '../../../../shared/assets/icons/calendarIcon.svg';
 import EyeIcon from '../../../../shared/assets/icons/eyeIcon.svg';
@@ -17,7 +21,7 @@ import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
     className?: string
-    id:string
+    id: string
 }
 
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
@@ -26,6 +30,40 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const articleData = useSelector(getArticleDetailsData);
     const isError = useSelector(getArticleDetailsError);
+
+    const renderBlock = useCallback((block: ArticleBlocks) => {
+        switch (block.type) {
+        case ArticlesBlocksType.IMAGE: {
+            return (
+                <ArticleImageBlockComponent
+                    key={block.id}
+                    block={block}
+                    className={cls.articleContainer}
+                />
+            );
+        }
+        case ArticlesBlocksType.CODE: {
+            return (
+                <ArticleCodeBlockComponent
+                    key={block.id}
+                    block={block}
+                    className={cls.articleContainer}
+                />
+            );
+        }
+        case ArticlesBlocksType.TEXT: {
+            return (
+                <ArticleTextBlockComponent
+                    className={cls.articleContainer}
+                    block={block}
+                    key={block.id}
+                />
+            );
+        }
+        default:
+            return null;
+        }
+    }, []);
 
     useEffect(() => {
         if (id) {
@@ -79,6 +117,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                         bodyText={articleData?.createdAt || ''}
                     />
                 </div>
+                {articleData?.blocks.map((block) => renderBlock(block))}
             </>
         );
     }

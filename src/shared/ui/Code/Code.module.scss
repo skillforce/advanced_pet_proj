@@ -1,0 +1,17 @@
+.CodeContainer {
+    border: 1px solid var(--primary-text-color);
+    padding: 20px;
+    position: relative;
+    background-color: var(--code-bg);
+    margin: 8px 0;
+}
+
+.codeButton {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.copyIcon {
+    fill: var(--inverted-bg-color);
+}

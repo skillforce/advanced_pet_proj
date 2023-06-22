@@ -1,3 +1,22 @@
 .ArticleTextBlockComponentContainer {
 
 }
+
+.title {
+    margin-bottom: 16px;
+
+    ::first-letter {
+        color: var(--inverted-bg-color);
+        background-color: black;
+        border-radius: 2px;
+        box-shadow: 3px 3px 0 red;
+        font-size: 150%;
+        padding: 6px 3px;
+        margin-right: 6px;
+        float: left;
+    }
+}
+
+.paragraph {
+    margin-top: 8px;
+}
