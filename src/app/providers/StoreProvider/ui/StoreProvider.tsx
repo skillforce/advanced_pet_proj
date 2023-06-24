@@ -18,7 +18,6 @@ export const StoreProvider = ({ children, initialState, asyncReducers }:StorePro
         asyncReducers as ReducersMapObject<StateSchema>,
         navigate,
     );
-    console.log('alalalal');
 
     return (
         <Provider store={store}>

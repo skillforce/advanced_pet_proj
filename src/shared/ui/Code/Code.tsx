@@ -1,4 +1,4 @@
-import React, { memo, ReactNode } from 'react';
+import React, { memo, ReactNode, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -7,22 +7,29 @@ import cls from './Code.module.scss';
 
 interface CodeProps {
     className?: string
-    children:ReactNode
+    text: string
 }
 
-export const Code = memo(({ className, children }: CodeProps) => (
-    <pre className={classNames(cls.CodeContainer, {}, [className])}>
-        <Button
-            theme={ButtonTheme.CLEAR}
-            className={cls.codeButton}
-        >
-            <Icon
-                Svg={copyIcon}
-                className={cls.copyIcon}
-            />
-        </Button>
-        <code>
-            {children}
-        </code>
-    </pre>
-));
+export const Code = memo(({ className, text }: CodeProps) => {
+    const onCopy = useCallback(async () => {
+        await navigator.clipboard.writeText(text);
+    }, [text]);
+
+    return (
+        <pre className={classNames(cls.CodeContainer, {}, [className])}>
+            <Button
+                theme={ButtonTheme.CLEAR}
+                className={cls.codeButton}
+                onClick={onCopy}
+            >
+                <Icon
+                    Svg={copyIcon}
+                    className={cls.copyIcon}
+                />
+            </Button>
+            <code>
+                {text}
+            </code>
+        </pre>
+    );
+});

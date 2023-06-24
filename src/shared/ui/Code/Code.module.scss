@@ -4,6 +4,7 @@
     position: relative;
     background-color: var(--code-bg);
     margin: 8px 0;
+    overflow:auto;
 }
 
 .codeButton {
@@ -13,5 +14,5 @@
 }
 
 .copyIcon {
-    fill: var(--inverted-bg-color);
+    stroke: var(--inverted-bg-color);
 }

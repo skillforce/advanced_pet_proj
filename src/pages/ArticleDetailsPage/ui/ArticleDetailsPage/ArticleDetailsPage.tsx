@@ -14,7 +14,7 @@ interface ArticleDetailsPageProps {
     className?: string
 }
 
-export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
+const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article');
     const queryParams = useParams();
     const { id } = queryParams;

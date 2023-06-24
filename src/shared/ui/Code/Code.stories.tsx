@@ -12,7 +12,7 @@ const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const PrimaryCode = Template.bind({});
 PrimaryCode.args = {
-    children: 'export default {\n'
+    text: 'export default {\n'
         + '    title: \'shared/Code\',\n'
         + '    component: Code,\n'
         + '\n'
