@@ -123,12 +123,14 @@
     {
       "id": "1",
       "username": "Denis",
+      "avatar": "https://www.lunapic.com/editor/premade/transparent.gif",
       "password": "12345",
       "role": "ADMIN"
     },
     {
       "id": "2",
       "username": "user",
+      "avatar": "https://www.lunapic.com/editor/premade/transparent.gif",
       "password": "123",
       "role": "USER"
     }
@@ -141,6 +143,6 @@
     "country": "Belarus",
     "city": "Minsk",
     "userName": "sarcasm1613",
-    "avatar": "https://www.lunapic.com/editor/premade/transparent.gif"
+    "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg"
   }
 }

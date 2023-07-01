@@ -1,5 +1,7 @@
 {
   "ARTICLE DETAILS PAGE":"Страница деталей статьи",
   "ARTICLES PAGE" : "Страница статей",
-  "Article doesn't exist" : "Запрашиваемой статьи не существует"
+  "Article doesn't exist" : "Запрашиваемой статьи не существует",
+  "Comments" : "Комментарии",
+  "List of comments is empty" : "Список комментариев пуст"
 }

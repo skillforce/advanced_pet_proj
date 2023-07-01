@@ -1,5 +1,6 @@
 export interface UserScheme {
     username: string;
+    avatar?:string
     id: string;
 }
 

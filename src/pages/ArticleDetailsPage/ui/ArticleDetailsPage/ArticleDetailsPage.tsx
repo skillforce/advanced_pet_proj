@@ -5,6 +5,8 @@ import { ArticleDetails } from 'entity/Article';
 import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from 'entity/Article/model/slice/articleDetailsSlice';
 import { useParams } from 'react-router-dom';
+import { Text } from 'shared/ui/Text/Text';
+import { CommentList } from 'entity/Comment';
 import cls from './ArticleDetailsPage.module.scss';
 
 const reducers:ReducersListSchema = {
@@ -31,6 +33,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.ArticleDetailsPageContainer, {}, [className])}>
                 <ArticleDetails id={id} />
+                <Text title={t('Comments')} className={cls.commentsContainerTitle} />
+                <CommentList comments={[]} />
             </div>
         </DynamicModuleLoader>
     );
