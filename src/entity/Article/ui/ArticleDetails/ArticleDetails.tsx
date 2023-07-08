@@ -13,6 +13,9 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { ArticleCodeBlockComponent } from 'entity/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from 'entity/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from 'entity/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { articleDetailsReducer } from 'entity/Article/model/slice/articleDetailsSlice';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { ArticleBlocks, ArticlesBlocksType } from '../../model/types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import CalendarIcon from '../../../../shared/assets/icons/calendarIcon.svg';
@@ -23,6 +26,10 @@ interface ArticleDetailsProps {
     className?: string
     id: string
 }
+
+const reducers:ReducersListSchema = {
+    articleDetails: articleDetailsReducer,
+};
 
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const { t } = useTranslation('article');
@@ -65,13 +72,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         }
     }, []);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            if (id) {
-                dispatch(fetchArticleById(id));
-            }
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchArticleById(id));
         }
-    }, [dispatch, id]);
+    });
 
     let content;
 
@@ -125,8 +130,10 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleDetailsContainer, {}, [className])}>
-            {content}
-        </div>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <div className={classNames(cls.ArticleDetailsContainer, {}, [className])}>
+                {content}
+            </div>
+        </DynamicModuleLoader>
     );
 });

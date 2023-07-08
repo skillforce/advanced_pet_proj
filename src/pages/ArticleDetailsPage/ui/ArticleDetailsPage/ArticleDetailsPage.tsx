@@ -3,14 +3,22 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entity/Article';
 import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from 'entity/Article/model/slice/articleDetailsSlice';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entity/Comment';
+import { useSelector } from 'react-redux';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { fetchArticleById } from 'entity/Article/model/services/fetchArticleById/fetchArticleById';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import {
+    fetchCommentsByArticleId,
+} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleDetailsPage.module.scss';
+import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 
 const reducers:ReducersListSchema = {
-    articleDetails: articleDetailsReducer,
+    articleDetailsComments: articleDetailsCommentsReducer,
 };
 interface ArticleDetailsPageProps {
     className?: string
@@ -19,7 +27,16 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article');
     const queryParams = useParams();
+    const dispatch = useAppDispatch();
     const { id } = queryParams;
+    const comments = useSelector(getArticleComments.selectAll);
+    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchCommentsByArticleId(id));
+        }
+    });
 
     if (!id) {
         return (
@@ -34,7 +51,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <div className={classNames(cls.ArticleDetailsPageContainer, {}, [className])}>
                 <ArticleDetails id={id} />
                 <Text title={t('Comments')} className={cls.commentsContainerTitle} />
-                <CommentList comments={[]} />
+                <CommentList isLoading={commentsIsLoading} comments={comments} />
             </div>
         </DynamicModuleLoader>
     );
