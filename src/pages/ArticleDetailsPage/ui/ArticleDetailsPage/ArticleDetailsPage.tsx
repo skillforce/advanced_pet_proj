@@ -26,9 +26,9 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article');
-    const queryParams = useParams();
-    const dispatch = useAppDispatch();
+    const queryParams = useParams<{id:string}>();
     const { id } = queryParams;
+    const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 

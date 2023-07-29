@@ -20,6 +20,8 @@ import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entity/Profile/model/types/profile';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 const reducers:ReducersListSchema = {
     profile: profileReducer,
@@ -30,6 +32,8 @@ interface ProfilePageProps {
 
 function ProfilePage({ className }:ProfilePageProps) {
     const { t } = useTranslation('profile');
+    const queryParams = useParams<{id:string}>();
+    const { id } = queryParams;
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
@@ -37,11 +41,11 @@ function ProfilePage({ className }:ProfilePageProps) {
     const readonly = useSelector(getProfileReadOnly);
     const validateProfileErrors = useSelector(getValidateProfileErrors);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstName = useCallback((value?:string) => {
         dispatch(profileActions.updateProfile({ firstName: value || '' }));

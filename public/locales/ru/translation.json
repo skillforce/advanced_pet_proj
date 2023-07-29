@@ -16,5 +16,7 @@
   "Enter your password": "Введите свой пароль",
   "Authorization form": "Форма авторизации",
   "Incorrect username or password": "Неверное имя пользователя или пароль",
-  "Log out": "Выйти"
+  "Log out": "Выйти",
+  "Enter new comment text": "Введите текст нового комментария",
+  "Send": "Отправить"
 }

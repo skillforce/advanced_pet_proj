@@ -14,7 +14,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -88,7 +90,8 @@
           "type": "IMAGE",
           "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
           "title": "Рисунок 1 - скриншот сайта"
-        }, {
+        },
+        {
           "id": "19",
           "type": "TEXT",
           "title": "Заголовок этого блока",
@@ -135,14 +138,28 @@
       "role": "USER"
     }
   ],
-  "profile": {
-    "firstName": "Denis",
-    "lastName": "Tatarinov",
-    "age": 22,
-    "currency": "BYN",
-    "country": "Belarus",
-    "city": "Minsk",
-    "userName": "sarcasm1613",
-    "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg"
-  }
+  "profile": [
+    {
+      "id": 1,
+      "firstName": "Denis",
+      "lastName": "Tatarinov",
+      "age": 22,
+      "currency": "BYN",
+      "country": "Belarus",
+      "city": "Minsk",
+      "userName": "ulbi Tv",
+      "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg"
+    },
+    {
+      "id": 2,
+      "firstName": "Andrey",
+      "lastName": "Djopa",
+      "age": 27,
+      "currency": "USD",
+      "country": "Belarus",
+      "city": "Minsk",
+      "userName": "sarcasm1613",
+      "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png"
+    }
+  ]
 }
