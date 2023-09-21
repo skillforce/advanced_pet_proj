@@ -80,7 +80,7 @@ function ProfilePage({ className }:ProfilePageProps) {
     };
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
 

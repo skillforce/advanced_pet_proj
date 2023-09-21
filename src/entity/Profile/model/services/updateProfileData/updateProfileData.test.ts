@@ -13,6 +13,7 @@ const profileDataMock:Profile = {
     age: 26,
     userName: 'sarcasm1613',
     avatar: '',
+    id: '2',
 };
 describe('updateProfileData.test', () => {
     test('test updateProfileData thunk success', async () => {

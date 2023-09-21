@@ -126,27 +126,69 @@
       "userId": "1",
       "text": "sdcdcsdcsdcsdcsdc",
       "id": "bt3Pao8"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "dscsdceffasccewce",
+      "id": "PiTv0xI"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "cdscscsd",
+      "id": "KSRqwBn"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "cdscscsd",
+      "id": "KjmeVj5"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "1234",
+      "id": "Qcgspuw"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123",
+      "id": "r76Fo9g"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "rere",
+      "id": "zpGV92m"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "sdcsdcsd",
+      "id": "3yqzHMp"
     }
   ],
   "users": [
     {
       "id": "1",
       "username": "Denis",
-      "avatar": "https://www.lunapic.com/editor/premade/transparent.gif",
+      "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png",
       "password": "12345",
       "role": "ADMIN"
     },
     {
       "id": "2",
       "username": "user",
-      "avatar": "https://www.lunapic.com/editor/premade/transparent.gif",
+      "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg",
       "password": "123",
       "role": "USER"
     }
   ],
   "profile": [
     {
-      "id": 1,
+      "id": "1",
       "firstName": "Denis",
       "lastName": "Tatarinov",
       "age": 22,
@@ -154,18 +196,18 @@
       "country": "Belarus",
       "city": "Minsk",
       "userName": "ulbi Tv",
-      "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg"
+      "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "firstName": "Andrey",
-      "lastName": "Djopa",
+      "lastName": "Tatarkin",
       "age": 27,
       "currency": "USD",
       "country": "Belarus",
       "city": "Minsk",
       "userName": "sarcasm1613",
-      "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png"
+      "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg"
     }
   ]
 }

@@ -6,7 +6,6 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { sendComment } from 'features/addCommentForm/model/services/sendComment/sendComment';
 import { getCommentText } from '../../model/selectors/GetCommentText';
 import { getCommentError } from '../../model/selectors/GetCommentError';
 import cls from './AddCommentForm.module.scss';
@@ -17,25 +16,29 @@ import {
 
 export interface AddCommentFormProps {
     className?: string
+    onSendComment:(text:string)=>void
 }
-const AddCommentFormReducers:ReducersListSchema = {
+const addCommentFormReducers:ReducersListSchema = {
     addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm = memo(({ className }: AddCommentFormProps) => {
+const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const text = useSelector(getCommentText);
     const error = useSelector(getCommentError);
+
     const onChangeAddCommentFormValue = useCallback((newValue: string) => {
         dispatch(addCommentFormActions.setText(newValue));
     }, [dispatch]);
-    const onSendComment = useCallback(() => {
-        dispatch(sendComment());
-    }, [dispatch]);
+
+    const onClickOnSendComment = useCallback(() => {
+        onSendComment(text || '');
+        onChangeAddCommentFormValue('');
+    }, [onChangeAddCommentFormValue, onSendComment, text]);
 
     return (
-        <DynamicModuleLoader reducers={AddCommentFormReducers}>
+        <DynamicModuleLoader reducers={addCommentFormReducers}>
             <div className={classNames(cls.AddCommentFormContainer, {}, [className])}>
                 <Input
                     className={cls.input}
@@ -43,7 +46,7 @@ const AddCommentForm = memo(({ className }: AddCommentFormProps) => {
                     value={text}
                     placeholder={t('Enter new comment text')}
                 />
-                <Button theme={ButtonTheme.OUTLINE} onClick={onSendComment}>{t('Send')}</Button>
+                <Button theme={ButtonTheme.OUTLINE} onClick={onClickOnSendComment}>{t('Send')}</Button>
             </div>
         </DynamicModuleLoader>
     );

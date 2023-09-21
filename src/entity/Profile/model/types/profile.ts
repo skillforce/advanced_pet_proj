@@ -10,6 +10,7 @@ export interface Profile{
     age?: number,
     userName?: string,
     avatar?: string,
+    id?:string
 }
 export enum ValidateProfileError {
     INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
