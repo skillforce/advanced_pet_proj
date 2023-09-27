@@ -8,6 +8,10 @@ export enum ArticlesBlocksType {
     CODE='CODE',
     IMAGE='IMAGE',
 }
+export enum ArticlesView {
+    BIG='BIG',
+    SMALL='SMALL'
+}
 export interface ArticleBlockBase {
     id: string,
     type:ArticlesBlocksType
