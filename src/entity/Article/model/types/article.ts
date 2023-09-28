@@ -1,3 +1,5 @@
+import { UserScheme } from 'entity/User';
+
 export enum ArticlesType {
     IT='IT',
     SCIENCE='SCIENCE',
@@ -36,6 +38,7 @@ export type ArticleBlocks = ArticleTextBlock | ArticleImageBlock | ArticleCodeBl
 export interface Article{
     id: string;
     title: string;
+    user:UserScheme
     subtitle: string;
     img: string;
     views: number;

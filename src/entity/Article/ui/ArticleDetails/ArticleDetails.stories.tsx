@@ -1,15 +1,20 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticlesBlocksType, ArticlesType } from 'entity/Article/model/types/article';
+import { Article, ArticlesBlocksType, ArticlesType } from 'entity/Article/model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
-const article = {
+const article:Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
+    user: {
+        id: '1',
+        username: 'Denis Tatarinov',
+        avatar: 'https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png',
+    },
     createdAt: '26.02.2022',
     type: [ArticlesType.IT],
     blocks: [

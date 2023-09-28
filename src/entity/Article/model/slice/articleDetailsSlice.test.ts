@@ -10,6 +10,11 @@ const article:Article = {
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
+    user: {
+        id: '1',
+        username: 'Denis Tatarinov',
+        avatar: 'https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png',
+    },
     createdAt: '26.02.2022',
     type: [ArticlesType.IT],
     blocks: [
