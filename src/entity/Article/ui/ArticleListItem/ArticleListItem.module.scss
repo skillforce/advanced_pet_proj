@@ -3,32 +3,43 @@
 }
 
 .BIG {
-    .imageWrapper{
-
+    .views {
+        margin-left: auto;
     }
 
-    .img{
-
+    .header {
+        display: flex;
+        align-items: center;
     }
 
-    .date{
-
+    .username {
+        margin-left: 8px;
     }
 
-    .infoWrapper{
-
+    .date {
+        margin-left: auto;
     }
 
-    .types{
-
+    .title {
+        margin-top: 8px;
     }
 
-    .views{
-
+    .img {
+        width: 100%;
+        max-height: 250px;
+        object-fit: cover;
+        margin: 16px 0;
     }
 
-    .title{
+    .textBlock {
+        max-height: 215px;
+        overflow: hidden;
+        margin: 10px 0;
+    }
 
+    .footer {
+        display: flex;
+        align-items: center;
     }
 }
 
