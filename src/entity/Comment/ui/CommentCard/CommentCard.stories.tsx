@@ -9,7 +9,7 @@ const mockComment = {
 };
 
 export default {
-    title: 'entity/CommentCard',
+    title: 'entity/Comment/CommentCard',
     component: CommentCard,
 
 } as ComponentMeta<typeof CommentCard>;

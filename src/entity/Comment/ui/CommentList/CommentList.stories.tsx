@@ -19,7 +19,7 @@ const commentListArr = [{
 }];
 
 export default {
-    title: 'entity/CommentList',
+    title: 'entity/Comment/CommentList',
     component: CommentList,
 
 } as ComponentMeta<typeof CommentList>;
