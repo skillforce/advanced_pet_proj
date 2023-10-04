@@ -3,3 +3,4 @@ import { ArticlesPageAsync as ArticlesPage } from './ui/ArticlesPage/ArticlesPag
 export {
     ArticlesPage,
 };
+export { ArticlePageSchema } from './model/types/articlePageSchema';
