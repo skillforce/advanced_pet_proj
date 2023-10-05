@@ -7,7 +7,7 @@ export const fetchArticlesList = createAsyncThunk<Article[], void, ThunkConfig<s
     async (_, thunkAPI) => {
         const { extra, rejectWithValue } = thunkAPI;
         try {
-            const response = await extra.api.get<Article[]>('/comments', {
+            const response = await extra.api.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
                 },

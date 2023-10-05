@@ -5,5 +5,5 @@ export const ArticlesPageAsync = lazy(() => new Promise((resolve, reject) => {
     setTimeout(() => {
         // @ts-ignore
         resolve(import('./ArticlesPage'));
-    }, 1000);
+    }, 400);
 }));
