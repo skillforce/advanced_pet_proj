@@ -22,7 +22,7 @@ const reducers:ReducersListSchema = {
     articlesPage: articlePageReducer,
 };
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
+const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlePageIsLoading);
@@ -31,6 +31,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
     useInitialEffect(() => {
         dispatch(fetchArticlesList());
+        dispatch(articlePageActions.initialState());
     });
     const onViewClick = useCallback((view:ArticlesView) => {
         dispatch(articlePageActions.setView(view));
@@ -50,6 +51,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
             </div>
         </DynamicModuleLoader>
     );
-};
+});
 
 export default memo(ArticlesPage);

@@ -1,3 +1,8 @@
 .ArticleViewSelectorContainer {
-
+    .selected {
+        opacity: 0.4;
+        fill: var(--inverted-secondary-text-color);
+        pointer-events: none;
+        cursor: default;
+    }
 }
