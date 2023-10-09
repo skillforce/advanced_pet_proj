@@ -8,7 +8,7 @@ function AppRouter() {
     const routeGenerator = useCallback(({ path, authOnly, element }:AppRouteProps) => {
         let routeElement = (
             <Suspense fallback={<PageLoader />}>
-                <div className="page-wrapper">{element}</div>
+                {element}
             </Suspense>
         );
         if (authOnly) {

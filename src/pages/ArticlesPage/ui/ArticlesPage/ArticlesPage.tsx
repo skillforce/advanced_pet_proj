@@ -5,9 +5,10 @@ import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/D
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { Page } from 'shared/ui/Page/Page';
 import {
-    getArticlePageError,
-    getArticlePageIsLoading,
+    getArticlePageError, getArticlePageHasMore,
+    getArticlePageIsLoading, getArticlePageLimit, getArticlePageNum,
     getArticlePageView,
 } from '../../model/selectors/articlePageSelectors/articlePageSelectors';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
@@ -28,17 +29,23 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlePageIsLoading);
     const error = useSelector(getArticlePageError);
     const view = useSelector(getArticlePageView);
+    const page = useSelector(getArticlePageNum);
+    const limit = useSelector(getArticlePageLimit);
+    const hasMore = useSelector(getArticlePageHasMore);
 
     useInitialEffect(() => {
-        dispatch(fetchArticlesList());
         dispatch(articlePageActions.initialState());
+        dispatch(fetchArticlesList({
+            page,
+        }));
     });
     const onViewClick = useCallback((view:ArticlesView) => {
         dispatch(articlePageActions.setView(view));
     }, [dispatch]);
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticlesPageContainer, {}, [className])}>
+            <Page className={classNames(cls.ArticlesPageContainer, {}, [className])}>
+
                 <ArticleViewSelector
                     view={view}
                     onViewClick={onViewClick}
@@ -48,8 +55,9 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
                     view={view}
                     articles={articles}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
+
     );
 });
 
