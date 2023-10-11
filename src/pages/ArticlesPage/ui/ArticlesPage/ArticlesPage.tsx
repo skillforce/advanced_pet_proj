@@ -39,12 +39,24 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
             page,
         }));
     });
+
+    const onLoadNextPart = useCallback(() => {
+        if (hasMore) {
+            dispatch(articlePageActions.setPage(page + 1));
+            dispatch(fetchArticlesList({ page: page + 1 }));
+        }
+    }, [dispatch, hasMore, page]);
+
     const onViewClick = useCallback((view:ArticlesView) => {
         dispatch(articlePageActions.setView(view));
     }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames(cls.ArticlesPageContainer, {}, [className])}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                className={classNames(cls.ArticlesPageContainer, {}, [className])}
+            >
 
                 <ArticleViewSelector
                     view={view}
