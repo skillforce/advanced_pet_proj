@@ -6,9 +6,11 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {
-    getArticlePageError, getArticlePageHasMore,
-    getArticlePageIsLoading, getArticlePageLimit, getArticlePageNum,
+    getArticlePageError,
+    getArticlePageIsLoading,
+    getArticlePageNum,
     getArticlePageView,
 } from '../../model/selectors/articlePageSelectors/articlePageSelectors';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
@@ -30,8 +32,6 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const error = useSelector(getArticlePageError);
     const view = useSelector(getArticlePageView);
     const page = useSelector(getArticlePageNum);
-    const limit = useSelector(getArticlePageLimit);
-    const hasMore = useSelector(getArticlePageHasMore);
 
     useInitialEffect(() => {
         dispatch(articlePageActions.initialState());
@@ -41,11 +41,9 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     });
 
     const onLoadNextPart = useCallback(() => {
-        if (hasMore) {
-            dispatch(articlePageActions.setPage(page + 1));
-            dispatch(fetchArticlesList({ page: page + 1 }));
-        }
-    }, [dispatch, hasMore, page]);
+        console.log('alalalalalal');
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
 
     const onViewClick = useCallback((view:ArticlesView) => {
         dispatch(articlePageActions.setView(view));
