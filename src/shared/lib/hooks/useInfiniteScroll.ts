@@ -9,11 +9,11 @@ export interface UseInfiniteScrollParams {
 export function useInfiniteScroll({ triggerRef, wrapperRef, callback }: UseInfiniteScrollParams) {
     useEffect(() => {
         let observer: IntersectionObserver | null = null;
-        const triggerEllement = triggerRef;
-        const wrapperEllement = wrapperRef;
+        const triggerEllement = triggerRef.current;
+        const wrapperEllement = wrapperRef.current;
         if (callback) {
             const options = {
-                root: wrapperEllement.current,
+                root: wrapperEllement,
                 rootMargin: '1px',
                 threshold: 1.0,
             };
@@ -23,11 +23,11 @@ export function useInfiniteScroll({ triggerRef, wrapperRef, callback }: UseInfin
                 }
             }, options);
 
-            observer.observe(triggerEllement.current);
+            observer.observe(triggerEllement);
         }
         return () => {
             if (observer && triggerEllement) {
-                observer.unobserve(triggerEllement.current);
+                observer.unobserve(triggerEllement);
             }
         };
     }, [callback, triggerRef, wrapperRef]);
