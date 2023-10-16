@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useNavigate } from 'react-router-dom';
 import { getLoginError } from '../../model/selectors/getError/getLoginError';
 import { getLoginValue } from '../../model/selectors/getLogin/getLogin';
 import { getLoginPassword } from '../../model/selectors/getPassword/getLoginPassword';
@@ -31,6 +32,7 @@ const LoginForm = memo(({ className, onClose } : LoginFormProps) => {
     const password = useSelector(getLoginPassword) ?? '';
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
+    const navigate = useNavigate();
 
     const onChangeLogin = useCallback((newValue:string) => {
         dispatch(loginActions.setLogin(newValue));
@@ -43,9 +45,10 @@ const LoginForm = memo(({ className, onClose } : LoginFormProps) => {
     const onClickLogin = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
+            navigate('/profile');
             onClose();
         }
-    }, [dispatch, onClose, password, username]);
+    }, [dispatch, navigate, onClose, password, username]);
 
     return (
         <DynamicModuleLoader

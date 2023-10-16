@@ -6,14 +6,13 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
-import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     getArticlePageError,
     getArticlePageIsLoading,
-    getArticlePageNum,
     getArticlePageView,
 } from '../../model/selectors/articlePageSelectors/articlePageSelectors';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slices/ArticlePageSlice';
 import cls from './ArticlesPage.module.scss';
 
@@ -31,17 +30,12 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlePageIsLoading);
     const error = useSelector(getArticlePageError);
     const view = useSelector(getArticlePageView);
-    const page = useSelector(getArticlePageNum);
 
     useInitialEffect(() => {
-        dispatch(articlePageActions.initialState());
-        dispatch(fetchArticlesList({
-            page,
-        }));
+        dispatch(initArticlesPage());
     });
 
     const onLoadNextPart = useCallback(() => {
-        console.log('alalalalalal');
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
@@ -50,7 +44,7 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlesPageContainer, {}, [className])}
