@@ -25,6 +25,7 @@ const initialStateMock = {
         login: '',
         isLoading: false,
     },
+    ui: { scroll: { 'test': 0 } },
 
 };
 
