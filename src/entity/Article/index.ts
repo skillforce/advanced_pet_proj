@@ -1,3 +1,5 @@
+export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
+
 export {
     getArticleDetailsData,
     getArticleDetailsIsLoading,
@@ -6,9 +8,8 @@ export {
 
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
-export { Article } from './model/types/article';
+export { Article, ArticlesView, ArticleSortField } from './model/types/article';
 
 export { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
-export { ArticlesView } from './model/types/article';
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';

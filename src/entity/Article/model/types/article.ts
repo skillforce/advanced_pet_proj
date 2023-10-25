@@ -1,5 +1,11 @@
 import { UserScheme } from 'entity/User';
 
+export enum ArticleSortField {
+    VIEWS= 'views',
+    TITLE = 'title',
+    CREATED = 'created'
+}
+
 export enum ArticlesType {
     IT='IT',
     SCIENCE='SCIENCE',

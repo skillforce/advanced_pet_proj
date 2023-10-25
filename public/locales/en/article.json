@@ -5,5 +5,15 @@
   "Comments" : "Comments",
   "List of comments is empty" : "List of comments is empty",
   "Read more..." : "Read more...",
-  "Back to list" : "Back to list"
+  "Back to list" : "Back to list",
+  "Sort by" : "Sort by",
+  "Search" : "Search",
+  "Order" : "Order",
+  "Ascending" : "Ascending",
+  "Descending" : "Descending",
+  "Created date":  "Created date",
+  "Title":"Title",
+  "Views":"Views"
+
+
 }

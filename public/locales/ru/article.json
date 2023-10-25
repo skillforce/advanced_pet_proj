@@ -5,5 +5,13 @@
   "Comments" : "Комментарии",
   "List of comments is empty" : "Список комментариев пуст",
   "Read more..." : "Читать далее...",
-  "Back to list" : "Назад к списку"
+  "Back to list" : "Назад к списку",
+  "Sort by" : "Сортировать по",
+  "Search" : "Поиск",
+  "Order" : "Порядок",
+  "Ascending" : "Возрастание",
+  "Descending" : "Убывание",
+  "Created date":  "Дата создания",
+  "Title":"Заголовок",
+  "Views":"Просмотры"
 }

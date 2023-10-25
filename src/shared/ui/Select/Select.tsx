@@ -5,30 +5,30 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import cls from './Select.module.scss';
 
-interface SelectOption{
-    value:string
+export interface SelectOption<T>{
+    value:T
     content:string
 }
-interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange'>{
+interface SelectProps<T extends string> extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange'>{
     className?: string
     label?:string
-    options?:SelectOption[];
-    value?:string;
-    onChange?:(value:string)=>void
+    options?:SelectOption<T>[];
+    value?:T;
+    onChange?:(value:T)=>void
 }
 
-export const Select = memo(({
+export const Select = <T extends string>({
     className,
     label,
     options,
     value,
     onChange,
     ...restProps
-} : SelectProps) => {
+} : SelectProps<T>) => {
     const mods:Mods = {};
 
     const onChangeHandler = (e:ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value);
+        onChange?.(e.target.value as T);
     };
 
     const optionList = useMemo(() => options?.map(({ value, content }) => (
@@ -58,4 +58,4 @@ export const Select = memo(({
             </select>
         </div>
     );
-});
+};
