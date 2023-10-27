@@ -11,6 +11,7 @@ export const buildPlugins = ({
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
+            scriptLoading: 'defer',
         }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({

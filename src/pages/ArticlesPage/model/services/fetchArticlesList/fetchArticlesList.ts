@@ -1,23 +1,40 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entity/Article';
-import { getArticlePageLimit } from 'pages/ArticlesPage/model/selectors/articlePageSelectors/articlePageSelectors';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import {
+    getArticlePageLimit,
+    getArticlePageNum,
+    getArticlePageOrder,
+    getArticlePageSearchText,
+    getArticlePageSort,
+} from '../../../model/selectors/articlePageSelectors/articlePageSelectors';
 
-interface FetchArticleListProps {
-    page:number
+interface FetchArticlesListProps {
+    replace?:boolean
 }
 
-export const fetchArticlesList = createAsyncThunk<Article[], FetchArticleListProps, ThunkConfig<string>>(
+export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListProps, ThunkConfig<string>>(
     'articlesPage/fetchArticlesList',
-    async ({ page = 1 }, thunkAPI) => {
+    async (args, thunkAPI) => {
         const { extra, rejectWithValue, getState } = thunkAPI;
         const limit = getArticlePageLimit(getState());
+        const sort = getArticlePageSort(getState());
+        const order = getArticlePageOrder(getState());
+        const searchText = getArticlePageSearchText(getState());
+        const page = getArticlePageNum(getState());
         try {
+            addQueryParams({
+                sort, order, searchText,
+            });
             const response = await extra.api.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
                     _page: page,
                     _limit: limit,
+                    _sort: sort,
+                    _order: order,
+                    q: searchText,
                 },
             });
             if (!response.data) {

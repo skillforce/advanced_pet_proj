@@ -6,7 +6,7 @@ import cls from 'features/AuthByUserName/ui/LoginForm/LoginForm.module.scss';
 import { Page } from 'widgets/Page/Page';
 
 function MainPage() {
-    const { t } = useTranslation('mainPage');
+    const { t } = useTranslation('translation');
     const [loginValue, setLoginValue] = useState('');
 
     return (

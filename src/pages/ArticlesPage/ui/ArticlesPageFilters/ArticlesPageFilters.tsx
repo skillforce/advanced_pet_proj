@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
@@ -10,6 +10,8 @@ import { useSelector } from 'react-redux';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import {
     getArticlePageOrder, getArticlePageSearchText,
     getArticlePageSort,
@@ -29,21 +31,35 @@ export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps
     const order = useSelector(getArticlePageOrder);
     const searchText = useSelector(getArticlePageSearchText);
 
+    const fetchData = useCallback(() => {
+        dispatch(fetchArticlesList({ replace: true }));
+    }, [dispatch]);
+
+    const debouncedFetchData = useDebounce(fetchData, 500);
+
     const onViewClick = useCallback((view:ArticlesView) => {
         dispatch(articlePageActions.setView(view));
-    }, [dispatch]);
+        dispatch(articlePageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
 
     const onChangeSort = useCallback((newSort:ArticleSortField) => {
         dispatch(articlePageActions.setSort(newSort));
-    }, [dispatch]);
+        dispatch(articlePageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
 
     const onChangeOrder = useCallback((newOrder:SortOrder) => {
         dispatch(articlePageActions.setOrder(newOrder));
-    }, [dispatch]);
+        dispatch(articlePageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
 
     const onChangeSearchText = useCallback((newSearchText:string) => {
         dispatch(articlePageActions.setSearchText(newSearchText));
-    }, [dispatch]);
+        dispatch(articlePageActions.setPage(1));
+        debouncedFetchData();
+    }, [debouncedFetchData, dispatch]);
 
     return (
         <div className={classNames(cls.ArticlesPageFiltersContainer, {}, [className])}>

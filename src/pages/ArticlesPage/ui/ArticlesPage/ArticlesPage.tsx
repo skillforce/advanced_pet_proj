@@ -6,6 +6,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/Page';
+import { useSearchParams } from 'react-router-dom';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
@@ -31,9 +32,10 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlePageIsLoading);
     const error = useSelector(getArticlePageError);
     const view = useSelector(getArticlePageView);
+    const [searchParams] = useSearchParams();
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     const onLoadNextPart = useCallback(() => {

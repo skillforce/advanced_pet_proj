@@ -9,9 +9,9 @@ export interface UseInfiniteScrollParams {
 export function useInfiniteScroll({ triggerRef, wrapperRef, callback }: UseInfiniteScrollParams) {
     useEffect(() => {
         let observer: IntersectionObserver | null = null;
-        const triggerEllement = triggerRef.current;
-        const wrapperEllement = wrapperRef.current;
-        if (callback) {
+        const triggerEllement = triggerRef?.current;
+        const wrapperEllement = wrapperRef?.current;
+        if (callback && triggerEllement && wrapperEllement) {
             const options = {
                 root: wrapperEllement,
                 rootMargin: '1px',
