@@ -69,7 +69,7 @@ export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps
     const onChangeArticlePageType = useCallback((newTab:TabItem<ArticlesType>) => {
         dispatch(articlePageActions.setType(newTab.value));
         dispatch(articlePageActions.setPage(1));
-        debouncedFetchData();
+        fetchData();
     }, [debouncedFetchData, dispatch]);
 
     return (
