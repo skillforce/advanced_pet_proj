@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleViewSelector } from './ArticleViewSelector';
 
 export default {
-    title: 'shared/ArticleViewSelector',
+    title: 'entity/Article/ArticleViewSelector',
     component: ArticleViewSelector,
 
 } as ComponentMeta<typeof ArticleViewSelector>;

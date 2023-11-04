@@ -9,7 +9,8 @@ export enum ArticleSortField {
 export enum ArticlesType {
     IT='IT',
     SCIENCE='SCIENCE',
-    ECONOMICS='ECONOMICS'
+    ECONOMICS='ECONOMICS',
+    ALL='ALL'
 }
 export enum ArticlesBlocksType {
     TEXT='TEXT',

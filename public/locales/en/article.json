@@ -13,7 +13,11 @@
   "Descending" : "Descending",
   "Created date":  "Created date",
   "Title":"Title",
-  "Views":"Views"
+  "Views":"Views",
+  "IT": "IT",
+  "Science":"Science",
+  "Economics": "Economics",
+  "All": "All"
 
 
 }

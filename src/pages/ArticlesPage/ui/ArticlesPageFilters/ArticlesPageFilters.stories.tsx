@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticlesPageFilters } from './ArticlesPageFilters';
 
 export default {
-    title: 'shared/ArticlesPageFilters',
+    title: 'entity/Article/ArticlesPageFilters',
     component: ArticlesPageFilters,
 
 } as ComponentMeta<typeof ArticlesPageFilters>;
