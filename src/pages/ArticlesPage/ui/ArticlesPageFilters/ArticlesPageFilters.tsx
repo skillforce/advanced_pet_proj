@@ -70,7 +70,7 @@ export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps
         dispatch(articlePageActions.setType(newTab.value));
         dispatch(articlePageActions.setPage(1));
         fetchData();
-    }, [debouncedFetchData, dispatch]);
+    }, [dispatch, fetchData]);
 
     return (
         <div className={classNames(cls.ArticlesPageFiltersContainer, {}, [className])}>

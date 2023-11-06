@@ -3,14 +3,14 @@ import { Comment } from 'entity/Comment';
 import { StateSchema } from 'app/providers/StoreProvider';
 import {
     fetchCommentsByArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+} from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 
 const commentsAdapter = createEntityAdapter<Comment>({
     selectId: (comment) => comment.id,
 });
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-    (state) => state?.articleDetailsComments || commentsAdapter.getInitialState(),
+    (state) => state?.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
 );
 
 const articleDetailsCommentsSlice = createSlice({

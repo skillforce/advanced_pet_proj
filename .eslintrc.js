@@ -49,7 +49,7 @@ module.exports = {
         'max-len': [
             2,
             {
-                code: 110,
+                code: 140,
                 tabWidth: 1,
                 ignoreComments: true,
                 ignoreUrls: true,

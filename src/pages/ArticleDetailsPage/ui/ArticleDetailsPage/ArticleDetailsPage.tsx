@@ -1,28 +1,32 @@
 import React, { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails } from 'entity/Article';
+import { ArticleDetails, ArticleList } from 'entity/Article';
 import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { CommentList } from 'entity/Comment';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import {
-    fetchCommentsByArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/addCommentForm';
-import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
+import { articleDetailsPageReducer } from '../../model/slices';
+import {
+    fetchArticleRecommendations,
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { getArticleRecommendations } from '../../model/slices/ArticleDetailsPageRecommendationsSlice';
 import cls from './ArticleDetailsPage.module.scss';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
+import { getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { getArticlePageRecommendationsIsLoading } from '../../model/selectors/recommendations';
 
 const reducers:ReducersListSchema = {
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 interface ArticleDetailsPageProps {
     className?: string
@@ -34,12 +38,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { id } = queryParams;
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
+    const recommendations = useSelector(getArticleRecommendations.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+    const recommendationsIsLoading = useSelector(getArticlePageRecommendationsIsLoading);
     const navigate = useNavigate();
 
     useInitialEffect(() => {
         if (id) {
             dispatch(fetchCommentsByArticleId(id));
+            dispatch(fetchArticleRecommendations());
         }
     });
 
@@ -69,7 +76,22 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                     {t('Back to list')}
                 </Button>
                 <ArticleDetails id={id} />
-                <Text title={t('Comments')} className={cls.commentsContainerTitle} />
+                <Text
+                    size={TextSize.L}
+                    title={t('Recommend for you:')}
+                    className={cls.commentsContainerTitle}
+                />
+                <ArticleList
+                    articles={recommendations}
+                    isLoading={recommendationsIsLoading}
+                    className={cls.recommendations}
+                    target="_blank"
+                />
+                <Text
+                    size={TextSize.L}
+                    title={t('Comments')}
+                    className={cls.commentsContainerTitle}
+                />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList isLoading={commentsIsLoading} comments={comments} />
             </Page>
