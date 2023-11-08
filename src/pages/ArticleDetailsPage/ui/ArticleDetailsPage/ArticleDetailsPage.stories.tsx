@@ -52,7 +52,7 @@ const article = {
 };
 
 export default {
-    title: 'pages/ArticleDetailsPage',
+    title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
 
 } as ComponentMeta<typeof ArticleDetailsPage>;

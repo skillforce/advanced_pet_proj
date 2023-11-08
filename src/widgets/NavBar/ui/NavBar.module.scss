@@ -4,8 +4,18 @@
     background-color: var(--inverted-bg-color);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 0 40px 0 10px;
+}
+
+.logoBlock {
+    display: flex;
+    align-items: center;
+}
+
+.appName {
+    width: var(--sidebar-width);
+    margin-left: 15px;
 }
 
 .links {
