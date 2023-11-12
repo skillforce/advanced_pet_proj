@@ -51,6 +51,7 @@ export const NavBar = memo(({ className }:NavBarProps) => {
 
     return (
         <header className={classNames(cls.navBarContainer, {}, [className])}>
+            <Text className={cls.appName} title={t('Vpname pet app')} theme={TextTheme.INVERTED} />
             <Button theme={ButtonTheme.CLEAR_HOVER} onClick={onOpenModal}>{t('Log In')}</Button>
             <LoginModal onClose={onCloseModal} isOpen={isAuthModalOpen} />
         </header>
