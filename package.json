@@ -11,7 +11,7 @@
     "lint:ts:fix": "eslint **/*.{ts,tsx} --fix",
     "lint:scss": "stylelint **/*.scss",
     "lint:scss:fix": "stylelint **/*.scss --fix",
-    "build:prod": "webpack --env mode=production apiUrl=https://ulbi-tv-prod-back-7oxcemk2z-skillforce.vercel.app",
+    "build:prod": "webpack --env mode=production apiUrl=https://ulbi-tv-prod-back-qe8oanag0-skillforce.vercel.app",
     "build:dev": "webpack --env mode=development",
     "analyze:prod": "npm run build:prod --env analyze=true",
     "analyze:dev": "npm run build:dev --env analyze=true",
