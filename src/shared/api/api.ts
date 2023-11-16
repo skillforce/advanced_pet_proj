@@ -3,7 +3,11 @@ import { AUTH_USER_LOCAL_STORAGE } from 'shared/consts/localStorage';
 
 export const $api = axios.create({
     baseURL: __API__,
-    headers: {
-        authorization: JSON.stringify(localStorage.getItem(AUTH_USER_LOCAL_STORAGE)),
-    },
+});
+
+$api.interceptors.request.use((config) => {
+    if (config.headers) {
+        config.headers.Authorization = localStorage.getItem(AUTH_USER_LOCAL_STORAGE) || '';
+    }
+    return config;
 });
