@@ -11,5 +11,14 @@
         flex-wrap: wrap;
         gap: 40px;
         justify-content: center;
+
+        .card {
+            display: inline-block;
+        }
+
+        .row {
+            display: flex;
+            gap: 30px;
+        }
     }
 }
