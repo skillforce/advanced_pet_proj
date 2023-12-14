@@ -24,6 +24,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'skillforce-fsd-plugin',
     ],
     rules: {
     // 0 - off,1-warning, 2 - error
@@ -45,7 +46,7 @@ module.exports = {
         'react/function-component-definition': 0,
         'no-undef': 0,
         'react/no-array-index-key': 0,
-        'react/jsx-props-no-spreading': 1,
+        'react/jsx-props-no-spreading': 'off',
         'max-len': [
             2,
             {
@@ -67,6 +68,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 2,
         'react-hooks/exhaustive-deps': 2,
         'no-param-reassign': 0,
+        'skillforce-fsd-plugin/path-checker': 1,
     },
     globals: {
         __IS_DEV__: true,

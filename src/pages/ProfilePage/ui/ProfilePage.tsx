@@ -13,7 +13,6 @@ import {
 } from 'entity/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { getProfileForm } from 'entity/Profile/model/selectors/getProfileForm/getProfileForm';
 import { Currency } from 'entity/Currency';
@@ -23,6 +22,7 @@ import { ValidateProfileError } from 'entity/Profile/model/types/profile';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
+import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
 
 const reducers:ReducersListSchema = {
     profile: profileReducer,

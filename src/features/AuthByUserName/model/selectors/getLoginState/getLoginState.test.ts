@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { LoginSchema } from 'features/AuthByUserName';
+import { LoginSchema } from '../../types/loginSchema';
 import { getLoginState } from './getLoginState';
 
 describe('getLoginState', () => {

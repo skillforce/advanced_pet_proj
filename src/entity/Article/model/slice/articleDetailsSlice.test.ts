@@ -1,10 +1,13 @@
-import { Article, ArticleDetailsSchema } from 'entity/Article';
+import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
+import { articleDetailsActions, articleDetailsReducer } from '../slice/articleDetailsSlice';
+import {
+    ArticlesBlocksType, ArticlesType, Article,
+} from '../types/article';
+import {
+    ArticleDetailsSchema,
+} from '../types/articleDetailsSchema';
 
-import { articleDetailsActions, articleDetailsReducer } from 'entity/Article/model/slice/articleDetailsSlice';
-import { ArticlesBlocksType, ArticlesType } from 'entity/Article/model/types/article';
-import { fetchArticleById } from 'entity/Article/model/services/fetchArticleById/fetchArticleById';
-
-const article:Article = {
+const article: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -32,24 +35,24 @@ const article:Article = {
 };
 describe('ArticleSlice test', () => {
     test('set is loading', () => {
-        const state:DeepPartial<ArticleDetailsSchema> = { isLoading: undefined };
+        const state: DeepPartial<ArticleDetailsSchema> = { isLoading: undefined };
         expect(articleDetailsReducer(state as ArticleDetailsSchema, articleDetailsActions.setIsLoading(true)))
             .toEqual({ isLoading: true });
     });
     test('set error test', () => {
-        const state:DeepPartial<ArticleDetailsSchema> = { error: undefined };
+        const state: DeepPartial<ArticleDetailsSchema> = { error: undefined };
         expect(articleDetailsReducer(state as ArticleDetailsSchema, articleDetailsActions.setError('error!')))
             .toEqual({ error: 'error!' });
     });
     test('set article data test', () => {
-        const state:DeepPartial<ArticleDetailsSchema> = { data: undefined };
+        const state: DeepPartial<ArticleDetailsSchema> = { data: undefined };
         expect(articleDetailsReducer(
-state as ArticleDetailsSchema,
-articleDetailsActions.setArticleDetailsData(article),
+            state as ArticleDetailsSchema,
+            articleDetailsActions.setArticleDetailsData(article),
         )).toEqual({ data: article });
     });
     test('test fetch article pending', () => {
-        const state:ArticleDetailsSchema = {
+        const state: ArticleDetailsSchema = {
             isLoading: false,
             error: 'Error!',
         };
@@ -60,14 +63,14 @@ articleDetailsActions.setArticleDetailsData(article),
             });
     });
     test('test update article data fulfilled', () => {
-        const state:ArticleDetailsSchema = {
+        const state: ArticleDetailsSchema = {
             isLoading: true,
             error: 'Error!',
             data: undefined,
         };
         expect(articleDetailsReducer(
-state as ArticleDetailsSchema,
-fetchArticleById.fulfilled(article, '', '', null),
+            state as ArticleDetailsSchema,
+            fetchArticleById.fulfilled(article, '', '', null),
         ))
             .toEqual({
                 error: undefined,

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData } from 'entity/Article';
-import { getIsAbleToEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article';
+import { getIsAbleToEditArticle } from '../../model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {

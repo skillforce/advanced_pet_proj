@@ -1,6 +1,6 @@
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
-import { updateProfileData } from 'entity/Profile';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { profileActions, profileReducer } from '../slice/profileSlice';
 import { Profile, ProfileSchema, ValidateProfileError } from '../types/profile';
 
