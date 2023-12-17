@@ -1,9 +1,10 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher/LanguageSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
+import { VStack } from 'shared/ui/Stack';
 import { getSidebarItems } from '../model/selectors/getSidebarItems';
 import { SideBarItem } from './SideBarItem/SideBarItem';
 import cls from './SideBar.module.scss';
@@ -18,6 +19,15 @@ export const SideBar = memo(({ className }: SideBarProps) => {
         setCollapsed((prev) => !prev);
     };
     const sideBarItemsList = useSelector(getSidebarItems);
+
+    const itemsList = useMemo(() => sideBarItemsList.map((item) => (
+        <SideBarItem
+            item={item}
+            isAuthOnly={item.authOnly}
+            collapsed={collapsed}
+            key={item.path}
+        />
+    )), [collapsed, sideBarItemsList]);
     return (
         <menu
             data-testid="sideBar"
@@ -34,16 +44,12 @@ export const SideBar = memo(({ className }: SideBarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={cls.links}>
-                {sideBarItemsList.map((item) => (
-                    <SideBarItem
-                        item={item}
-                        isAuthOnly={item.authOnly}
-                        collapsed={collapsed}
-                        key={item.path}
-                    />
-                ))}
-            </div>
+            <VStack
+                className={cls.links}
+                gap="16"
+            >
+                {itemsList}
+            </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LanguageSwitcher className={cls.langSwitcher} />

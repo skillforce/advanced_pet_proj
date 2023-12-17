@@ -10,6 +10,8 @@ module.exports = ({ config }:{ config: webpack.Configuration }) => {
         build: '',
         html: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
+        buildLocales: '',
+        locales: '',
     };
 
     const rules = config.module!.rules as webpack.RuleSetRule[]; // чтобы избежать ругани TS

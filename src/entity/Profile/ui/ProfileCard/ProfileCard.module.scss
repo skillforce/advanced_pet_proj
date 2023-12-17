@@ -1,19 +1,7 @@
-.data {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .profileCardContainer {
     padding: 20px 40px;
     border: 2px solid var(--inverted-bg-color);
     border-radius: 4px;
-    display: flex;
-    align-items: center;
-}
-
-.AvatarWrapper {
-    margin-right: 20px;
 }
 
 .editing {
@@ -22,8 +10,5 @@
 
 .loading,
 .error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 300px;
 }
