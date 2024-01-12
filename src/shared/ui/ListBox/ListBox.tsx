@@ -1,10 +1,8 @@
-import {
-    Fragment, memo, ReactNode, useState,
-} from 'react';
+import { Fragment, memo, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from '../Button/Button';
+import { HStack } from '../Stack';
 import cls from './ListBox.module.scss';
 
 type DropdownDirection = 'top' | 'bottom'
