@@ -1,9 +1,8 @@
 import React, { memo } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Currency } from '../../model/types/currency';
-import cls from './CurrencySelect.module.scss';
 
 interface CurrencySelectProps {
     className?: string,
@@ -20,22 +19,18 @@ export const CurrencySelect = memo(({
     className, readonly, onChange, value,
 } : CurrencySelectProps) => {
     const { t } = useTranslation('profile');
-
-    const mods:Mods = {
-        [cls.readonly]: readonly,
-    };
     const onChangeCurrencySelectHandler = (value:string) => {
         onChange?.(value as Currency);
     };
 
     return (
-        <Select
-            value={value}
+        <ListBox
+            value={value ?? ''}
+            defaultValue={t('Your currency')}
             onChange={onChangeCurrencySelectHandler}
-            disabled={readonly}
-            className={classNames(cls.currencySelectContainer, mods, [className])}
-            label={t('Your currency')}
-            options={currencyOptionsArr}
+            items={currencyOptionsArr}
+            className={classNames('', {}, [className])}
+            readonly={readonly}
         />
     );
 });

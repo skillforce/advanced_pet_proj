@@ -1,9 +1,8 @@
 import React, { memo } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Country } from '../../model/types/country';
-import cls from './CountrySelect.module.scss';
 
 interface CountrySelectProps {
     className?: string,
@@ -23,21 +22,18 @@ export const CountrySelect = memo(({
 } : CountrySelectProps) => {
     const { t } = useTranslation('profile');
 
-    const mods:Mods = {
-        [cls.readonly]: readonly,
-    };
     const onChangeCountrySelectHandler = (value:string) => {
         onChange?.(value as Country);
     };
 
     return (
-        <Select
-            value={value}
+        <ListBox
+            value={value ?? ''}
+            defaultValue={t('Your country')}
             onChange={onChangeCountrySelectHandler}
-            disabled={readonly}
-            className={classNames(cls.countrySelectContainer, mods, [className])}
-            label={t('Your country')}
-            options={countryOptionsArr}
+            items={countryOptionsArr}
+            className={classNames('', {}, [className])}
+            readonly={readonly}
         />
     );
 });

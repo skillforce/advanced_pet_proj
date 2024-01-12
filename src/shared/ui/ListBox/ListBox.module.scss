@@ -1,0 +1,40 @@
+.ListBoxContainer {
+    position: relative;
+    width: fit-content;
+}
+
+.readonly {
+    opacity: 0.4;
+}
+
+.options {
+    background: var(--list-options-bg);
+    position: absolute;
+    z-index: 10000;
+    border-radius: 4px;
+    box-shadow: 2px 2px 3px var(--list-options-bg);
+    width: 100%;
+}
+
+.item {
+    padding: 8px;
+    opacity: 0.8;
+}
+
+.active {
+    opacity: 1;
+    cursor: pointer;
+    background: var(--inverted-bg-color);
+}
+
+.disabled {
+    opacity: 0.4;
+}
+
+.trigger {
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
