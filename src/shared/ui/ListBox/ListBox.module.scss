@@ -3,17 +3,16 @@
     width: fit-content;
 }
 
-.readonly {
-    opacity: 0.4;
-}
-
 .options {
     background: var(--list-options-bg);
     position: absolute;
     z-index: 10000;
     border-radius: 4px;
     box-shadow: 2px 2px 3px var(--list-options-bg);
-    width: 100%;
+}
+
+.optionsTop {
+    bottom: 100%;
 }
 
 .item {
@@ -28,7 +27,7 @@
 }
 
 .disabled {
-    opacity: 0.4;
+    opacity: 0.7;
 }
 
 .trigger {

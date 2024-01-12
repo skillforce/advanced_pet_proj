@@ -31,6 +31,8 @@ export const CurrencySelect = memo(({
             items={currencyOptionsArr}
             className={classNames('', {}, [className])}
             readonly={readonly}
+            direction="top"
+            label={t('Your currency')}
         />
     );
 });

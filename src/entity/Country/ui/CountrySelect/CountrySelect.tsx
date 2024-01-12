@@ -34,6 +34,8 @@ export const CountrySelect = memo(({
             items={countryOptionsArr}
             className={classNames('', {}, [className])}
             readonly={readonly}
+            direction="top"
+            label={t('Your country')}
         />
     );
 });
