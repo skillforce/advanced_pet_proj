@@ -1,11 +1,10 @@
 import { Fragment, memo, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { DropdownDirection } from 'shared/types/ui';
 import { Button } from '../Button/Button';
 import { HStack } from '../Stack';
 import cls from './ListBox.module.scss';
-
-type DropdownDirection = 'top' | 'bottom'
 
 export interface ListBoxItem {
     value:string;
@@ -26,12 +25,15 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass:Record<DropdownDirection, string> = {
-    bottom: cls.optionsBottom,
-    top: cls.optionsTop,
+    'top left': cls.optionsTopLeft,
+    'top right': cls.optionsTopRight,
+    'bottom left': cls.optionsBottomLeft,
+    'bottom right': cls.optionsBottomRight,
+
 };
 
 export const ListBox = memo(({
-    className, items, value, onChange, defaultValue, readonly, direction = 'bottom', label,
+    className, items, value, onChange, defaultValue, readonly, direction = 'bottom left', label,
 }: ListBoxProps) => {
     const optionsAdditionalClasses = [
         mapDirectionClass[direction],

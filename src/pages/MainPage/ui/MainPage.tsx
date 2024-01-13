@@ -18,16 +18,6 @@ function MainPage() {
             <div>
                 <Input placeholder="Enter value" value={loginValue} onChange={setLoginValue} className={cls.input} />
             </div>
-            <ListBox
-                defaultValue="Select option"
-                value=""
-                onChange={(value:string) => {}}
-                items={[
-                    { value: '1', content: 'Denis' },
-                    { value: '2', content: 'Denis1', disabled: true },
-                    { value: '3', content: 'Denis2' },
-                ]}
-            />
         </Page>
     );
 }
