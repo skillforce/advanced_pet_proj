@@ -2,7 +2,8 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { StoreProvider } from 'app/providers/StoreProvider';
+import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
+import { rtkApi } from 'shared/api/rtkApi';
 import AboutPage from './AboutPage';
 
 export default {
@@ -26,6 +27,7 @@ const initialStateMock = {
         isLoading: false,
     },
     ui: { scroll: { 'test': 0 } },
+    [rtkApi.reducerPath]: rtkApi.reducer as any,
 
 };
 

@@ -29,9 +29,11 @@ const useGetArticleRecommendationsList = recommendationsApi.useGetArticleRecomme
 export const ArticleRecommendationList = memo((props: ArticleRecommendationListProps) => {
     const { className } = props;
     const { t } = useTranslation();
-    const { isLoading, data, fulfilledTimeStamp } = useGetArticleRecommendationsList(4);
-    console.log(data);
-    console.log(fulfilledTimeStamp);
+    const { isLoading, data: recommendationsList, error } = useGetArticleRecommendationsList(4);
+
+    if (isLoading || error) {
+        return null;
+    }
 
     return (
         <VStack gap="8" className={classNames('', {}, [className])}>
@@ -40,7 +42,7 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
                 title={t('Recommend for you:')}
             />
             <ArticleList
-                articles={[]}
+                articles={recommendationsList}
                 target="_blank"
             />
         </VStack>

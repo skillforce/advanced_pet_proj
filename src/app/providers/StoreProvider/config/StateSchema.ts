@@ -12,19 +12,21 @@ import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { UISchema } from 'features/UI';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
     counter: CounterScheme;
     user: UserStateScheme;
     ui:UISchema
+    [rtkApi.reducerPath]:ReturnType<typeof rtkApi.reducer>
 
     // async reducers
-    loginForm?: LoginSchema
-    profile?: ProfileSchema
-    articleDetails?: ArticleDetailsSchema
-    articleDetailsPage?:ArticleDetailsPageSchema
-    addCommentForm?:AddCommentFormSchema
-    articlesPage?:ArticlePageSchema
+        loginForm?: LoginSchema
+        profile?: ProfileSchema
+        articleDetails?: ArticleDetailsSchema
+        articleDetailsPage?:ArticleDetailsPageSchema
+        addCommentForm?:AddCommentFormSchema
+        articlesPage?:ArticlePageSchema
 
 }
 
