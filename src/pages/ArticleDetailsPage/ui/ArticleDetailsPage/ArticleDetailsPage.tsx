@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
 import { Page } from 'widgets/Page/Page';
 import { VStack } from 'shared/ui/Stack';
+import { ArticleRecommendationList } from 'features/articleRecommendationList';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slices';
 import {
@@ -38,14 +39,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { id } = queryParams;
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
-    const recommendations = useSelector(getArticleRecommendations.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-    const recommendationsIsLoading = useSelector(getArticlePageRecommendationsIsLoading);
 
     useInitialEffect(() => {
         if (id) {
             dispatch(fetchCommentsByArticleId(id));
-            dispatch(fetchArticleRecommendations());
         }
     });
 
@@ -67,17 +65,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <Text
-                        size={TextSize.L}
-                        title={t('Recommend for you:')}
-                        className={cls.commentsContainerTitle}
-                    />
-                    <ArticleList
-                        articles={recommendations}
-                        isLoading={recommendationsIsLoading}
-                        className={cls.recommendations}
-                        target="_blank"
-                    />
+                    <ArticleRecommendationList />
                     <Text
                         size={TextSize.L}
                         title={t('Comments')}
