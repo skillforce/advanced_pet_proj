@@ -1,12 +1,12 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
-import { getProfileData } from './getProfileData';
-import { Profile } from '../../types/profile';
+import { Profile } from 'entity/Profile';
+import { getProfileForm } from './getProfileForm';
 
-describe('getProfileData.test', () => {
-    test('should return profile data', () => {
-        const profileDataMock:Profile = {
+describe('getProfileForm.test', () => {
+    test('should return profile Form', () => {
+        const formDataMock:Profile = {
             currency: Currency.USD,
             country: Country.Ukraine,
             firstName: 'Denis',
@@ -16,11 +16,11 @@ describe('getProfileData.test', () => {
             userName: 'sarcasm1613',
             avatar: '',
         };
-        const state:DeepPartial<StateSchema> = { profile: { data: profileDataMock } };
-        expect(getProfileData(state as StateSchema)).toEqual(profileDataMock);
+        const state:DeepPartial<StateSchema> = { profile: { form: formDataMock } };
+        expect(getProfileForm(state as StateSchema)).toEqual(formDataMock);
     });
     test('should return undefined', () => {
         const state:DeepPartial<StateSchema> = {};
-        expect(getProfileData(state as StateSchema)).toEqual(undefined);
+        expect(getProfileForm(state as StateSchema)).toEqual(undefined);
     });
 });

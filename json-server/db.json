@@ -629,10 +629,10 @@
   "profile": [
     {
       "id": "1",
-      "firstName": "Denis",
+      "firstName": "Denis1",
       "lastName": "Tatarinov",
       "age": 22,
-      "currency": "BYN",
+      "currency": "USD",
       "country": "Armenia",
       "city": "Minsk",
       "userName": "ulbi Tv",

@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
+import { ProfileSchema } from '../../types/editableProfileCardSchema';
 import { getProfileState } from './getProfileState';
-import { ProfileSchema } from '../../types/profile';
 
 describe('getProfileDState.test', () => {
     test('should return profile state full', () => {

@@ -1,30 +1,16 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails, ArticleList } from 'entity/Article';
+import { ArticleDetails } from 'entity/Article';
 import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useParams } from 'react-router-dom';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { CommentList } from 'entity/Comment';
-import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { AddCommentForm } from 'features/addCommentForm';
 import { Page } from 'widgets/Page/Page';
 import { VStack } from 'shared/ui/Stack';
 import { ArticleRecommendationList } from 'features/articleRecommendationList';
+import { ArticleDetailsComments } from '../../ui/ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slices';
-import {
-    fetchArticleRecommendations,
-} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { getArticleRecommendations } from '../../model/slices/ArticleDetailsPageRecommendationsSlice';
 import cls from './ArticleDetailsPage.module.scss';
-import { getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
-import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
-import { getArticlePageRecommendationsIsLoading } from '../../model/selectors/recommendations';
 
 const reducers:ReducersListSchema = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -37,19 +23,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article');
     const queryParams = useParams<{id:string}>();
     const { id } = queryParams;
-    const dispatch = useAppDispatch();
-    const comments = useSelector(getArticleComments.selectAll);
-    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-
-    useInitialEffect(() => {
-        if (id) {
-            dispatch(fetchCommentsByArticleId(id));
-        }
-    });
-
-    const onSendComment = useCallback((newCommentText:string) => {
-        dispatch(addCommentForArticle(newCommentText));
-    }, [dispatch]);
 
     if (!id) {
         return (
@@ -66,13 +39,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ArticleRecommendationList />
-                    <Text
-                        size={TextSize.L}
-                        title={t('Comments')}
-                        className={cls.commentsContainerTitle}
-                    />
-                    <AddCommentForm onSendComment={onSendComment} />
-                    <CommentList isLoading={commentsIsLoading} comments={comments} />
+                    <ArticleDetailsComments id={id} />
+
                 </VStack>
             </Page>
         </DynamicModuleLoader>

@@ -17,5 +17,6 @@
   "Incorrect country value": "Неверное значение поля 'страна'",
   "No data": "Информация отсутствует",
   "Incorrect age value": "Неверное значение поля 'возраст'",
-  "Incorrect user name value": "Неверное значение поля 'имя' или 'фамилия'"
+  "Incorrect user name value": "Неверное значение поля 'имя' или 'фамилия'",
+  "Profile doesn't founded": "Профиль не найден"
 }

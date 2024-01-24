@@ -4,27 +4,13 @@ import React, { memo } from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { ArticleList } from 'entity/Article';
 import { VStack } from 'shared/ui/Stack';
-import { rtkApi } from 'shared/api/rtkApi';
+import {
+    useGetArticleRecommendationsList,
+} from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationListProps {
     className?: string;
 }
-
-const recommendationsApi = rtkApi.injectEndpoints({
-    endpoints: (build) => ({
-        getArticleRecommendationsList: build.query({
-            query: (limit) => ({
-                url: '/articles',
-                params: {
-                    _limit: limit,
-                },
-            }),
-        }),
-    }),
-    overrideExisting: false,
-});
-
-const useGetArticleRecommendationsList = recommendationsApi.useGetArticleRecommendationsListQuery;
 
 export const ArticleRecommendationList = memo((props: ArticleRecommendationListProps) => {
     const { className } = props;

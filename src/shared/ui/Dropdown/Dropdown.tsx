@@ -30,8 +30,6 @@ const mapDirectionClass:Record<DropdownDirection, string> = {
 export const Dropdown = memo(({
     className, trigger, items, direction = 'bottom right',
 }: DropdownProps) => {
-    const { t } = useTranslation();
-
     const menuAdditionalClasses = [
         mapDirectionClass[direction],
     ];
@@ -46,6 +44,7 @@ export const Dropdown = memo(({
                 }) => {
                     const menuOptionContent = ({ active }: { active: boolean }) => (
                         <button
+                            key={href}
                             type="button"
                             onClick={onClick}
                             className={classNames(cls.item, { [cls.active]: active }, [])}
@@ -55,13 +54,13 @@ export const Dropdown = memo(({
                     );
                     if (href) {
                         return (
-                            <Menu.Item as={AppLink} className={cls.linkMenuItem} to={href} disabled={disabled}>
+                            <Menu.Item key={href} as={AppLink} className={cls.linkMenuItem} to={href} disabled={disabled}>
                                 {menuOptionContent}
                             </Menu.Item>
                         );
                     }
                     return (
-                        <Menu.Item as={Fragment} disabled={disabled}>
+                        <Menu.Item key={href} as={Fragment} disabled={disabled}>
                             {menuOptionContent}
                         </Menu.Item>
                     );
