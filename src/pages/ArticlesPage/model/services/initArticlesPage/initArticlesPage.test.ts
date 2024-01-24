@@ -20,7 +20,7 @@ describe('initArticlesPage.test.ts', () => {
             },
         });
         await thunk.callThunk({} as URLSearchParams);
-        expect(thunk.dispatch).toBeCalledTimes(4);
+        expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticlesList).toHaveBeenCalledWith({ page: 1 });
     });
     test('test initArticlesPage thunk not Called _inited:true', async () => {
