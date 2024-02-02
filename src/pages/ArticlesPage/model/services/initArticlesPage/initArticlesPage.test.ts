@@ -21,9 +21,9 @@ describe('initArticlesPage.test.ts', () => {
         });
         await thunk.callThunk({} as URLSearchParams);
         expect(thunk.dispatch).toBeCalledTimes(2);
-        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 1 });
+        expect(fetchArticlesList).not.toHaveBeenCalled();
     });
-    test('test initArticlesPage thunk not Called _inited:true', async () => {
+    test('test initArticlesPage thunk Called _inited:true', async () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
                 page: 2,

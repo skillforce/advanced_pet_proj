@@ -34,7 +34,7 @@ export const buildPlugins = ({
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
         plugins.push(new webpack.HotModuleReplacementPlugin());
-        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: true, analyzerMode: isAnalyze ? 'server' : 'disabled' }));
+        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: isAnalyze ? 'server' : 'disabled' }));
     }
 
     return plugins;
