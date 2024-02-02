@@ -10,6 +10,9 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from 'shared/ui/Stack';
+import {
+    EditableProfileCardHeader,
+} from 'features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader';
 import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
@@ -82,12 +85,14 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                 max
                 className={classNames('', {}, [className])}
             >
+                <EditableProfileCardHeader />
                 {validateProfileErrors?.length
                     && validateProfileErrors.map((error) => (
                         <Text
                             key={error}
                             bodyText={validateErrorTranslates[error]}
                             theme={TextTheme.ERROR}
+                            data-testid="EditableProfileCard.Error"
                         />
                     ))}
 

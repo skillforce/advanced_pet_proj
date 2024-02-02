@@ -17,7 +17,7 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
     const { t } = useTranslation();
     const { isLoading, data: recommendationsList, error } = useGetArticleRecommendationsList(4);
 
-    if (isLoading || error) {
+    if (isLoading || error || !recommendationsList) {
         return null;
     }
 
@@ -28,6 +28,7 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
                 title={t('Recommend for you:')}
             />
             <ArticleList
+                virtualized={false}
                 articles={recommendationsList}
                 target="_blank"
             />

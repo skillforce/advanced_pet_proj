@@ -15,6 +15,7 @@ interface ArticleListProps {
     isLoading?:boolean;
     view?:ArticlesView
     target?:HTMLAttributeAnchorTarget;
+    virtualized?:boolean
 
 }
 
@@ -34,6 +35,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         isLoading,
         view = ArticlesView.SMALL,
         target,
+        virtualized = true,
 
     } = props;
     const { t } = useTranslation('article');
@@ -94,18 +96,31 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     isScrolling,
                 }) => (
                     <div ref={registerChild} className={classNames(cls.ArticleListContainer, {}, [cls[view], className])}>
-                        <List
-                            autoHeight
-                            scrollTop={scrollTop}
-                            onChildScroll={onChildScroll}
-                            scrollLeft={scrollLeft}
-                            isScrolling={isScrolling}
-                            rowCount={rowCount}
-                            rowHeight={isBig ? 700 : 350}
-                            rowRenderer={rowRender}
-                            height={height ?? 700}
-                            width={width ? width - 55 : 1180}
-                        />
+
+                        {virtualized ? (
+                            <List
+                                autoHeight
+                                scrollTop={scrollTop}
+                                onChildScroll={onChildScroll}
+                                scrollLeft={scrollLeft}
+                                isScrolling={isScrolling}
+                                rowCount={rowCount}
+                                rowHeight={isBig ? 700 : 350}
+                                rowRenderer={rowRender}
+                                height={height ?? 700}
+                                width={width ? width - 55 : 1180}
+                            />
+                        ) : (
+                            articles.map((article) => (
+                                <ArticleListItem
+                                    article={article}
+                                    target={target}
+                                    className={cls.card}
+                                    view={view}
+                                    key={article.id}
+                                />
+                            ))
+                        )}
 
                     </div>
                 )}
