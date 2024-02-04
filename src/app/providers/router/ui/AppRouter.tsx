@@ -5,7 +5,9 @@ import { AppRouteProps, routeConfig } from 'shared/config/routeConfig/routeConfi
 import { ProtectedRoute } from 'app/providers/router/ui/RequireAuth';
 
 function AppRouter() {
-    const routeGenerator = useCallback(({ path, authOnly, element }:AppRouteProps) => {
+    const routeGenerator = useCallback(({
+        path, authOnly, roles, element,
+    }:AppRouteProps) => {
         let routeElement = (
             <Suspense fallback={<PageLoader />}>
                 {element}
@@ -13,7 +15,7 @@ function AppRouter() {
         );
         if (authOnly) {
             routeElement = (
-                <ProtectedRoute>
+                <ProtectedRoute roles={roles}>
                     {routeElement}
                 </ProtectedRoute>
             );

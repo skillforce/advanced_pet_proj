@@ -616,14 +616,21 @@
       "username": "Denis",
       "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png",
       "password": "12345",
-      "role": "ADMIN"
+      "roles": ["ADMIN"]
     },
     {
       "id": "2",
-      "username": "user",
+      "username": "User",
       "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg",
-      "password": "123",
-      "role": "USER"
+      "password": "12345",
+      "role": ["USER"]
+    },
+    {
+      "id": "3",
+      "username": "Manager",
+      "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg",
+      "password": "12345",
+      "role": ["MANAGER"]
     }
   ],
   "profile": [

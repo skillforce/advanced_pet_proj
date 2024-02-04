@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entity/User';
+import {
+    getUserAuthData, userActions, isUserAdmin, isUserManager,
+} from 'entity/User';
 
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinksTheme } from 'shared/ui/AppLink/AppLink';
@@ -20,6 +22,9 @@ interface NavBarProps {
 export const NavBar = memo(({ className }:NavBarProps) => {
     const userAuthData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+    const isAdminPanelAvailable = isManager || isAdmin;
 
     const { t } = useTranslation();
 
@@ -50,13 +55,19 @@ export const NavBar = memo(({ className }:NavBarProps) => {
                     className={cls.dropdown}
                     direction="bottom left"
                     items={[
-                        {
-                            content: t('Log out'),
-                            onClick: onLogOut,
-                        },
+                        ...(isAdminPanelAvailable ? [
+                            {
+                                content: t('Admin panel'),
+                                href: RoutePaths.admin_panel,
+                            },
+                        ] : []),
                         {
                             content: t('Profile'),
                             href: `${RoutePaths.profile}/${userAuthData.id}`,
+                        },
+                        {
+                            content: t('Log out'),
+                            onClick: onLogOut,
                         },
                     ]}
                     trigger={<Avatar size={30} src={userAuthData.avatar} />}
