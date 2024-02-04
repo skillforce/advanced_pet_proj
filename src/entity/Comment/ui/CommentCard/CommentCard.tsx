@@ -22,6 +22,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
         return (
             <VStack
                 max
+                gap="8"
                 className={classNames(cls.CommentCardContainer, {}, [className, cls.loading])}
             >
                 <HStack
