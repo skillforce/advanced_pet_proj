@@ -1,5 +1,5 @@
 import React, {
-    FC, useEffect, useMemo, useState,
+    FC, PropsWithChildren, useEffect, useMemo, useState,
 } from 'react';
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
 
@@ -10,7 +10,7 @@ interface ThemeProviderProps {
 }
 
 // PropsWithChildren(type for react 18+)
-const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
+const ThemeProvider: FC<PropsWithChildren & ThemeProviderProps> = ({ children, initialTheme }) => {
     const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme);
     // установка корректной темы после перезагрузки страницы
     useEffect(() => {
