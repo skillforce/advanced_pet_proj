@@ -24,14 +24,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const queryParams = useParams<{id:string}>();
     const { id } = queryParams;
 
-    if (!id) {
-        return (
-            <div className={classNames(cls.ArticleDetailsPageContainer, {}, [className])}>
-                {t('Article doesn\'t exist')}
-            </div>
-        );
-    }
-
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames(cls.ArticleDetailsPageContainer, {}, [className])}>

@@ -19,41 +19,41 @@ const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />
 
 export const TopLeft = Template.bind({});
 TopLeft.args = {
-    value: 'alalalalal',
+    value: 'TestForStory',
     direction: 'top left',
     items: [
-        { content: '12dcsdcsdcsdc3', value: '123' },
-        { content: '12dcsdcsdcsdc3', value: '12dcsdcsdcsdc3' },
-        { content: '12dcsdcsdcsdc3', value: '12dcsdcsdcsdc3' },
+        { content: 'test listBox item 1', value: '1' },
+        { content: 'test listBox item 2', value: '2' },
+        { content: 'test listBox item 3', value: '3' },
     ],
 };
 export const TopRight = Template.bind({});
 TopRight.args = {
-    value: 'alalalalal',
+    value: 'TestForStory',
     direction: 'top right',
     items: [
-        { content: '12dcsdcsdcsdc3', value: '12dcsdcsdcsdc3' },
-        { content: '1', value: '12dcsdcsdcsdc3' },
-        { content: '1223', value: '567' },
+        { content: 'test listBox item 1', value: '1' },
+        { content: 'test listBox item 2', value: '2' },
+        { content: 'test listBox item 3', value: '3' },
     ],
 };
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {
-    value: 'alalalalal',
+    value: 'TestForStory',
     direction: 'bottom left',
     items: [
-        { content: '12dcsdcsdcsdc3', value: '123' },
-        { content: '1', value: '12dcsdcsdcsdc3' },
-        { content: '12dcsdcsdcsdc3', value: '12dcsdcsdcsdc3' },
+        { content: 'test listBox item 1', value: '1' },
+        { content: 'test listBox item 2', value: '2' },
+        { content: 'test listBox item 3', value: '3' },
     ],
 };
 export const BottomRight = Template.bind({});
 BottomRight.args = {
-    value: 'alalalalal',
+    value: 'TestForStory',
     direction: 'bottom right',
     items: [
-        { content: '12dcsdcsdcsdc3', value: '12dcsdcsdcsdc3' },
-        { content: '1', value: '34sdcsdcsdcsd5' },
-        { content: '1223', value: '567csdcsdcsdc' },
+        { content: 'test listBox item 1', value: '1' },
+        { content: 'test listBox item 2', value: '2' },
+        { content: 'test listBox item 3', value: '3' },
     ],
 };

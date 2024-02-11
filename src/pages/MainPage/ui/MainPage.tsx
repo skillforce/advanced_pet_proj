@@ -4,8 +4,6 @@ import { BugButton } from 'app/providers/ErrorBoundary';
 import { Input } from 'shared/ui/Input/Input';
 import cls from 'features/AuthByUserName/ui/LoginForm/LoginForm.module.scss';
 import { Page } from 'widgets/Page/Page';
-import { HStack } from 'shared/ui/Stack';
-import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 function MainPage() {
     const { t } = useTranslation('translation');

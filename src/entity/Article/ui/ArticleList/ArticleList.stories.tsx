@@ -92,6 +92,8 @@ export const BigArticleListLoading = Template.bind({});
 BigArticleListLoading.args = {
     view: ArticlesView.BIG,
     isLoading: true,
+    articles: new Array(16)
+        .fill(0).map((item, index) => ({ ...articlemock, id: String(index) })),
 };
 export const SmallArticleList = Template.bind({});
 SmallArticleList.args = {
@@ -103,4 +105,6 @@ export const SmallArticleListLoading = Template.bind({});
 SmallArticleListLoading.args = {
     view: ArticlesView.SMALL,
     isLoading: true,
+    articles: new Array(16)
+        .fill(0).map((item, index) => ({ ...articlemock, id: String(index) })),
 };

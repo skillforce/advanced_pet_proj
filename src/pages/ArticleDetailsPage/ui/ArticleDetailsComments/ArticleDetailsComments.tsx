@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, Suspense, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text, TextSize } from 'shared/ui/Text/Text';
@@ -16,7 +16,7 @@ import cls from './ArticleDetailsComments.module.scss';
 
 interface ArticleDetailsCommentsProps {
     className?: string
-    id:string
+    id?:string
 }
 
 export const ArticleDetailsComments = memo(({ className, id }: ArticleDetailsCommentsProps) => {

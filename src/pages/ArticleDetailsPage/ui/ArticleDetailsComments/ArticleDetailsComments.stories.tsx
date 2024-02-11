@@ -1,5 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import {
+    Normal,
+} from 'features/articleRecommendationList/ui/ArticleRecommendationList/ArticleRecommendationList.stories';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 export default {
@@ -12,3 +16,4 @@ const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => <Artic
 
 export const PrimaryArticleDetailsComments = Template.bind({});
 PrimaryArticleDetailsComments.args = {};
+PrimaryArticleDetailsComments.decorators = [StoreDecorator({})];

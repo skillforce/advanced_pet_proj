@@ -24,7 +24,7 @@ import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileF
 
 interface EditableProfileCardProps {
     className?: string;
-    id:string;
+    id?:string;
 }
 const reducers:ReducersListSchema = {
     profile: profileReducer,

@@ -13,13 +13,8 @@ interface ProfilePageProps {
 
 function ProfilePage({ className }:ProfilePageProps) {
     const queryParams = useParams<{id:string}>();
-    const { t } = useTranslation('profile');
-
     const { id } = queryParams;
 
-    if (!id) {
-        return <Text title={t('Profile doesn\'t founded')} theme={TextTheme.ERROR} />;
-    }
     return (
         <Page className={classNames('', {}, [className])}>
             <VStack
