@@ -13,12 +13,6 @@ export const addCommentFormSlice = createSlice({
             state.text = action.payload;
         },
     },
-    extraReducers: (builder) => {
-        // builder.addCase(loginByUsername.pending, (state) => {
-        // state.error = undefined;
-        // state.isLoading = true;
-        // });
-    },
 });
 
 export const { actions: addCommentFormActions } = addCommentFormSlice;

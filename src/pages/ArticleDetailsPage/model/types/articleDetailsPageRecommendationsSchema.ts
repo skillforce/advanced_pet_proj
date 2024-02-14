@@ -1,4 +1,3 @@
-import { Comment } from 'entity/Comment';
 import { EntityState } from '@reduxjs/toolkit';
 import { Article } from 'entity/Article';
 

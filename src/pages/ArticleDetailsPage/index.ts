@@ -7,6 +7,9 @@ import { ArticleDetailsPageSchema } from './model/types';
 
 export {
     ArticleDetailsPage,
+};
+
+export type {
     ArticleDetailsCommentsSchema,
     ArticleDetailsPageRecommendationsSchema,
     ArticleDetailsPageSchema,

@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
-import { getUserAuthData, getUserRoles } from 'entity/User';
+import { getUserAuthData, getUserRoles, UserRoles } from 'entity/User';
 import { Navigate, useLocation } from 'react-router-dom';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
-import { UserRoles } from 'entity/User/model/types/UserStateScheme';
 import { useMemo } from 'react';
 
 type ProtectedRouteProps = {

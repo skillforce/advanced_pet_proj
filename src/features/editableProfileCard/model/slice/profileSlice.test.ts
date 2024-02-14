@@ -1,9 +1,10 @@
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
 import { Profile } from 'entity/Profile';
-import { ProfileSchema, ValidateProfileError } from '../types/editableProfileCardSchema';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { profileActions, profileReducer } from './profileSlice';
+import { ValidateProfileError } from '../consts/consts';
 
 const profileMockData:Profile = {
     currency: Currency.USD,

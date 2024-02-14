@@ -13,7 +13,7 @@ export const rtkApi = createApi({
             return headers;
         },
     }),
-    endpoints: (builder) => ({}),
+    endpoints: () => ({}),
 });
 
 // export const { useGetPokemonByNameQuery } = pokemonApi;

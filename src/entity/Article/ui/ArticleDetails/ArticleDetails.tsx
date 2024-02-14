@@ -12,6 +12,7 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ArticlesBlocksType } from '../../model/consts/consts';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -21,7 +22,7 @@ import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ArticleBlocks, ArticlesBlocksType } from '../../model/types/article';
+import { ArticleBlocks } from '../../model/types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import CalendarIcon from '../../../../shared/assets/icons/calendarIcon.svg';
 import EyeIcon from '../../../../shared/assets/icons/eyeIcon.svg';

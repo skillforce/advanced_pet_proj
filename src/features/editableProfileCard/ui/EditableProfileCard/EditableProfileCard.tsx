@@ -12,8 +12,8 @@ import { DynamicModuleLoader, ReducersListSchema } from 'shared/lib/components/D
 import { VStack } from 'shared/ui/Stack';
 import {
     EditableProfileCardHeader,
-} from 'features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader';
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
+} from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { ValidateProfileError } from '../../model/consts/consts';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';

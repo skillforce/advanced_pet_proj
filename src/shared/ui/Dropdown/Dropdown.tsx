@@ -1,6 +1,5 @@
 import React, { Fragment, memo, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { Menu } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types/ui';
 import { AppLink } from '../AppLink/AppLink';

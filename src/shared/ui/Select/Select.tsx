@@ -1,8 +1,5 @@
-import React, {
-    ChangeEvent, memo, SelectHTMLAttributes, useMemo,
-} from 'react';
+import React, { ChangeEvent, SelectHTMLAttributes, useMemo } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import cls from './Select.module.scss';
 
 export interface SelectOption<T>{

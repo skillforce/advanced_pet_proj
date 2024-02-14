@@ -1,6 +1,6 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Article, ArticlesView } from '../../model/types/article';
+import { ArticlesView } from '../../model/consts/consts';
+import { Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
 
 export default {
@@ -8,6 +8,7 @@ export default {
     component: ArticleListItem,
 
 } as ComponentMeta<typeof ArticleListItem>;
+
 const articlemock = {
     id: '1',
     title: 'Javascript news',

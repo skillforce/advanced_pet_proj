@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getUserAuthData, UserStateScheme } from 'entity/User';
+import { getUserAuthData } from 'entity/User';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import MainPageIcon from 'shared/assets/icons/mainPageIcon.svg';
 import AboutPageIcon from 'shared/assets/icons/aboutPageIcon.svg';

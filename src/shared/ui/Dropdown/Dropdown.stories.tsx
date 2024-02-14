@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { actions } from '@storybook/addon-actions';
-import { Button } from 'shared/ui/Button/Button';
+import { Button } from '../Button/Button';
 import { Dropdown } from './Dropdown';
 
 export default {
@@ -14,7 +13,8 @@ const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} 
 
 export const PrimaryDropdown = Template.bind({});
 PrimaryDropdown.args = {
-    trigger: <Button>alalalala</Button>,
+    // eslint-disable-next-line i18next/no-literal-string
+    trigger: <Button>testButton</Button>,
     items: [
         { content: 'first' },
         { content: 'second' },
