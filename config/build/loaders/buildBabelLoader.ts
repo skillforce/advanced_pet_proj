@@ -1,7 +1,11 @@
 import { BuildOptions } from '../types/config';
 
-export const buildBabelLoader = ({ isDev }:BuildOptions) => ({
-    test: /\.m?(js|ts|tsx)$/,
+interface BuildBabelLoaderProps extends BuildOptions {
+    isTsx:boolean
+}
+
+export const buildBabelLoader = ({ isDev, isTsx }:BuildBabelLoaderProps) => ({
+    test: isTsx ? /\.(ts|tsx)$/ : /\.(jsx|js)$/,
     exclude: /node_modules/,
     use: {
         loader: 'babel-loader',
@@ -9,7 +13,15 @@ export const buildBabelLoader = ({ isDev }:BuildOptions) => ({
             presets: ['@babel/preset-env'],
             plugins: [
                 isDev && require.resolve('react-refresh/babel'),
+                ['@babel/plugin-transform-typescript',
+                    {
+                        isTsx,
+                    },
+                ],
+                '@babel/plugin-transform-runtime',
+
             ].filter(Boolean),
+
         },
 
     },
