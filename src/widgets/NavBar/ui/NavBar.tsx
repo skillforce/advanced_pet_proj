@@ -5,14 +5,16 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-    getUserAuthData, userActions, isUserAdmin, isUserManager,
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from 'entity/User';
-
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinksTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { Dropdown, Popover } from 'shared/ui/Popups';
+import notificationIcon from '../../../shared/assets/icons/notification.svg';
 import cls from './NavBar.module.scss';
 
 interface NavBarProps {
@@ -51,27 +53,39 @@ export const NavBar = memo(({ className }:NavBarProps) => {
                         {t('Create a new article')}
                     </AppLink>
                 </div>
-                <Dropdown
-                    className={cls.dropdown}
-                    direction="bottom left"
-                    items={[
-                        ...(isAdminPanelAvailable ? [
+                <HStack gap="16" className={cls.actions}>
+                    <Popover
+                        direction="bottom left"
+                        trigger={(
+                            <Button theme={ButtonTheme.CLEAR}>
+                                <Icon inverted Svg={notificationIcon} />
+                            </Button>
+                        )}
+                    >
+                        {t('dscsdcsdcsdcsdcs')}
+                    </Popover>
+                    <Dropdown
+                        className={cls.dropdown}
+                        direction="bottom left"
+                        items={[
+                            ...(isAdminPanelAvailable ? [
+                                {
+                                    content: t('Admin panel'),
+                                    href: RoutePaths.admin_panel,
+                                },
+                            ] : []),
                             {
-                                content: t('Admin panel'),
-                                href: RoutePaths.admin_panel,
+                                content: t('Profile'),
+                                href: `${RoutePaths.profile}/${userAuthData.id}`,
                             },
-                        ] : []),
-                        {
-                            content: t('Profile'),
-                            href: `${RoutePaths.profile}/${userAuthData.id}`,
-                        },
-                        {
-                            content: t('Log out'),
-                            onClick: onLogOut,
-                        },
-                    ]}
-                    trigger={<Avatar size={30} src={userAuthData.avatar} />}
-                />
+                            {
+                                content: t('Log out'),
+                                onClick: onLogOut,
+                            },
+                        ]}
+                        trigger={<Avatar size={30} src={userAuthData.avatar} />}
+                    />
+                </HStack>
 
             </header>
         );

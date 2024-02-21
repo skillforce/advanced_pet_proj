@@ -1,0 +1,12 @@
+.options {
+    background: var(--list-options-bg);
+    position: absolute;
+    z-index: 10000;
+    border-radius: 4px;
+    box-shadow: 2px 2px 3px var(--list-options-bg);
+}
+
+.item {
+    padding: 8px;
+    opacity: 0.8;
+}

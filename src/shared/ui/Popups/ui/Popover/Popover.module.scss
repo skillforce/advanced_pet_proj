@@ -1,0 +1,8 @@
+.panel {
+    background: var(--list-options-bg);
+    position: absolute;
+    z-index: 10000;
+    border-radius: 4px;
+    border: 1px solid var(--inverted-primary-text-color);
+    padding: 15px;
+}

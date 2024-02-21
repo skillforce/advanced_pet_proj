@@ -1,17 +1,3 @@
-.DropdownContainer {
-    position: relative;
-    width: fit-content;
-}
-
-.button {
-    background: none;
-    outline: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-}
-
 .menu {
     background: var(--list-options-bg);
     position: absolute;
@@ -33,30 +19,6 @@
     a {
         color: var(--inverted-primary-text-color);
     }
-}
-
-.active {
-    background: var(--inverted-bg-color);
-}
-
-.optionsTopLeft {
-    bottom: 100%;
-    right: 0;
-}
-
-.optionsTopRight {
-    bottom: 100%;
-    left: 0;
-}
-
-.optionsBottomLeft {
-    top: 100%;
-    right: 0;
-}
-
-.optionsBottomRight {
-    top: 100%;
-    left: 0;
 }
 
 .linkMenuItem {
