@@ -14,6 +14,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { HStack } from 'shared/ui/Stack';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Dropdown, Popover } from 'shared/ui/Popups';
+import { NotificationList } from 'entity/Notification';
 import notificationIcon from '../../../shared/assets/icons/notification.svg';
 import cls from './NavBar.module.scss';
 
@@ -62,7 +63,7 @@ export const NavBar = memo(({ className }:NavBarProps) => {
                             </Button>
                         )}
                     >
-                        {t('dscsdcsdcsdcsdcs')}
+                        <NotificationList className={cls.notifications} />
                     </Popover>
                     <Dropdown
                         className={cls.dropdown}
