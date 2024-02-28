@@ -6,20 +6,14 @@
     right: 0;
     opacity: 0;
     pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modalContainer.dark {
     --bg-color: #0190a0;
     --primary-text-color: #f3f3f3;
-}
-
-.overlay {
-    height: 100%;
-    width: 100%;
-    background-color: var(--overlay-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .content {
