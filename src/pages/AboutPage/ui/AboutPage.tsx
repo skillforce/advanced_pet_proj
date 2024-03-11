@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Counter } from 'entity/Counter';
-import { Page } from 'widgets/Page/Page';
+import { Counter } from '@/entity/Counter';
+import { Page } from '@/widgets/Page/Page';
 
 function AboutPage() {
     const { t } = useTranslation('aboutPage');

@@ -1,6 +1,6 @@
-import { Currency } from 'entity/Currency';
-import { Country } from 'entity/Country';
-import { Profile } from 'entity/Profile';
+import { Currency } from '@/entity/Currency';
+import { Country } from '@/entity/Country';
+import { Profile } from '@/entity/Profile';
 import { ValidateProfileError } from '../../consts/consts';
 import { validateProfile } from './validateProfile';
 

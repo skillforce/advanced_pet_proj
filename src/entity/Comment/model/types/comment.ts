@@ -1,4 +1,4 @@
-import { UserScheme } from 'entity/User';
+import { UserScheme } from '@/entity/User';
 
 export interface Comment {
     id: string,

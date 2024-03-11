@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { counterActions } from '../model/slice/counterSlice';
 import cls from './Counter.module.scss';

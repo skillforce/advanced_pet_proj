@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import { ArticlesView } from '../../model/consts/consts';
 import cls from './ArticleViewSelector.module.scss';
 import ListIcon from '../../../../shared/assets/icons/list-24-24.svg';

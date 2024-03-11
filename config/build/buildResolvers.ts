@@ -6,5 +6,7 @@ export const buildResolvers = (options: BuildOptions): ResolveOptions => ({
     preferAbsolute: true,
     modules: [options.paths.src, 'node_modules'],
     mainFiles: ['index'],
-    alias: {}, // укажешь @ -будут ссылки вида @/app/..... (по дефолту будет app/kakak/dcdscs/....
+    alias: {
+        '@': options.paths.src,
+    }, // укажешь @ -будут ссылки вида @/app/..... (по дефолту будет app/kakak/dcdscs/....
 });

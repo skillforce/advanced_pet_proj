@@ -20,6 +20,7 @@
     max-width: 60%;
     background-color: var(--bg-color);
     color: var(--primary-text-color);
+    z-index: var(--modal-z-index);
     border-radius: 6px;
     padding: 10px 15px;
     cursor: default;
