@@ -6,12 +6,11 @@ import { useGetArticleRatingQuery, useRateArticleMutation } from '../../api/arti
 import { getUserAuthData } from '@/entity/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
-interface ArticleRatingProps {
+export interface ArticleRatingProps {
     className?: string
     articleId:string
 }
-
-export const ArticleRating = memo(
+const ArticleRating = memo(
     ({ className, articleId }: ArticleRatingProps) => {
         const { t } = useTranslation('article');
         const userData = useSelector(getUserAuthData);
@@ -60,3 +59,4 @@ export const ArticleRating = memo(
         );
     },
 );
+export default ArticleRating;

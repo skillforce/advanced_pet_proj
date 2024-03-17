@@ -6,13 +6,13 @@ import { getUserAuthData } from '@/entity/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { useGetProfileRatingQuery, useRateProfileMutation } from '../../api/profileRatingApi';
 
-interface ArticleRatingProps {
+export interface ProfileRatingProps {
     className?: string
     profileId:string
 }
 
-export const ProfileRating = memo(
-    ({ className, profileId }: ArticleRatingProps) => {
+const ProfileRating = memo(
+    ({ className, profileId }: ProfileRatingProps) => {
         const { t } = useTranslation('profile');
         const userData = useSelector(getUserAuthData);
 
@@ -60,3 +60,5 @@ export const ProfileRating = memo(
         );
     },
 );
+
+export default ProfileRating;
