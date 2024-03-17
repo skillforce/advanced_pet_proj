@@ -4,7 +4,7 @@ import { BugButton } from '@/app/providers/ErrorBoundary';
 import { Input } from '@/shared/ui/Input/Input';
 import cls from '@/features/AuthByUserName/ui/LoginForm/LoginForm.module.scss';
 import { Page } from '@/widgets/Page/Page';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
+import { RatingCard } from '@/entity/Rating';
 
 function MainPage() {
     const { t } = useTranslation('translation');
@@ -18,7 +18,7 @@ function MainPage() {
                 <Input placeholder="Enter value" value={loginValue} onChange={setLoginValue} className={cls.input} />
             </div>
 
-            <StarRating />
+            <RatingCard title="Как вам статья?" feedbackTitle="Оставьте отзыв о статье" hasFeedback />
         </Page>
     );
 }
