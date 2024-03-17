@@ -1,8 +1,6 @@
 import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './RatingCard.module.scss';
 import { Card } from '@/shared/ui/Card/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
@@ -19,6 +17,7 @@ interface RatingCardProps {
     hasFeedback?:boolean
     onCancel?:(starsCount:number)=>void
     onAccept?:(starsCount:number, feedback?:string)=>void
+    rate?:number
 }
 
 export const RatingCard = memo(({
@@ -28,10 +27,11 @@ export const RatingCard = memo(({
     hasFeedback,
     onCancel,
     onAccept,
+    rate = 0,
 }: RatingCardProps) => {
     const { t } = useTranslation('rating');
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const onCloseModal = useCallback(() => {
@@ -49,8 +49,8 @@ export const RatingCard = memo(({
 
     const acceptHandler = useCallback(() => {
         setIsModalOpen(false);
-        onAccept?.(starsCount);
-    }, [onAccept, starsCount]);
+        onAccept?.(starsCount, feedback);
+    }, [feedback, onAccept, starsCount]);
 
     const cancelHandler = useCallback(() => {
         onCloseModal();
@@ -70,10 +70,17 @@ export const RatingCard = memo(({
     );
 
     return (
-        <Card className={classNames(cls.RatingCardContainer, {}, [className])}>
+        <Card
+            className={className}
+            max
+        >
             <VStack align="center" gap="8">
-                <Text title={title} />
-                <StarRating size={40} onSelect={onSelectStars} selectedStars={starsCount} />
+                <Text title={starsCount ? t('Thank\'s for your review!') : title} />
+                <StarRating
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
             </VStack>
             <BrowserView>
                 <Modal
@@ -83,7 +90,11 @@ export const RatingCard = memo(({
                 >
                     <VStack max gap="32">
                         {modalContent}
-                        <HStack max gap="8" justify="end">
+                        <HStack
+                            max
+                            gap="8"
+                            justify="end"
+                        >
                             <Button
                                 onClick={acceptHandler}
                             >

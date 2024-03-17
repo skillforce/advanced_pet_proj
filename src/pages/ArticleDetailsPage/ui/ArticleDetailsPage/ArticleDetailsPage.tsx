@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleDetails } from '@/entity/Article';
@@ -11,6 +10,7 @@ import { ArticleDetailsComments } from '../../ui/ArticleDetailsComments/ArticleD
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slices';
 import cls from './ArticleDetailsPage.module.scss';
+import { ArticleRating } from '@/features/articleRating';
 
 const reducers:ReducersListSchema = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -23,12 +23,17 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const queryParams = useParams<{id:string}>();
     const { id } = queryParams;
 
+    if (!id) {
+        return null;
+    }
+
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames(cls.ArticleDetailsPageContainer, {}, [className])}>
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
+                    <ArticleRating articleId={id} />
                     <ArticleRecommendationList />
                     <ArticleDetailsComments id={id} />
 

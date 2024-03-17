@@ -726,5 +726,50 @@
       "userName": "sarcasm1613",
       "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "rate": 5,
+      "userId": "1",
+      "articleId": "3",
+      "id": "HE_S3Mg"
+    },
+    {
+      "rate": 3,
+      "userId": "1",
+      "feedback": "",
+      "articleId": "4",
+      "id": "d6KiovV"
+    },
+    {
+      "rate": 1,
+      "userId": "1",
+      "feedback": "лалалал",
+      "articleId": "5",
+      "id": "-vIV3oR"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "rate": 3,
+      "userId": "1",
+      "feedback": "Круто!",
+      "profileId": "2",
+      "id": 1
+    }
   ]
 }

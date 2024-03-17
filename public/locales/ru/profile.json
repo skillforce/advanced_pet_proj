@@ -18,5 +18,7 @@
   "No data": "Информация отсутствует",
   "Incorrect age value": "Неверное значение поля 'возраст'",
   "Incorrect user name value": "Неверное значение поля 'имя' или 'фамилия'",
-  "Profile doesn't founded": "Профиль не найден"
+  "Profile doesn't founded": "Профиль не найден",
+  "Rate this profile please": "Оцените этот профиль пожалуйста",
+  "Leave your comment it'll help us to improve quality of service": "Оставьте комментарий это поможет нам сделать сервис лучше"
 }

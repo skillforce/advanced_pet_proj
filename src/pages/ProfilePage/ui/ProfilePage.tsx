@@ -1,9 +1,12 @@
 import React, { memo } from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page/Page';
 import { VStack } from '@/shared/ui/Stack';
 import { EditableProfileCard } from '@/features/editableProfileCard';
+import { ProfileRating } from '@/features/profileRating/ui/ProfileRating/ProfileRating';
+import { getUserAuthData } from '@/entity/User';
 
 interface ProfilePageProps {
     className?: string
@@ -12,6 +15,13 @@ interface ProfilePageProps {
 function ProfilePage({ className }:ProfilePageProps) {
     const queryParams = useParams<{id:string}>();
     const { id } = queryParams;
+    const authData = useSelector(getUserAuthData);
+
+    if (!id) {
+        return null;
+    }
+
+    const ratingCard = id !== authData?.id && <ProfileRating profileId={id} />;
 
     return (
         <Page className={classNames('', {}, [className])}>
@@ -20,6 +30,7 @@ function ProfilePage({ className }:ProfilePageProps) {
                 gap="16"
             >
                 <EditableProfileCard id={id} />
+                {ratingCard}
             </VStack>
         </Page>
     );
