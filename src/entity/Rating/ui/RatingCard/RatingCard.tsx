@@ -84,8 +84,16 @@ export const RatingCard = memo(({
                     <VStack max gap="32">
                         {modalContent}
                         <HStack max gap="8" justify="end">
-                            <Button onClick={acceptHandler}>{t('Send')}</Button>
-                            <Button onClick={cancelHandler}>{t('Cancel')}</Button>
+                            <Button
+                                onClick={acceptHandler}
+                            >
+                                {t('Send')}
+                            </Button>
+                            <Button
+                                onClick={cancelHandler}
+                            >
+                                {t('Cancel')}
+                            </Button>
                         </HStack>
                     </VStack>
                 </Modal>
