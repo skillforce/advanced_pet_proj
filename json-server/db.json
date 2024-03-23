@@ -672,6 +672,12 @@
       "userId": "1",
       "text": "1",
       "id": "AUvUZvt"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "text": "dscsdcdscsdc",
+      "id": "GsCoABp"
     }
   ],
   "users": [
@@ -708,11 +714,11 @@
       "id": "1",
       "firstName": "Denis1",
       "lastName": "Tatarinov",
-      "age": 22,
-      "currency": "USD",
-      "country": "Armenia",
+      "age": 2223,
+      "currency": "RUB",
+      "country": "Russia",
       "city": "Minsk",
-      "userName": "ulbi Tv",
+      "userName": "ulbi Tv12",
       "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png"
     },
     {
@@ -761,6 +767,13 @@
       "feedback": "лалалал",
       "articleId": "5",
       "id": "-vIV3oR"
+    },
+    {
+      "rate": 4,
+      "userId": "1",
+      "feedback": "sdcsdcsdcdscsdcdscdscdscsdc",
+      "articleId": "8",
+      "id": "jr-3vTM"
     }
   ],
   "profile-ratings": [

@@ -2,10 +2,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Currency } from '@/entity/Currency';
 import { Country } from '@/entity/Country';
 import { ProfileCard } from './ProfileCard';
-import testAvatar from '../../../../shared/assets/tests/storybook.jpg';
 
 export default {
-    title: 'entity/ProfileCard',
+    title: 'entity/Profile/ProfileCard',
     component: ProfileCard,
 } as ComponentMeta<typeof ProfileCard>;
 

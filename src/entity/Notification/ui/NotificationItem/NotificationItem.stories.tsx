@@ -1,9 +1,16 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { NotificationItem } from './NotificationItem';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
+const notificationItemMock = {
+    id: '1',
+    title: 'TestTitle',
+    description: 'TestDescription Hello world',
+    userId: '2',
+};
 export default {
-    title: 'shared/NotificationItem',
+    title: 'entity/Notification/NotificationItem',
     component: NotificationItem,
 
 } as ComponentMeta<typeof NotificationItem>;
@@ -11,4 +18,6 @@ export default {
 const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
 
 export const PrimaryNotificationItem = Template.bind({});
-PrimaryNotificationItem.args = {};
+PrimaryNotificationItem.args = {
+    item: notificationItemMock,
+};
