@@ -38,3 +38,28 @@ PrimaryArticleRating.parameters = {
         },
     ],
 };
+export const EmptyArticleRating = Template.bind({});
+EmptyArticleRating.args = {
+    articleId: '1',
+};
+EmptyArticleRating.decorators = [StoreDecorator({
+    user: {
+        authData: {
+            id: '1',
+        },
+
+    },
+})];
+
+EmptyArticleRating.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?articleId=1&userId=1`,
+            method: 'GET',
+            status: 200,
+            response: [
+
+            ],
+        },
+    ],
+};

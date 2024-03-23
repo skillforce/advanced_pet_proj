@@ -50,3 +50,16 @@ PrimaryNotificationList.parameters = {
         },
     ],
 };
+export const EmptyNotificationList = Template.bind({});
+EmptyNotificationList.args = {};
+EmptyNotificationList.decorators = [StoreDecorator({})];
+EmptyNotificationList.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/notifications`,
+            method: 'GET',
+            status: 200,
+            response: [],
+        },
+    ],
+};
