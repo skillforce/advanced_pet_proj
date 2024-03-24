@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { ProfileRatingProps } from '@/features/profileRating/ui/ProfileRating/ProfileRating';
+import { ProfileRatingProps } from '../../ui/ProfileRating/ProfileRating';
 
 export const ProfileRatingLazy = lazy(
     () => import('./ProfileRating'),

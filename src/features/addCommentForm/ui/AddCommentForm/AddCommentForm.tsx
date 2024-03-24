@@ -1,6 +1,10 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from '../../model/slices/addCommentFormSlice';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Input } from '@/shared/ui/Input/Input';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
@@ -10,10 +14,6 @@ import { HStack } from '@/shared/ui/Stack';
 import { getCommentText } from '../../model/selectors/GetCommentText';
 import { getCommentError } from '../../model/selectors/GetCommentError';
 import cls from './AddCommentForm.module.scss';
-import {
-    addCommentFormActions,
-    addCommentFormReducer,
-} from '../../model/slices/addCommentFormSlice';
 
 export interface AddCommentFormProps {
     className?: string
