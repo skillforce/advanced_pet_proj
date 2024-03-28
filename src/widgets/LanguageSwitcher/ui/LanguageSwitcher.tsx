@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import cls from './LanguageSwither.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import cls from './LanguageSwither.module.scss';
 
 interface LanguageSwitcherProps {
     className?: string

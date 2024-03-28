@@ -1,3 +1,5 @@
+export { } from './model/consts/consts';
+
 export {
     getArticleDetailsData,
     getArticleDetailsIsLoading,
@@ -17,4 +19,6 @@ export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelecto
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
-export { ArticlesType, ArticlesView, ArticleSortField } from './model/consts/consts';
+export {
+    ArticlesType, ArticlesView, ArticleSortField, ArticlesBlocksType,
+} from './model/consts/consts';

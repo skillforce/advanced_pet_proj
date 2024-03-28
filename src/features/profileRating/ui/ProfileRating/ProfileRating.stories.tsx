@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ProfileRating from './ProfileRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { PrimaryArticleRating } from '@/features/articleRating/ui/ArticleRating/ArticleRating.stories';
 
 export default {
     title: 'features/ProfileRating',

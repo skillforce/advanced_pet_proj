@@ -69,6 +69,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 2,
         'no-param-reassign': 0,
         'skillforce-fsd-plugin/path-checker': ['error', { alias: '@' }],
+        'skillforce-fsd-plugin/public-api-imports': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
