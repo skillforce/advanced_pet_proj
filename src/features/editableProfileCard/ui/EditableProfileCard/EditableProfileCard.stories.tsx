@@ -2,6 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { EditableProfileCard } from './EditableProfileCard';
+import { Currency } from '@/entity/Currency';
+import { Country } from '@/entity/Country';
 
 export default {
     title: 'features/editableProfileCard/EditableProfileCard',
@@ -18,4 +20,18 @@ Normal.args = {
 
 };
 
-Normal.decorators = [StoreDecorator({})];
+Normal.decorators = [StoreDecorator({
+    profile: {
+        form: {
+            currency: Currency.BYN,
+            country: Country.Armenia,
+            firstName: 'Denis',
+            lastName: 'Testing',
+            city: 'Mogilev',
+            age: 13,
+            userName: 'skillforce',
+            avatar: 'https://www.imgacademy.com/sites/default/files/ncsa-homepage-row-2022.jpg',
+            id: '1',
+        },
+    },
+})];

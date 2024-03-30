@@ -1,19 +1,14 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-// TODO
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-// eslint-disable-next-line skillforce-fsd-plugin/public-api-imports
-import { loginReducer } from '@/features/AuthByUserName/model/slice/LoginSlice';
 import { ReducersListSchema } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-// eslint-disable-next-line skillforce-fsd-plugin/public-api-imports
-import { articleDetailsReducer } from '@/entity/Article/model/slice/articleDetailsSlice';
-// eslint-disable-next-line skillforce-fsd-plugin/public-api-imports
-import { addCommentFormReducer } from '@/features/addCommentForm/model/slices/addCommentFormSlice';
-// eslint-disable-next-line skillforce-fsd-plugin/public-api-imports
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
-// eslint-disable-next-line skillforce-fsd-plugin/public-api-imports
-import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
+
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { profileReducer } from '@/features/editableProfileCard/testing';
+import { loginReducer } from '@/features/AuthByUserName/testing';
+import { addCommentFormReducer } from '@/features/addCommentForm/testing';
+import { articleDetailsReducer } from '@/entity/Article/testing';
 
 const defaultAsyncReducers: ReducersListSchema = {
     loginForm: loginReducer,

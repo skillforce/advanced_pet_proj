@@ -9,8 +9,7 @@ module.exports = {
         'airbnb',
         'plugin:i18next/recommended',
     ],
-    overrides: [
-    ],
+    overrides: [],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -27,7 +26,7 @@ module.exports = {
         'skillforce-fsd-plugin',
     ],
     rules: {
-    // 0 - off,1-warning, 2 - error
+        // 0 - off,1-warning, 2 - error
 
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -69,7 +68,11 @@ module.exports = {
         'react-hooks/exhaustive-deps': 2,
         'no-param-reassign': 0,
         'skillforce-fsd-plugin/path-checker': ['error', { alias: '@' }],
-        'skillforce-fsd-plugin/public-api-imports': ['error', { alias: '@' }],
+        'skillforce-fsd-plugin/public-api-imports': ['error', {
+            alias: '@',
+            testFilesPatterns: ['**/*.test.*', '**/StoreDecorator.tsx', '**/*.story.*'],
+        },
+        ],
     },
     globals: {
         __IS_DEV__: true,
