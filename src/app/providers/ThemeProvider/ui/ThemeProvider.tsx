@@ -1,7 +1,9 @@
 import React, {
     FC, PropsWithChildren, useEffect, useMemo, useState,
 } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
+import { Theme } from '@/shared/consts/theme';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localStorage';
+import { ThemeContext } from '@/shared/lib/context/ThemeContext';
 
 export const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 
@@ -10,7 +12,7 @@ interface ThemeProviderProps {
 }
 
 // PropsWithChildren(type for react 18+)
-const ThemeProvider: FC<PropsWithChildren & ThemeProviderProps> = ({ children, initialTheme }) => {
+export const ThemeProvider: FC<PropsWithChildren & ThemeProviderProps> = ({ children, initialTheme }) => {
     const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme);
     // установка корректной темы после перезагрузки страницы
     useEffect(() => {
@@ -28,5 +30,3 @@ const ThemeProvider: FC<PropsWithChildren & ThemeProviderProps> = ({ children, i
         </ThemeContext.Provider>
     );
 };
-
-export default ThemeProvider;

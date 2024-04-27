@@ -67,7 +67,13 @@ module.exports = {
         'react-hooks/rules-of-hooks': 2,
         'react-hooks/exhaustive-deps': 2,
         'no-param-reassign': 0,
-        'skillforce-fsd-plugin/path-checker': ['error', { alias: '@' }],
+        'skillforce-fsd-plugin/path-checker': ['error',
+            { alias: '@' },
+        ],
+        'skillforce-fsd-plugin/layer-imports': ['error', {
+            alias: '@',
+            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+        }],
         'skillforce-fsd-plugin/public-api-imports': ['error', {
             alias: '@',
             testFilesPatterns: ['**/*.test.*', '**/StoreDecorator.tsx', '**/*.story.*'],

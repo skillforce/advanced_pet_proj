@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { rtkApi } from '@/shared/api/rtkApi';
 import AboutPage from './AboutPage';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'pages/AboutPage',
