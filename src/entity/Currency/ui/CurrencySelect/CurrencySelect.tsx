@@ -22,7 +22,6 @@ export const CurrencySelect = memo(({
     const onChangeCurrencySelectHandler = (value:string) => {
         onChange?.(value as Currency);
     };
-
     return (
         <ListBox
             value={value ?? ''}

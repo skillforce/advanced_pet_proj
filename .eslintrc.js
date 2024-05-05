@@ -24,6 +24,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'skillforce-fsd-plugin',
+        'unused-imports',
     ],
     rules: {
         // 0 - off,1-warning, 2 - error
@@ -34,7 +35,6 @@ module.exports = {
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'import/no-unresolved': 0,
         'import/prefer-default-export': 0,
-        'no-unused-vars': 1,
         'import/extensions': 0,
         '@typescript-eslint/no-empty-interface': 0,
         'import/no-extraneous-dependencies': 0,
@@ -78,6 +78,18 @@ module.exports = {
             alias: '@',
             testFilesPatterns: ['**/*.test.*', '**/StoreDecorator.tsx', '**/*.story.*'],
         },
+
+        ],
+        'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': [
+            'warn',
+            {
+                'vars': 'all',
+                'varsIgnorePattern': '^_',
+                'args': 'after-used',
+                'argsIgnorePattern': '^_',
+            },
         ],
     },
     globals: {
