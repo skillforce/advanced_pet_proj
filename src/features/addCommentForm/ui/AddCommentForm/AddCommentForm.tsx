@@ -6,8 +6,8 @@ import {
     addCommentFormReducer,
 } from '../../model/slices/addCommentFormSlice';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Input } from '@/shared/ui/Input/Input';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { DynamicModuleLoader, ReducersListSchema } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { HStack } from '@/shared/ui/Stack';

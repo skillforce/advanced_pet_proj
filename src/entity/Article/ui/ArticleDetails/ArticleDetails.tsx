@@ -5,10 +5,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
     Text, TextAlign, TextSize, TextTheme,
-} from '@/shared/ui/Text/Text';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Icon } from '@/shared/ui/Icon/Icon';
+} from '@/shared/ui/Text';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Icon } from '@/shared/ui/Icon';
 import { DynamicModuleLoader, ReducersListSchema } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { HStack, VStack } from '@/shared/ui/Stack';

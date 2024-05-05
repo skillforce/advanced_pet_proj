@@ -6,7 +6,7 @@ const project = new Project();
 project.addSourceFilesAtPaths('src/**/*.ts');
 project.addSourceFilesAtPaths('src/**/*.tsx');
 
-// write all these files in vatiable
+// write all these files in variable
 const files = project.getSourceFiles();
 
 // detect only absolute imports related to our own code

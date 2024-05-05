@@ -7,7 +7,7 @@ import { Currency } from '@/entity/Currency';
 import { Country } from '@/entity/Country';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { DynamicModuleLoader, ReducersListSchema } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 import {

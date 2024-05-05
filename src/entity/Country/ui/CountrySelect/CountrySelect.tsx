@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
+import { ListBox } from '@/shared/ui/Popups';
 import { Country } from '../../model/consts/consts';
 
 interface CountrySelectProps {

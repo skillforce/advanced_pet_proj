@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import { Notifications } from '../../model/types/notifications';
 import { useNotifications } from '../../api/notificationApi';
