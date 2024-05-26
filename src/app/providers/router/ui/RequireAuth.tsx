@@ -2,8 +2,7 @@ import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
 import { getUserAuthData, getUserRoles, UserRoles } from '@/entity/User';
-
-import { RoutePaths } from '@/shared/consts/router';
+import { getRouteForbiddenPage, getRouteMain } from '@/shared/consts/router';
 
 type ProtectedRouteProps = {
     children:JSX.Element
@@ -26,10 +25,10 @@ export const ProtectedRoute = ({ children, roles }:ProtectedRouteProps) => {
     }, [currentUserRoles, roles]);
 
     if (!auth) {
-        return <Navigate to={RoutePaths.main} state={{ from: location }} replace />;
+        return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
     }
     if (!isWithRequiredRoles) {
-        return <Navigate to={RoutePaths.forbidden_page} state={{ from: location }} replace />;
+        return <Navigate to={getRouteForbiddenPage()} state={{ from: location }} replace />;
     }
 
     return children;

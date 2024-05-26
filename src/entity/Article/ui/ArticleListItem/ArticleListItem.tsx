@@ -12,7 +12,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import eyeIcon from '../../../../shared/assets/icons/eyeIcon.svg';
-import { RoutePaths } from '@/shared/consts/router';
+import { getRouteArticleDetails } from '@/shared/consts/router';
 
 interface ArticleListItemProps {
     className?: string;
@@ -49,7 +49,7 @@ export const ArticleListItem = memo(({
                     <img src={article.img} alt={article.title} className={cls.img} />
                     {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} /> }
                     <div className={cls.footer}>
-                        <AppLink to={`${RoutePaths.article_details}${article.id}`} target={target}>
+                        <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                             <Button theme={ButtonTheme.OUTLINE}>
                                 {t('Read more...')}
                             </Button>
@@ -62,7 +62,7 @@ export const ArticleListItem = memo(({
     }
     return (
         <AppLink
-            to={`${RoutePaths.article_details}${article.id}`}
+            to={getRouteArticleDetails(article.id)}
             target={target}
             className={classNames(cls.ArticleListItemContainer, {}, [className, cls[view]])}
         >
