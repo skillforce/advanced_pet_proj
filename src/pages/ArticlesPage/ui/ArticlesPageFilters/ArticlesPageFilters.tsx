@@ -31,6 +31,7 @@ interface ArticlesPageFiltersProps {
 
 export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps) => {
     const { t } = useTranslation('article');
+
     const dispatch = useAppDispatch();
     const view = useSelector(getArticlePageView);
     const sort = useSelector(getArticlePageSort);

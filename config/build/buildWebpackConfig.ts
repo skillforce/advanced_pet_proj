@@ -22,7 +22,7 @@ export const buildWebpackConfig = (buildOptions: BuildOptions): webpack.Configur
             publicPath: '/',
         },
         plugins: buildPlugins(buildOptions),
-        devtool: isDev ? 'inline-source-map' : undefined,
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
         devServer: isDev ? buildDevServer(buildOptions) : undefined,
     };
 };
