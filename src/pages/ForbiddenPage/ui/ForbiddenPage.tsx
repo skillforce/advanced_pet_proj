@@ -6,7 +6,7 @@ import { Text, TextSize, TextTheme } from '@/shared/ui/Text';
 function ForbiddenPage() {
     const { t } = useTranslation('forbiddenPage');
     return (
-        <Page>
+        <Page data-testid="ForbiddenPage">
             <Text
                 title={t('You don\'t have any access to that page')}
                 theme={TextTheme.ERROR}

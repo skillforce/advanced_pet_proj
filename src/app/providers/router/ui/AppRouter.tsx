@@ -1,9 +1,9 @@
 import React, { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { PageLoader } from '@/widgets/PageLoader';
 import { ProtectedRoute } from './RequireAuth';
 import { routeConfig } from '../config/routeConfig';
 import { AppRouteProps } from '@/shared/types/router';
+import { PageLoader } from '@/widgets/PageLoader';
 
 function AppRouter() {
     const routeGenerator = useCallback(({

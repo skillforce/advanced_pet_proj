@@ -6,7 +6,7 @@ import { Page } from '@/widgets/Page';
 function AboutPage() {
     const { t } = useTranslation('aboutPage');
     return (
-        <Page>
+        <Page data-testid="AboutPage">
             {t('About page')}
             <Counter />
         </Page>

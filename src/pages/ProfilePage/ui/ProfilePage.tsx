@@ -25,7 +25,10 @@ function ProfilePage({ className }:ProfilePageProps) {
     const ratingCard = id !== authData?.id && <ProfileRating profileId={id} />;
 
     return (
-        <Page className={classNames('', {}, [className])}>
+        <Page
+            data-testid="ProfilePage"
+            className={classNames('', {}, [className])}
+        >
             <VStack
                 max
                 gap="16"

@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
-import { getUserAuthData, getUserRoles, UserRoles } from '@/entity/User';
 import { getRouteForbiddenPage, getRouteMain } from '@/shared/consts/router';
+import { getUserAuthData, getUserRoles, UserRoles } from '@/entity/User';
 
 type ProtectedRouteProps = {
     children:JSX.Element
