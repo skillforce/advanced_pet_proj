@@ -18,7 +18,7 @@ jobs:
        with:
         node-version: ${{ matrix.node-version }}
      - name: Install application dependencies
-       run: npm install
+       run: npm ci --force
      - name: Run eslint checking ...
        run: npm run lint:ts
        if: always()
