@@ -20,13 +20,13 @@ import {
 } from '../../model/selectors/articleDetails';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ArticleBlocks } from '../../model/types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import CalendarIcon from '../../../../shared/assets/icons/calendarIcon.svg';
 import EyeIcon from '../../../../shared/assets/icons/eyeIcon.svg';
 import cls from './ArticleDetails.module.scss';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleDetailsProps {
     className?: string
