@@ -31,6 +31,7 @@ export const CommentList = memo((props: CommentListProps) => {
             max
             gap="16"
             className={classNames('', {}, [className])}
+
         >
             {comments?.length !== 0 && comments?.map((comment) => (
                 <CommentCard

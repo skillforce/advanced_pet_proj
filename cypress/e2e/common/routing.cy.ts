@@ -4,15 +4,15 @@ describe('Routing', () => {
     describe('Unauthorized user', () => {
         it('Should open the main page', () => {
             cy.visit('/');
-            cy.get(selectByTestId('MainPage')).should('exist');
+            cy.getByTestId('MainPage').should('exist');
         });
         it('Profile page should redirect on the main page', () => {
             cy.visit('/profile/1');
-            cy.get(selectByTestId('MainPage')).should('exist');
+            cy.getByTestId('MainPage').should('exist');
         });
         it('Unexisting route should redirect on the main page', () => {
             cy.visit('/sdcsdcsdcsdcsdcsdcsdcsd');
-            cy.get(selectByTestId('NotFoundPage')).should('exist');
+            cy.getByTestId('NotFoundPage').should('exist');
         });
     });
 

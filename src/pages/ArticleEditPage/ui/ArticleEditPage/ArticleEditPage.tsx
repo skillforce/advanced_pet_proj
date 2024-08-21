@@ -12,7 +12,7 @@ const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
     const isEdit = Boolean(id);
     return (
         <Page className={classNames('', {}, [className])}>
-            {isEdit ? `edit article with id = ${id}` : 'create new article'}
+            {isEdit ? `edit article with id = ${id}` : 'create new articles'}
         </Page>
     );
 });

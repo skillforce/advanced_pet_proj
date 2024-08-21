@@ -45,14 +45,14 @@ describe('ArticleSlice test', () => {
         expect(articleDetailsReducer(state as ArticleDetailsSchema, articleDetailsActions.setError('error!')))
             .toEqual({ error: 'error!' });
     });
-    test('set article data test', () => {
+    test('set articles data test', () => {
         const state: DeepPartial<ArticleDetailsSchema> = { data: undefined };
         expect(articleDetailsReducer(
             state as ArticleDetailsSchema,
             articleDetailsActions.setArticleDetailsData(article),
         )).toEqual({ data: article });
     });
-    test('test fetch article pending', () => {
+    test('test fetch articles pending', () => {
         const state: ArticleDetailsSchema = {
             isLoading: false,
             error: 'Error!',
@@ -63,7 +63,7 @@ describe('ArticleSlice test', () => {
                 isLoading: true,
             });
     });
-    test('test update article data fulfilled', () => {
+    test('test update articles data fulfilled', () => {
         const state: ArticleDetailsSchema = {
             isLoading: true,
             error: 'Error!',

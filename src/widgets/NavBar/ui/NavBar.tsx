@@ -40,7 +40,7 @@ export const NavBar = memo(({ className }:NavBarProps) => {
                 <HStack align="center" className={cls.logoBlock}>
                     <Text className={cls.appName} title={t('Vpname pet app')} theme={TextTheme.INVERTED} />
                     <AppLink to={getRouteArticleCreate()} theme={AppLinksTheme.PRIMARY}>
-                        {t('Create a new article')}
+                        {t('Create a new articles')}
                     </AppLink>
                 </HStack>
                 <HStack gap="16" className={cls.actions}>

@@ -25,26 +25,26 @@ const article = {
 };
 
 describe('articleDetails', () => {
-    test('should return article data', () => {
+    test('should return articles data', () => {
         const state:DeepPartial<StateSchema> = { articleDetails: { data: article } };
         expect(getArticleDetailsData(state as StateSchema)).toEqual(article);
     });
-    test('should return article data undefined', () => {
+    test('should return articles data undefined', () => {
         const state:DeepPartial<StateSchema> = {};
         expect(getArticleDetailsData(state as StateSchema)).toEqual(undefined);
     });
-    test('should return article loading', () => {
+    test('should return articles loading', () => {
         const state:DeepPartial<StateSchema> = { articleDetails: { isLoading: true } };
         expect(getArticleDetailsIsLoading(state as StateSchema)).toBe(true);
     });
-    test('should return article loading false', () => {
+    test('should return articles loading false', () => {
         const state:DeepPartial<StateSchema> = {};
         expect(getArticleDetailsIsLoading(state as StateSchema)).toBe(false);
     });
-    test('should return article error', () => {
+    test('should return articles error', () => {
         const state:DeepPartial<StateSchema> = { articleDetails: { error: 'error!' } };
         expect(getArticleDetailsError(state as StateSchema)).toBe('error!');
-    }); test('should return article error undefined', () => {
+    }); test('should return articles error undefined', () => {
         const state:DeepPartial<StateSchema> = {};
         expect(getArticleDetailsError(state as StateSchema)).toEqual(undefined);
     });

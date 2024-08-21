@@ -64,6 +64,7 @@ export const RatingCard = memo(({
                 value={feedback}
                 onChange={setFeedback}
                 placeholder={t('Your feedback')}
+                data-testid="RatingCard.Input"
             />
 
         </>
@@ -73,6 +74,7 @@ export const RatingCard = memo(({
         <Card
             className={className}
             max
+            data-testid="RatingCard"
         >
             <VStack align="center" gap="8">
                 <Text title={starsCount ? t('Thank\'s for your review!') : title} />
@@ -97,11 +99,13 @@ export const RatingCard = memo(({
                         >
                             <Button
                                 onClick={acceptHandler}
+                                data-testid="RatingCard.Send"
                             >
                                 {t('Send')}
                             </Button>
                             <Button
                                 onClick={cancelHandler}
+                                data-testid="RatingCard.Cancel"
                             >
                                 {t('Cancel')}
                             </Button>
@@ -123,6 +127,7 @@ export const RatingCard = memo(({
                                 fullWidth
                                 onClick={acceptHandler}
                                 size={ButtonSize.L}
+                                data-testid="RatingCard.Send"
                             >
                                 {t('Send')}
                             </Button>

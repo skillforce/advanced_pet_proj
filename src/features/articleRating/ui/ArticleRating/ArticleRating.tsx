@@ -53,7 +53,7 @@ const ArticleRating = memo(
                 rate={rating?.rate}
                 className={className}
                 hasFeedback
-                title={t('Rate this article please')}
+                title={t('Rate this articles please')}
                 feedbackTitle={t('Leave your comment it\'ll help us to improve quality of service')}
             />
         );
