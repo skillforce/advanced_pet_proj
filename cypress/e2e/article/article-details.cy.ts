@@ -23,7 +23,8 @@ describe('Article list item is opened', () => {
         cy.addComment('text');
         cy.getByTestId('CommentCard.Content').should('have.length', 1);
     });
-    it('if user mark article it should be saved', () => {
+    it('if user mark article it should be saved (fixtures example)', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
         cy.getByTestId('ArticleDetails.Info');
         cy.getByTestId('RatingCard').scrollIntoView();
         cy.setRate(3, 'feedback');
