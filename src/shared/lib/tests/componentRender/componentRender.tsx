@@ -9,6 +9,7 @@ import '@/app/styles/index.scss';
 import i18nForTest from '@/shared/config/i18n/i18nForTest';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { Theme } from '@/shared/consts/theme';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 
 export interface componentRenderOptions{
     route?:string
@@ -35,11 +36,11 @@ export const TestProvider = ({ children, options = {} }:TestProviderProps) => {
                 initialState={initialStoreState as StateSchema}
             >
                 <I18nextProvider i18n={i18nForTest}>
-                    {/* <ThemeProvider initialTheme={theme}> */}
-                    {/*    <div className="app"> */}
-                    {children}
-                    {/*    </div> */}
-                    {/* </ThemeProvider> */}
+                    <ThemeProvider initialTheme={theme}>
+                        <div className="app">
+                            {children}
+                        </div>
+                    </ThemeProvider>
 
                 </I18nextProvider>
             </StoreProvider>
