@@ -21,8 +21,8 @@ describe('getLoginState', () => {
         expect(getLoginState(state as StateSchema)).toEqual(expectedLoginError);
     });
     test('should return undefined(error case)', () => {
-        const state:DeepPartial<StateSchema> = {};
-        const expectedLoginError: string|undefined = undefined;
+        const state: DeepPartial<StateSchema> = {};
+        const expectedLoginError: string | undefined = undefined;
         expect(getLoginState(state as StateSchema)).toBe(expectedLoginError);
     });
 });

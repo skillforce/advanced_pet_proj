@@ -6,10 +6,11 @@ import { EditableProfileCardHeader } from './EditableProfileCardHeader';
 export default {
     title: 'features/editableProfileCard/EditableProfileCardHeader',
     component: EditableProfileCardHeader,
-
 } as ComponentMeta<typeof EditableProfileCardHeader>;
 
-const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => <EditableProfileCardHeader {...args} />;
+const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => (
+    <EditableProfileCardHeader {...args} />
+);
 
 export const PrimaryEditableProfileCardHeader = Template.bind({});
 PrimaryEditableProfileCardHeader.args = {};

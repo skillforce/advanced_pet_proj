@@ -5,11 +5,11 @@ import { getRouteForbiddenPage, getRouteMain } from '@/shared/consts/router';
 import { getUserAuthData, getUserRoles, UserRoles } from '@/entity/User';
 
 type ProtectedRouteProps = {
-    children:JSX.Element
-    roles?:UserRoles[]
-}
+    children: JSX.Element;
+    roles?: UserRoles[];
+};
 
-export const ProtectedRoute = ({ children, roles }:ProtectedRouteProps) => {
+export const ProtectedRoute = ({ children, roles }: ProtectedRouteProps) => {
     const location = useLocation();
     const auth = useSelector(getUserAuthData);
     const currentUserRoles = useSelector(getUserRoles);
@@ -25,10 +25,18 @@ export const ProtectedRoute = ({ children, roles }:ProtectedRouteProps) => {
     }, [currentUserRoles, roles]);
 
     if (!auth) {
-        return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
+        return (
+            <Navigate to={getRouteMain()} state={{ from: location }} replace />
+        );
     }
     if (!isWithRequiredRoles) {
-        return <Navigate to={getRouteForbiddenPage()} state={{ from: location }} replace />;
+        return (
+            <Navigate
+                to={getRouteForbiddenPage()}
+                state={{ from: location }}
+                replace
+            />
+        );
     }
 
     return children;

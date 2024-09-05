@@ -1,4 +1,4 @@
-export function getQueryParams(params:OptionalRecord<string, string>) {
+export function getQueryParams(params: OptionalRecord<string, string>) {
     const searchParams = new URLSearchParams(window.location.search);
     Object.entries(params).forEach(([name, value]) => {
         if (value !== undefined) {
@@ -10,9 +10,9 @@ export function getQueryParams(params:OptionalRecord<string, string>) {
 
 /**
  * function to add request row params to URL
-  * @param params
+ * @param params
  */
 
-export function addQueryParams(params:OptionalRecord<string, string>) {
+export function addQueryParams(params: OptionalRecord<string, string>) {
     window.history.pushState(null, '', getQueryParams(params));
 }

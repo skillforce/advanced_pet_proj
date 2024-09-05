@@ -6,33 +6,28 @@ import { AppRouteProps } from '@/shared/types/router';
 import { PageLoader } from '@/widgets/PageLoader';
 
 function AppRouter() {
-    const routeGenerator = useCallback(({
-        path, authOnly, roles, element,
-    }:AppRouteProps) => {
-        let routeElement = (
-            <Suspense fallback={<PageLoader />}>
-                {element}
-            </Suspense>
-        );
-        if (authOnly) {
-            routeElement = (
-                <ProtectedRoute roles={roles}>
-                    {routeElement}
-                </ProtectedRoute>
+    const routeGenerator = useCallback(
+        ({ path, authOnly, roles, element }: AppRouteProps) => {
+            let routeElement = (
+                <Suspense fallback={<PageLoader />}>{element}</Suspense>
             );
-        }
-        return (
-            <Route
-                key={path}
-                path={path}
-                element={routeElement}
-            />
-        );
-    }, []);
+            if (authOnly) {
+                routeElement = (
+                    <ProtectedRoute roles={roles}>
+                        {routeElement}
+                    </ProtectedRoute>
+                );
+            }
+            return <Route key={path} path={path} element={routeElement} />;
+        },
+        [],
+    );
     return (
         <Suspense fallback={<PageLoader />}>
             <Routes>
-                {Object.values(routeConfig).map((route) => routeGenerator(route))}
+                {Object.values(routeConfig).map((route) =>
+                    routeGenerator(route),
+                )}
             </Routes>
         </Suspense>
     );

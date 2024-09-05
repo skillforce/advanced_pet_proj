@@ -7,29 +7,43 @@ import cls from './Popover.module.scss';
 import popupCls from '../styles/popup.module.scss';
 
 interface PopoverProps {
-    className?: string
-    trigger:ReactNode
-    direction?:DropdownDirection
-    children: ReactNode
+    className?: string;
+    trigger: ReactNode;
+    direction?: DropdownDirection;
+    children: ReactNode;
 }
 
-export const Popover = memo(({
-    className, trigger, direction = 'bottom right', children,
-}: PopoverProps) => {
-    const optionsAdditionalClasses = [
-        mapDirectionClass[direction],
-    ];
-    return (
-        <div className={classNames(cls.PopoverContainer, {}, [className, popupCls.popup])}>
-            <HPopover>
-                <HPopover.Button as="div" className={popupCls.trigger}>
-                    {trigger}
-                </HPopover.Button>
+export const Popover = memo(
+    ({
+        className,
+        trigger,
+        direction = 'bottom right',
+        children,
+    }: PopoverProps) => {
+        const optionsAdditionalClasses = [mapDirectionClass[direction]];
+        return (
+            <div
+                className={classNames(cls.PopoverContainer, {}, [
+                    className,
+                    popupCls.popup,
+                ])}
+            >
+                <HPopover>
+                    <HPopover.Button as="div" className={popupCls.trigger}>
+                        {trigger}
+                    </HPopover.Button>
 
-                <HPopover.Panel className={classNames(cls.panel, {}, optionsAdditionalClasses)}>
-                    {children}
-                </HPopover.Panel>
-            </HPopover>
-        </div>
-    );
-});
+                    <HPopover.Panel
+                        className={classNames(
+                            cls.panel,
+                            {},
+                            optionsAdditionalClasses,
+                        )}
+                    >
+                        {children}
+                    </HPopover.Panel>
+                </HPopover>
+            </div>
+        );
+    },
+);

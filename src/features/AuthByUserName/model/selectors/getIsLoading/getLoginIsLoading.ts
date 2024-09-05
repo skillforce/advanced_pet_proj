@@ -4,5 +4,5 @@ import { LoginSchema } from '../../types/loginSchema';
 
 export const getLoginIsLoading = createSelector(
     getLoginState,
-    (loginState:LoginSchema|undefined) => loginState?.isLoading,
+    (loginState: LoginSchema | undefined) => loginState?.isLoading,
 );

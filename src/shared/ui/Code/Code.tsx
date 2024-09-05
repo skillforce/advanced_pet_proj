@@ -6,8 +6,8 @@ import copyIcon from '../../assets/icons/contractIcon.svg';
 import cls from './Code.module.scss';
 
 interface CodeProps {
-    className?: string
-    text: string
+    className?: string;
+    text: string;
 }
 
 export const Code = memo(({ className, text }: CodeProps) => {
@@ -22,14 +22,9 @@ export const Code = memo(({ className, text }: CodeProps) => {
                 className={cls.codeButton}
                 onClick={onCopy}
             >
-                <Icon
-                    Svg={copyIcon}
-                    className={cls.copyIcon}
-                />
+                <Icon Svg={copyIcon} className={cls.copyIcon} />
             </Button>
-            <code>
-                {text}
-            </code>
+            <code>{text}</code>
         </pre>
     );
 });

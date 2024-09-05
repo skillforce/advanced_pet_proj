@@ -8,7 +8,6 @@ import { Theme } from '@/shared/consts/theme';
 export default {
     title: 'widgets/NavBar',
     component: NavBar,
-
 } as ComponentMeta<typeof NavBar>;
 
 const Template: ComponentStory<typeof NavBar> = (args) => <NavBar {...args} />;

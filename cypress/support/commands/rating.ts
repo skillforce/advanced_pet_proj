@@ -8,7 +8,10 @@ export function setRate(starsCount = 5, feedback = 'feedback') {
 declare global {
     namespace Cypress {
         interface Chainable {
-            setRate(starsCount:number, feedback:string): Chainable<UserScheme>
+            setRate(
+                starsCount: number,
+                feedback: string,
+            ): Chainable<UserScheme>;
         }
     }
 }

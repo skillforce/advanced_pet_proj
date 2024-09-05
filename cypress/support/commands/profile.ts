@@ -1,6 +1,6 @@
 import { AUTH_USER_LOCAL_STORAGE } from '../../../src/shared/consts/localStorage';
 
-export function updateProfile(firstName:string, lastName:string) {
+export function updateProfile(firstName: string, lastName: string) {
     cy.getByTestId('EditableProfileCardHeader.EditButton').click();
     cy.getByTestId('ProfileCard.FirstNameInput').clear().type(firstName);
     cy.getByTestId('ProfileCard.SurnameInput').clear().type(lastName);
@@ -31,8 +31,8 @@ export function resetProfile(profileId: string) {
 declare global {
     namespace Cypress {
         interface Chainable {
-            updateProfile(firstName:string, lastName:string): Chainable<void>
-            resetProfile(profileId: string): Chainable<void>
+            updateProfile(firstName: string, lastName: string): Chainable<void>;
+            resetProfile(profileId: string): Chainable<void>;
         }
     }
 }

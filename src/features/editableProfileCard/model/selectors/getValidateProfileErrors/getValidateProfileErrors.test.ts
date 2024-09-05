@@ -4,14 +4,20 @@ import { getValidateProfileErrors } from './getValidateProfileErrors';
 
 describe('getValidateProfileError.test', () => {
     test('should return profile validate error', () => {
-        const profileValidateErrorValue:ValidateProfileError[] = [
+        const profileValidateErrorValue: ValidateProfileError[] = [
             ValidateProfileError.INCORRECT_USER_DATA,
         ];
-        const state:DeepPartial<StateSchema> = { profile: { validateErrors: profileValidateErrorValue } };
-        expect(getValidateProfileErrors(state as StateSchema)).toEqual(profileValidateErrorValue);
+        const state: DeepPartial<StateSchema> = {
+            profile: { validateErrors: profileValidateErrorValue },
+        };
+        expect(getValidateProfileErrors(state as StateSchema)).toEqual(
+            profileValidateErrorValue,
+        );
     });
     test('should return undefined', () => {
-        const state:DeepPartial<StateSchema> = {};
-        expect(getValidateProfileErrors(state as StateSchema)).toEqual(undefined);
+        const state: DeepPartial<StateSchema> = {};
+        expect(getValidateProfileErrors(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 });

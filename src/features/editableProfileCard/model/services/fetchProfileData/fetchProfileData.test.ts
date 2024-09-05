@@ -4,7 +4,7 @@ import { Country } from '@/entity/Country';
 import { Profile } from '@/entity/Profile';
 import { fetchProfileData } from './fetchProfileData';
 
-const profileDataMock:Profile = {
+const profileDataMock: Profile = {
     currency: Currency.USD,
     country: Country.Ukraine,
     firstName: 'Denis',
@@ -18,7 +18,9 @@ describe('fetchProfileData.test', () => {
     test('test fetchProfileData thunk success', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
 
-        thunk.api.get.mockReturnValue(Promise.resolve({ data: profileDataMock }));
+        thunk.api.get.mockReturnValue(
+            Promise.resolve({ data: profileDataMock }),
+        );
         const result = await thunk.callThunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();

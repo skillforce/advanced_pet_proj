@@ -7,10 +7,11 @@ import { ArticleList } from './ArticleList';
 export default {
     title: 'entity/Article/ArticleList',
     component: ArticleList,
-
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+    <ArticleList {...args} />
+);
 const articlemock = {
     id: '1',
     title: 'Javascript news',
@@ -23,9 +24,7 @@ const articlemock = {
     },
     views: 1022,
     createdAt: '26.02.2022',
-    type: [
-        'IT', 'SCIENCE', 'EXPLORE', 'IT', 'IT', 'IT', 'IT',
-    ],
+    type: ['IT', 'SCIENCE', 'EXPLORE', 'IT', 'IT', 'IT', 'IT'],
     blocks: [
         {
             id: '1',
@@ -80,32 +79,35 @@ const articlemock = {
                 'Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:',
             ],
         },
-
     ],
 } as Article;
 export const BigArticleList = Template.bind({});
 BigArticleList.args = {
     view: ArticlesView.BIG,
     articles: new Array(16)
-        .fill(0).map((item, index) => ({ ...articlemock, id: String(index) })),
+        .fill(0)
+        .map((item, index) => ({ ...articlemock, id: String(index) })),
 };
 export const BigArticleListLoading = Template.bind({});
 BigArticleListLoading.args = {
     view: ArticlesView.BIG,
     isLoading: true,
     articles: new Array(16)
-        .fill(0).map((item, index) => ({ ...articlemock, id: String(index) })),
+        .fill(0)
+        .map((item, index) => ({ ...articlemock, id: String(index) })),
 };
 export const SmallArticleList = Template.bind({});
 SmallArticleList.args = {
     view: ArticlesView.SMALL,
     articles: new Array(16)
-        .fill(0).map((item, index) => ({ ...articlemock, id: String(index) })),
+        .fill(0)
+        .map((item, index) => ({ ...articlemock, id: String(index) })),
 };
 export const SmallArticleListLoading = Template.bind({});
 SmallArticleListLoading.args = {
     view: ArticlesView.SMALL,
     isLoading: true,
     articles: new Array(16)
-        .fill(0).map((item, index) => ({ ...articlemock, id: String(index) })),
+        .fill(0)
+        .map((item, index) => ({ ...articlemock, id: String(index) })),
 };

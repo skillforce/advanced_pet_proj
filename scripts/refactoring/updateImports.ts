@@ -10,7 +10,7 @@ project.addSourceFilesAtPaths('src/**/*.tsx');
 const files = project.getSourceFiles();
 
 // detect only absolute imports related to our own code
-function isAbsolute(value:string) {
+function isAbsolute(value: string) {
     const layers = ['app', 'entity', 'features', 'pages', 'shared', 'widgets'];
     return layers.some((path) => value.startsWith(path));
 }

@@ -1,11 +1,11 @@
 {
-  "id": "1",
-  "firstName": "Denis123",
-  "lastName": "Tatarinov234",
-  "age": 22231,
-  "currency": "RUB",
-  "country": "Russia",
-  "city": "Minsk",
-  "userName": "ulbi Tv12",
-  "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png"
+    "id": "1",
+    "firstName": "Denis123",
+    "lastName": "Tatarinov234",
+    "age": 22231,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Minsk",
+    "userName": "ulbi Tv12",
+    "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png"
 }

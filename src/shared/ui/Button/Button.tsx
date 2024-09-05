@@ -9,28 +9,27 @@ export enum ButtonTheme {
     BACKGROUND_TRANSPARENT = 'background_transparent',
     BACKGROUND_INVERTED = 'background_inverted',
     OUTLINE_RED = 'outline_red',
-
 }
 
 export enum ButtonSize {
     S = 'size_s',
     M = 'size_m',
     L = 'size_l',
-    XL = 'size_xl'
+    XL = 'size_xl',
 }
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
-    theme?: ButtonTheme,
-    square?: boolean,
-    size?: ButtonSize
-    disabled?: boolean
-    children?:ReactNode
-    fullWidth?:boolean
+    theme?: ButtonTheme;
+    square?: boolean;
+    size?: ButtonSize;
+    disabled?: boolean;
+    children?: ReactNode;
+    fullWidth?: boolean;
 }
 
 // PropsWithChildren(type for react 18+)
-export const Button = memo((props:ButtonProps) => {
+export const Button = memo((props: ButtonProps) => {
     const {
         className,
         children,
@@ -46,14 +45,9 @@ export const Button = memo((props:ButtonProps) => {
         [cls.square]: square,
         [cls.disabled]: disabled,
         [cls.fullWidth]: fullWidth,
-
     };
 
-    const additions = [
-        className,
-        cls[theme],
-        cls[size],
-    ];
+    const additions = [className, cls[theme], cls[size]];
 
     return (
         <button

@@ -15,33 +15,40 @@ import {
 import { getArticles } from '../../model/slices/ArticlePageSlice';
 
 interface ArticleInfiniteListProps {
-    className?: string
+    className?: string;
 }
 
-export const ArticleInfiniteList = memo(({ className }: ArticleInfiniteListProps) => {
-    const { t } = useTranslation('article');
+export const ArticleInfiniteList = memo(
+    ({ className }: ArticleInfiniteListProps) => {
+        const { t } = useTranslation('article');
 
-    const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlePageIsLoading);
-    const error = useSelector(getArticlePageError);
-    const view = useSelector(getArticlePageView);
-    const dispatch = useAppDispatch();
-    const [searchParams] = useSearchParams();
+        const articles = useSelector(getArticles.selectAll);
+        const isLoading = useSelector(getArticlePageIsLoading);
+        const error = useSelector(getArticlePageError);
+        const view = useSelector(getArticlePageView);
+        const dispatch = useAppDispatch();
+        const [searchParams] = useSearchParams();
 
-    useInitialEffect(() => {
-        dispatch(initArticlesPage(searchParams));
-    });
+        useInitialEffect(() => {
+            dispatch(initArticlesPage(searchParams));
+        });
 
-    if (error) {
-        return <Text theme={TextTheme.ERROR} title={t('Error with articles downloading')} />;
-    }
+        if (error) {
+            return (
+                <Text
+                    theme={TextTheme.ERROR}
+                    title={t('Error with articles downloading')}
+                />
+            );
+        }
 
-    return (
-        <ArticleList
-            isLoading={isLoading}
-            view={view}
-            articles={articles}
-            className={className}
-        />
-    );
-});
+        return (
+            <ArticleList
+                isLoading={isLoading}
+                view={view}
+                articles={articles}
+                className={className}
+            />
+        );
+    },
+);

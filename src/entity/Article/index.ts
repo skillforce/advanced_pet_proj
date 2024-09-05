@@ -6,13 +6,14 @@ export {
 
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
-export type {
-    Article,
-} from './model/types/article';
+export type { Article } from './model/types/article';
 
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export {
-    ArticlesType, ArticlesView, ArticleSortField, ArticlesBlocksType,
+    ArticlesType,
+    ArticlesView,
+    ArticleSortField,
+    ArticlesBlocksType,
 } from './model/consts/consts';

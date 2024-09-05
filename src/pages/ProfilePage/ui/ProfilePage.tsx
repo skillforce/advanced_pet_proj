@@ -10,11 +10,11 @@ import { ProfileRating } from '@/features/profileRating';
 import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {
-    className?: string
+    className?: string;
 }
 
-function ProfilePage({ className }:ProfilePageProps) {
-    const queryParams = useParams<{id:string}>();
+function ProfilePage({ className }: ProfilePageProps) {
+    const queryParams = useParams<{ id: string }>();
     const { id } = queryParams;
     const authData = useSelector(getUserAuthData);
 
@@ -29,10 +29,7 @@ function ProfilePage({ className }:ProfilePageProps) {
             data-testid="ProfilePage"
             className={classNames('', {}, [className])}
         >
-            <VStack
-                max
-                gap="16"
-            >
+            <VStack max gap="16">
                 <EditableProfileCard id={id} />
                 {ratingCard}
             </VStack>

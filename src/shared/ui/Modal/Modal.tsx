@@ -7,11 +7,11 @@ import cls from './Modal.module.scss';
 import useTheme from '@/shared/lib/hooks/useTheme';
 
 export interface ModalProps {
-    className?: string
-    children: ReactNode,
-    isOpen?: boolean,
-    onClose: () => void
-    isLazy?:boolean
+    className?: string;
+    children: ReactNode;
+    isOpen?: boolean;
+    onClose: () => void;
+    isLazy?: boolean;
 }
 
 export const Modal = ({
@@ -22,11 +22,7 @@ export const Modal = ({
     isLazy,
 }: ModalProps) => {
     const { theme } = useTheme();
-    const {
-        isMounted,
-        isClosing,
-        close,
-    } = useModal({
+    const { isMounted, isClosing, close } = useModal({
         isOpen,
         onClose,
         animationDelay: 500,
@@ -43,11 +39,14 @@ export const Modal = ({
 
     return (
         <Portal>
-            <div className={classNames(cls.modalContainer, mods, [className, theme])}>
+            <div
+                className={classNames(cls.modalContainer, mods, [
+                    className,
+                    theme,
+                ])}
+            >
                 <Overlay onClick={close} />
-                <div className={cls.content}>
-                    {children}
-                </div>
+                <div className={cls.content}>{children}</div>
             </div>
         </Portal>
     );

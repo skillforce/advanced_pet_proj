@@ -5,7 +5,7 @@ import { ArticlesBlocksType, ArticlesType } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
-const article:Article = {
+const article: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -60,32 +60,39 @@ const article:Article = {
 export default {
     title: 'entity/ArticleDetails',
     component: ArticleDetails,
-
 } as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+const Template: ComponentStory<typeof ArticleDetails> = (args) => (
+    <ArticleDetails {...args} />
+);
 
 export const PrimaryArticleDetails = Template.bind({});
 PrimaryArticleDetails.args = {};
 
-PrimaryArticleDetails.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+PrimaryArticleDetails.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];
 export const LoadingArticleDetails = Template.bind({});
 LoadingArticleDetails.args = {};
 
-LoadingArticleDetails.decorators = [StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];
+LoadingArticleDetails.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            isLoading: true,
+        },
+    }),
+];
 export const WithErrorArticleDetails = Template.bind({});
 WithErrorArticleDetails.args = {};
 
-WithErrorArticleDetails.decorators = [StoreDecorator({
-    articleDetails: {
-        error: 'Internal server error!',
-    },
-})];
+WithErrorArticleDetails.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            error: 'Internal server error!',
+        },
+    }),
+];

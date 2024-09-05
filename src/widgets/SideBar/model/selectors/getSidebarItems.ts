@@ -6,7 +6,10 @@ import ProfilePageIcon from '@/shared/assets/icons/profilePageIcon.svg';
 import ArticlePageIcon from '@/shared/assets/icons/articlePageIcon.svg';
 import { SideBarItemType } from '../../model/types/sidebar';
 import {
-    getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/consts/router';
 
 export const getSidebarItems = createSelector(
@@ -42,5 +45,4 @@ export const getSidebarItems = createSelector(
         }
         return sideBarItemsList;
     },
-
 );

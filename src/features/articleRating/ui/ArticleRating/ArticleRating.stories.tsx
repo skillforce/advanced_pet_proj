@@ -6,23 +6,25 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 export default {
     title: 'features/ArticleRating',
     component: ArticleRating,
-
 } as ComponentMeta<typeof ArticleRating>;
 
-const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
+const Template: ComponentStory<typeof ArticleRating> = (args) => (
+    <ArticleRating {...args} />
+);
 
 export const PrimaryArticleRating = Template.bind({});
 PrimaryArticleRating.args = {
     articleId: '1',
 };
-PrimaryArticleRating.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            id: '1',
+PrimaryArticleRating.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1',
+            },
         },
-
-    },
-})];
+    }),
+];
 
 PrimaryArticleRating.parameters = {
     mockData: [
@@ -30,9 +32,7 @@ PrimaryArticleRating.parameters = {
             url: `${__API__}/article-ratings?articleId=1&userId=1`,
             method: 'GET',
             status: 200,
-            response: [
-                { rate: 4 },
-            ],
+            response: [{ rate: 4 }],
         },
     ],
 };
@@ -40,14 +40,15 @@ export const EmptyArticleRating = Template.bind({});
 EmptyArticleRating.args = {
     articleId: '1',
 };
-EmptyArticleRating.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            id: '1',
+EmptyArticleRating.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1',
+            },
         },
-
-    },
-})];
+    }),
+];
 
 EmptyArticleRating.parameters = {
     mockData: [
@@ -55,9 +56,7 @@ EmptyArticleRating.parameters = {
             url: `${__API__}/article-ratings?articleId=1&userId=1`,
             method: 'GET',
             status: 200,
-            response: [
-
-            ],
+            response: [],
         },
     ],
 };

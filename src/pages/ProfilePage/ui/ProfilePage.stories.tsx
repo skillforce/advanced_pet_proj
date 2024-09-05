@@ -10,40 +10,46 @@ import { Theme } from '@/shared/consts/theme';
 export default {
     title: 'pages/ProfilePage',
     component: ProfilePage,
-
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+    <ProfilePage {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    profile: {
-        form: {
-            currency: Currency.USD,
-            country: Country.Ukraine,
-            firstName: 'Denis',
-            lastName: 'Tatarinov',
-            city: 'Mogilev',
-            age: 22,
-            userName: 'sarcasm1613',
-            avatar: 'https://www.freecodecamp.org/news/content/images/2022/02/arrows-2889040_1920.jpg',
+Light.decorators = [
+    StoreDecorator({
+        profile: {
+            form: {
+                currency: Currency.USD,
+                country: Country.Ukraine,
+                firstName: 'Denis',
+                lastName: 'Tatarinov',
+                city: 'Mogilev',
+                age: 22,
+                userName: 'sarcasm1613',
+                avatar: 'https://www.freecodecamp.org/news/content/images/2022/02/arrows-2889040_1920.jpg',
+            },
         },
-    },
-})];
+    }),
+];
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    profile: {
-        form: {
-            currency: Currency.USD,
-            country: Country.Ukraine,
-            firstName: 'Denis',
-            lastName: 'Tatarinov',
-            city: 'Mogilev',
-            age: 22,
-            userName: 'sarcasm1613',
-            avatar: 'https://www.freecodecamp.org/news/content/images/2022/02/arrows-2889040_1920.jpg',
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        profile: {
+            form: {
+                currency: Currency.USD,
+                country: Country.Ukraine,
+                firstName: 'Denis',
+                lastName: 'Tatarinov',
+                city: 'Mogilev',
+                age: 22,
+                userName: 'sarcasm1613',
+                avatar: 'https://www.freecodecamp.org/news/content/images/2022/02/arrows-2889040_1920.jpg',
+            },
         },
-    },
-})];
+    }),
+];

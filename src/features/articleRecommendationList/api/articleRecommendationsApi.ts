@@ -15,4 +15,5 @@ const recommendationsApi = rtkApi.injectEndpoints({
     overrideExisting: false,
 });
 
-export const useGetArticleRecommendationsList = recommendationsApi.useGetArticleRecommendationsListQuery;
+export const useGetArticleRecommendationsList =
+    recommendationsApi.useGetArticleRecommendationsListQuery;

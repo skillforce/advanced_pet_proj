@@ -5,5 +5,5 @@ import { LoginSchema } from '../../types/loginSchema';
 // eslint-disable-next-line max-len
 export const getLoginPassword = createSelector(
     getLoginState,
-    (loginState:LoginSchema|undefined) => loginState?.password,
+    (loginState: LoginSchema | undefined) => loginState?.password,
 );

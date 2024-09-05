@@ -3,9 +3,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './User.module.scss';
 
 interface UserProps {
-    className?: string
+    className?: string;
 }
 
-export const User = memo(({ className } : UserProps) => (
+export const User = memo(({ className }: UserProps) => (
     <div className={classNames(cls.userContainer, {}, [className])} />
 ));

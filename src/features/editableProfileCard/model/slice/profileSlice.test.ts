@@ -6,7 +6,7 @@ import { updateProfileData } from '../services/updateProfileData/updateProfileDa
 import { profileActions, profileReducer } from './profileSlice';
 import { ValidateProfileError } from '../consts/consts';
 
-const profileMockData:Profile = {
+const profileMockData: Profile = {
     currency: Currency.USD,
     country: Country.Ukraine,
     firstName: 'Deniska',
@@ -18,65 +18,83 @@ const profileMockData:Profile = {
 };
 describe('ProfileSlice test', () => {
     test('set readOnly action', () => {
-        const state:DeepPartial<ProfileSchema> = { readonly: false };
-        expect(profileReducer(state as ProfileSchema, profileActions.setReadonly(true)))
-            .toEqual({ readonly: true });
+        const state: DeepPartial<ProfileSchema> = { readonly: false };
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.setReadonly(true),
+            ),
+        ).toEqual({ readonly: true });
     });
     test('cancelEdit action', () => {
-        const state:DeepPartial<ProfileSchema> = { data: profileMockData, form: { ...profileMockData, userName: '' } };
-        expect(profileReducer(state as ProfileSchema, profileActions.cancelEditing()))
-            .toEqual({
-                data: profileMockData,
-                form: profileMockData,
-                validateErrors: undefined,
-                readonly: true,
-            });
+        const state: DeepPartial<ProfileSchema> = {
+            data: profileMockData,
+            form: { ...profileMockData, userName: '' },
+        };
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.cancelEditing(),
+            ),
+        ).toEqual({
+            data: profileMockData,
+            form: profileMockData,
+            validateErrors: undefined,
+            readonly: true,
+        });
     });
     test('set updateProfile action', () => {
-        const state:DeepPartial<ProfileSchema> = { form: profileMockData };
-        expect(profileReducer(state as ProfileSchema, profileActions.updateProfile(
-            {
+        const state: DeepPartial<ProfileSchema> = { form: profileMockData };
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.updateProfile({
+                    ...profileMockData,
+                    currency: Currency.BYN,
+                    age: 12,
+                }),
+            ),
+        ).toEqual({
+            form: {
                 ...profileMockData,
                 currency: Currency.BYN,
                 age: 12,
             },
-        )))
-            .toEqual({
-                form: {
-                    ...profileMockData,
-                    currency: Currency.BYN,
-                    age: 12,
-                },
-            });
+        });
     });
     test('test update profile service pending', () => {
-        const state:DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<ProfileSchema> = {
             isLoading: false,
             validateErrors: [ValidateProfileError.SERVER_ERROR],
             error: 'Error!',
         };
-        expect(profileReducer(state as ProfileSchema, updateProfileData.pending))
-            .toEqual({
-                error: undefined,
-                validateErrors: undefined,
-                isLoading: true,
-            });
+        expect(
+            profileReducer(state as ProfileSchema, updateProfileData.pending),
+        ).toEqual({
+            error: undefined,
+            validateErrors: undefined,
+            isLoading: true,
+        });
     });
     test('test update profile service fulfilled', () => {
-        const state:DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<ProfileSchema> = {
             isLoading: true,
             readonly: false,
             validateErrors: [ValidateProfileError.SERVER_ERROR],
             data: undefined,
             form: undefined,
         };
-        expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(profileMockData, '')))
-            .toEqual({
-                validateErrors: undefined,
-                isLoading: false,
-                readonly: true,
-                data: profileMockData,
-                form: profileMockData,
-            });
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                updateProfileData.fulfilled(profileMockData, ''),
+            ),
+        ).toEqual({
+            validateErrors: undefined,
+            isLoading: false,
+            readonly: true,
+            data: profileMockData,
+            form: profileMockData,
+        });
     });
 });

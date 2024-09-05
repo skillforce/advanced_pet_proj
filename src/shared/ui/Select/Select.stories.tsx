@@ -7,7 +7,6 @@ import { Theme } from '@/shared/consts/theme';
 export default {
     title: 'shared/Select',
     component: Select,
-
 } as ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
@@ -20,7 +19,6 @@ SelectPrimary.args = {
         { value: 'w', content: 'w' },
         { value: 'e', content: 'e' },
     ],
-
 };
 
 export const SelectPrimaryDark = Template.bind({});
@@ -31,6 +29,5 @@ SelectPrimaryDark.args = {
         { value: 'w', content: 'w' },
         { value: 'e', content: 'e' },
     ],
-
 };
 SelectPrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];

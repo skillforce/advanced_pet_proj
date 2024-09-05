@@ -11,7 +11,7 @@ import App from './app/App';
 
 const container = document.getElementById('root');
 if (!container) {
-    throw new Error('container wasn\'t defined');
+    throw new Error("container wasn't defined");
 }
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
 

@@ -7,11 +7,7 @@ import cls from './Counter.module.scss';
 
 export const Counter = memo(() => {
     const counterValue = useCounterValue();
-    const {
-        add,
-        increment,
-        decrement,
-    } = useCounterActions();
+    const { add, increment, decrement } = useCounterActions();
     const { t } = useTranslation();
     const handleInc = () => {
         increment();

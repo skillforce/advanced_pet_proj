@@ -10,9 +10,9 @@ import cls from './CommentCard.module.scss';
 import { getRouteProfile } from '@/shared/consts/router';
 
 interface CommentCardProps {
-    className?: string,
-    comment?:Comment,
-    isLoading?:boolean
+    className?: string;
+    comment?: Comment;
+    isLoading?: boolean;
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
@@ -24,13 +24,12 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 data-testid="CommentCard.Loading"
                 max
                 gap="8"
-                className={classNames(cls.CommentCardContainer, {}, [className, cls.loading])}
+                className={classNames(cls.CommentCardContainer, {}, [
+                    className,
+                    cls.loading,
+                ])}
             >
-                <HStack
-                    gap="16"
-                    className={cls.header}
-                    align="center"
-                >
+                <HStack gap="16" className={cls.header} align="center">
                     <Skeleton width={30} height={30} borderRadius="50%" />
                     <Skeleton width={150} height={30} />
                 </HStack>
@@ -49,8 +48,13 @@ export const CommentCard = memo((props: CommentCardProps) => {
             gap="8"
             className={classNames(cls.CommentCardContainer, {}, [className])}
         >
-            <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
-                {comment.user.avatar && <Avatar size={30} src={comment.user.avatar} />}
+            <AppLink
+                to={getRouteProfile(comment.user.id)}
+                className={cls.header}
+            >
+                {comment.user.avatar && (
+                    <Avatar size={30} src={comment.user.avatar} />
+                )}
                 <Text title={comment.user.username} />
             </AppLink>
             <Text title={comment.text} />

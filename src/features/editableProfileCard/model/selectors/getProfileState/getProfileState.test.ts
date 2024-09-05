@@ -4,7 +4,7 @@ import { getProfileState } from './getProfileState';
 
 describe('getProfileDState.test', () => {
     test('should return profile state full', () => {
-        const profileStateDataMock:ProfileSchema = {
+        const profileStateDataMock: ProfileSchema = {
             data: {},
             form: {},
             error: '',
@@ -12,11 +12,15 @@ describe('getProfileDState.test', () => {
             readonly: false,
             validateErrors: [],
         };
-        const state:DeepPartial<StateSchema> = { profile: profileStateDataMock };
-        expect(getProfileState(state as StateSchema)).toEqual(profileStateDataMock);
+        const state: DeepPartial<StateSchema> = {
+            profile: profileStateDataMock,
+        };
+        expect(getProfileState(state as StateSchema)).toEqual(
+            profileStateDataMock,
+        );
     });
     test('should return undefined', () => {
-        const state:DeepPartial<StateSchema> = {};
+        const state: DeepPartial<StateSchema> = {};
         expect(getProfileState(state as StateSchema)).toEqual(undefined);
     });
 });

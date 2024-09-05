@@ -9,7 +9,11 @@ function MainPage() {
     return (
         <Page data-testid="MainPage">
             {t('Main page')}
-            <RatingCard title="Как вам статья?" feedbackTitle="Оставьте отзыв о статье" hasFeedback />
+            <RatingCard
+                title="Как вам статья?"
+                feedbackTitle="Оставьте отзыв о статье"
+                hasFeedback
+            />
         </Page>
     );
 }

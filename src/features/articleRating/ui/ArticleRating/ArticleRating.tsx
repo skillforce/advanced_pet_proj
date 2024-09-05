@@ -2,23 +2,29 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { RatingCard } from '@/entity/Rating';
-import { useGetArticleRatingQuery, useRateArticleMutation } from '../../api/articleRatingApi';
+import {
+    useGetArticleRatingQuery,
+    useRateArticleMutation,
+} from '../../api/articleRatingApi';
 import { getUserAuthData } from '@/entity/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 export interface ArticleRatingProps {
-    className?: string
-    articleId:string
+    className?: string;
+    articleId: string;
 }
-const ArticleRating = memo(
-    ({ className, articleId }: ArticleRatingProps) => {
-        const { t } = useTranslation('article');
-        const userData = useSelector(getUserAuthData);
+const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
+    const { t } = useTranslation('article');
+    const userData = useSelector(getUserAuthData);
 
-        const { data, isLoading } = useGetArticleRatingQuery({ userId: userData?.id ?? '', articleId });
-        const [rateArticle] = useRateArticleMutation();
+    const { data, isLoading } = useGetArticleRatingQuery({
+        userId: userData?.id ?? '',
+        articleId,
+    });
+    const [rateArticle] = useRateArticleMutation();
 
-        const handleRateArticle = useCallback((starsCount:number, feedback?:string) => {
+    const handleRateArticle = useCallback(
+        (starsCount: number, feedback?: string) => {
             try {
                 rateArticle({
                     rate: starsCount,
@@ -30,33 +36,42 @@ const ArticleRating = memo(
                 // error handling
                 console.log(e);
             }
-        }, [articleId, rateArticle, userData?.id]);
+        },
+        [articleId, rateArticle, userData?.id],
+    );
 
-        const onCancel = useCallback((starsCount: number) => {
+    const onCancel = useCallback(
+        (starsCount: number) => {
             handleRateArticle(starsCount);
-        }, [handleRateArticle]);
+        },
+        [handleRateArticle],
+    );
 
-        const onAccept = useCallback((starsCount: number, feedback?:string) => {
+    const onAccept = useCallback(
+        (starsCount: number, feedback?: string) => {
             handleRateArticle(starsCount, feedback);
-        }, [handleRateArticle]);
+        },
+        [handleRateArticle],
+    );
 
-        if (isLoading) {
-            return <Skeleton width="100%" height={120} />;
-        }
+    if (isLoading) {
+        return <Skeleton width="100%" height={120} />;
+    }
 
-        const rating = data?.[0];
+    const rating = data?.[0];
 
-        return (
-            <RatingCard
-                onCancel={onCancel}
-                onAccept={onAccept}
-                rate={rating?.rate}
-                className={className}
-                hasFeedback
-                title={t('Rate this articles please')}
-                feedbackTitle={t('Leave your comment it\'ll help us to improve quality of service')}
-            />
-        );
-    },
-);
+    return (
+        <RatingCard
+            onCancel={onCancel}
+            onAccept={onAccept}
+            rate={rating?.rate}
+            className={className}
+            hasFeedback
+            title={t('Rate this articles please')}
+            feedbackTitle={t(
+                "Leave your comment it'll help us to improve quality of service",
+            )}
+        />
+    );
+});
 export default ArticleRating;

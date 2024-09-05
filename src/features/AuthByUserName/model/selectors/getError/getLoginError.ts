@@ -4,5 +4,5 @@ import { LoginSchema } from '../../types/loginSchema';
 
 export const getLoginError = createSelector(
     getLoginState,
-    (loginState:LoginSchema|undefined) => loginState?.error,
+    (loginState: LoginSchema | undefined) => loginState?.error,
 );

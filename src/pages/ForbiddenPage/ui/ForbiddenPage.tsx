@@ -8,7 +8,7 @@ function ForbiddenPage() {
     return (
         <Page data-testid="ForbiddenPage">
             <Text
-                title={t('You don\'t have any access to that page')}
+                title={t("You don't have any access to that page")}
                 theme={TextTheme.ERROR}
                 size={TextSize.L}
             />

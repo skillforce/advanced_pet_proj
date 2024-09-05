@@ -2,13 +2,12 @@ import { UserRoles } from '../consts/consts';
 
 export interface UserScheme {
     username: string;
-    avatar?:string
+    avatar?: string;
     id: string;
-    roles?:UserRoles[]
-
+    roles?: UserRoles[];
 }
 
 export interface UserStateScheme {
- authData?: UserScheme;
- _inited?:boolean
+    authData?: UserScheme;
+    _inited?: boolean;
 }

@@ -11,13 +11,22 @@ describe('User came to profile page', () => {
         cy.resetProfile(profileId);
     });
     it('Profile page opened properly', () => {
-        cy.getByTestId('ProfileCard.FirstNameInput').should('have.value', 'Denis123');
+        cy.getByTestId('ProfileCard.FirstNameInput').should(
+            'have.value',
+            'Denis123',
+        );
     });
     it('User edit profile card', () => {
         const newFirstName = 'New';
         const newLastName = 'Name';
         cy.updateProfile(newFirstName, newLastName);
-        cy.getByTestId('ProfileCard.FirstNameInput').should('have.value', newFirstName);
-        cy.getByTestId('ProfileCard.SurnameInput').should('have.value', newLastName);
+        cy.getByTestId('ProfileCard.FirstNameInput').should(
+            'have.value',
+            newFirstName,
+        );
+        cy.getByTestId('ProfileCard.SurnameInput').should(
+            'have.value',
+            newLastName,
+        );
     });
 });

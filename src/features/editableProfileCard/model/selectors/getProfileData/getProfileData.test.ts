@@ -6,7 +6,7 @@ import { getProfileData } from './getProfileData';
 
 describe('getProfileData.test', () => {
     test('should return profile data', () => {
-        const profileDataMock:Profile = {
+        const profileDataMock: Profile = {
             currency: Currency.USD,
             country: Country.Ukraine,
             firstName: 'Denis',
@@ -16,11 +16,13 @@ describe('getProfileData.test', () => {
             userName: 'sarcasm1613',
             avatar: '',
         };
-        const state:DeepPartial<StateSchema> = { profile: { data: profileDataMock } };
+        const state: DeepPartial<StateSchema> = {
+            profile: { data: profileDataMock },
+        };
         expect(getProfileData(state as StateSchema)).toEqual(profileDataMock);
     });
     test('should return undefined', () => {
-        const state:DeepPartial<StateSchema> = {};
+        const state: DeepPartial<StateSchema> = {};
         expect(getProfileData(state as StateSchema)).toEqual(undefined);
     });
 });

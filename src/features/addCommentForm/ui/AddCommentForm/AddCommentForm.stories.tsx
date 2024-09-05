@@ -7,15 +7,14 @@ import AddCommentForm from './AddCommentForm';
 export default {
     title: 'feature/AddCommentForm',
     component: AddCommentForm,
-
 } as ComponentMeta<typeof AddCommentForm>;
 
-const Template: ComponentStory<typeof AddCommentForm> = (args) => <AddCommentForm {...args} />;
+const Template: ComponentStory<typeof AddCommentForm> = (args) => (
+    <AddCommentForm {...args} />
+);
 
 export const PrimaryAddCommentForm = Template.bind({});
 PrimaryAddCommentForm.args = {
     onSendComment: action('onSendComment'),
 };
-PrimaryAddCommentForm.decorators = [
-    StoreDecorator({ }),
-];
+PrimaryAddCommentForm.decorators = [StoreDecorator({})];

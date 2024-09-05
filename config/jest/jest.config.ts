@@ -18,17 +18,8 @@ export default {
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
     testEnvironment: 'jsdom',
-    moduleFileExtensions: [
-        'js',
-        'jsx',
-        'ts',
-        'tsx',
-        'json',
-        'node',
-    ],
-    coveragePathIgnorePatterns: [
-        '\\\\node_modules\\\\',
-    ],
+    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+    coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
     moduleDirectories: ['node_modules', 'src'],
     testMatch: [
         // work on both OS systems
@@ -39,7 +30,7 @@ export default {
     moduleNameMapper: {
         '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-        'axios': 'axios/dist/node/axios.cjs',
+        axios: 'axios/dist/node/axios.cjs',
         '^@/(.*)$': '<rootDir>/src/$1',
     },
     globals: {
@@ -49,12 +40,15 @@ export default {
     },
     reporters: [
         'default',
-        ['jest-html-reporters', {
-            'publicPath': '<rootDir>/reports/unit',
-            'filename': 'report.html',
-            'inlineSource': true,
-            // 'openReport': true,
-        }],
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                inlineSource: true,
+                // 'openReport': true,
+            },
+        ],
     ],
 
     // Indicates whether the coverage information should be collected while executing the test

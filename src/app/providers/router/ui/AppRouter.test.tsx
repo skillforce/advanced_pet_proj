@@ -1,6 +1,10 @@
 import { screen } from '@testing-library/react';
 import AppRouter from './AppRouter';
-import { getRouteAbout, getRouteAdminPanel, getRouteProfile } from '@/shared/consts/router';
+import {
+    getRouteAbout,
+    getRouteAdminPanel,
+    getRouteProfile,
+} from '@/shared/consts/router';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { UserRoles } from '@/entity/User';
 
@@ -48,7 +52,7 @@ describe('app/router', () => {
         expect(page).toBeInTheDocument();
     });
 
-    test('user doesn\'t have appropriate role to get access to the adminPanel page', async () => {
+    test("user doesn't have appropriate role to get access to the adminPanel page", async () => {
         componentRender(<AppRouter />, {
             route: getRouteAdminPanel(),
             initialStoreState: {

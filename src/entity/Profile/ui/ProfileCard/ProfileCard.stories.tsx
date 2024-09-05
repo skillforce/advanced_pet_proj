@@ -8,7 +8,9 @@ export default {
     component: ProfileCard,
 } as ComponentMeta<typeof ProfileCard>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
+    <ProfileCard {...args} />
+);
 
 export const PrimaryCard = Template.bind({});
 
@@ -22,7 +24,6 @@ PrimaryCard.args = {
         age: 22,
         userName: 'sarcasm1613',
         avatar: 'https://www.freecodecamp.org/news/content/images/2022/02/arrows-2889040_1920.jpg',
-
     },
 };
 export const LoadingCard = Template.bind({});

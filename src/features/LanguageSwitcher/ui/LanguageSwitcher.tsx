@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 interface LanguageSwitcherProps {
-    className?: string
+    className?: string;
 }
 
 export const LanguageSwitcher = memo(({ className }: LanguageSwitcherProps) => {

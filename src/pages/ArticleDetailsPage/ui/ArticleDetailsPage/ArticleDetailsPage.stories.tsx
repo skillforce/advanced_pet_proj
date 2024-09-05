@@ -54,16 +54,19 @@ const article = {
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
-
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+    <ArticleDetailsPage {...args} />
+);
 
 export const PrimaryArticleDetails = Template.bind({});
 PrimaryArticleDetails.args = {};
 
-PrimaryArticleDetails.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+PrimaryArticleDetails.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];

@@ -15,35 +15,43 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import cls from './ArticleDetailsComments.module.scss';
 
 interface ArticleDetailsCommentsProps {
-    className?: string
-    id?:string
+    className?: string;
+    id?: string;
 }
 
-export const ArticleDetailsComments = memo(({ className, id }: ArticleDetailsCommentsProps) => {
-    const { t } = useTranslation('article');
-    const comments = useSelector(getArticleComments.selectAll);
-    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-    const dispatch = useAppDispatch();
+export const ArticleDetailsComments = memo(
+    ({ className, id }: ArticleDetailsCommentsProps) => {
+        const { t } = useTranslation('article');
+        const comments = useSelector(getArticleComments.selectAll);
+        const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+        const dispatch = useAppDispatch();
 
-    useInitialEffect(() => {
-        if (id) {
-            dispatch(fetchCommentsByArticleId(id));
-        }
-    });
+        useInitialEffect(() => {
+            if (id) {
+                dispatch(fetchCommentsByArticleId(id));
+            }
+        });
 
-    const onSendComment = useCallback((newCommentText:string) => {
-        dispatch(addCommentForArticle(newCommentText));
-    }, [dispatch]);
+        const onSendComment = useCallback(
+            (newCommentText: string) => {
+                dispatch(addCommentForArticle(newCommentText));
+            },
+            [dispatch],
+        );
 
-    return (
-        <VStack gap="16" max className={classNames('', {}, [className])}>
-            <Text
-                size={TextSize.L}
-                title={t('Comments')}
-                className={cls.commentsContainerTitle}
-            />
-            <AddCommentForm onSendComment={onSendComment} />
-            <CommentList isLoading={commentsIsLoading} comments={comments} />
-        </VStack>
-    );
-});
+        return (
+            <VStack gap="16" max className={classNames('', {}, [className])}>
+                <Text
+                    size={TextSize.L}
+                    title={t('Comments')}
+                    className={cls.commentsContainerTitle}
+                />
+                <AddCommentForm onSendComment={onSendComment} />
+                <CommentList
+                    isLoading={commentsIsLoading}
+                    comments={comments}
+                />
+            </VStack>
+        );
+    },
+);

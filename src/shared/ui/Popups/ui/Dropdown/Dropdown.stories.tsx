@@ -6,10 +6,11 @@ import { Button } from '../../../Button/Button';
 export default {
     title: 'shared/Dropdown',
     component: Dropdown,
-
 } as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: ComponentStory<typeof Dropdown> = (args) => (
+    <Dropdown {...args} />
+);
 
 export const PrimaryDropdown = Template.bind({});
 PrimaryDropdown.args = {

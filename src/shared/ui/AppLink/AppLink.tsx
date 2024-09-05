@@ -7,17 +7,16 @@ export enum AppLinksTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
     ACTIVE = 'active',
-
 }
 
 interface AppLinkProps extends LinkProps {
-    className?: string,
-    theme?: AppLinksTheme
-    children?:ReactNode
+    className?: string;
+    theme?: AppLinksTheme;
+    children?: ReactNode;
 }
 
 // PropsWithChildren(type for react 18+)
-export const AppLink = memo((props:AppLinkProps) => {
+export const AppLink = memo((props: AppLinkProps) => {
     const {
         className,
         children,
@@ -30,7 +29,10 @@ export const AppLink = memo((props:AppLinkProps) => {
         <Link
             to={to}
             {...restPops}
-            className={classNames(cls.appLinkContainer, {}, [className, cls[theme]])}
+            className={classNames(cls.appLinkContainer, {}, [
+                className,
+                cls[theme],
+            ])}
         >
             {children}
         </Link>

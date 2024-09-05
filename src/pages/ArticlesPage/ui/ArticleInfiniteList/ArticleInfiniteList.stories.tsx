@@ -6,10 +6,11 @@ import { ArticleInfiniteList } from './ArticleInfiniteList';
 export default {
     title: 'pages/ArticlePage/ArticleInfiniteList',
     component: ArticleInfiniteList,
-
 } as ComponentMeta<typeof ArticleInfiniteList>;
 
-const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
+const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
+    <ArticleInfiniteList {...args} />
+);
 
 export const PrimaryArticleInfiniteList = Template.bind({});
 PrimaryArticleInfiniteList.args = {};

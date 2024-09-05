@@ -14,10 +14,10 @@ import cls from './NavBar.module.scss';
 import { getRouteArticleCreate } from '@/shared/consts/router';
 
 interface NavBarProps {
-    className?: string
+    className?: string;
 }
 
-export const NavBar = memo(({ className }:NavBarProps) => {
+export const NavBar = memo(({ className }: NavBarProps) => {
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
     const userAuthData = useSelector(getUserAuthData);
@@ -36,10 +36,19 @@ export const NavBar = memo(({ className }:NavBarProps) => {
 
     if (userAuthData) {
         return (
-            <header className={classNames(cls.navBarContainer, {}, [className])}>
+            <header
+                className={classNames(cls.navBarContainer, {}, [className])}
+            >
                 <HStack align="center" className={cls.logoBlock}>
-                    <Text className={cls.appName} title={t('Vpname pet app')} theme={TextTheme.INVERTED} />
-                    <AppLink to={getRouteArticleCreate()} theme={AppLinksTheme.PRIMARY}>
+                    <Text
+                        className={cls.appName}
+                        title={t('Vpname pet app')}
+                        theme={TextTheme.INVERTED}
+                    />
+                    <AppLink
+                        to={getRouteArticleCreate()}
+                        theme={AppLinksTheme.PRIMARY}
+                    >
                         {t('Create a new articles')}
                     </AppLink>
                 </HStack>
@@ -47,15 +56,20 @@ export const NavBar = memo(({ className }:NavBarProps) => {
                     <NotificationButton />
                     <AvatarDropdown />
                 </HStack>
-
             </header>
         );
     }
 
     return (
         <header className={classNames(cls.navBarContainer, {}, [className])}>
-            <Text className={cls.appName} title={t('Vpname pet app')} theme={TextTheme.INVERTED} />
-            <Button theme={ButtonTheme.CLEAR_HOVER} onClick={onOpenModal}>{t('Log In')}</Button>
+            <Text
+                className={cls.appName}
+                title={t('Vpname pet app')}
+                theme={TextTheme.INVERTED}
+            />
+            <Button theme={ButtonTheme.CLEAR_HOVER} onClick={onOpenModal}>
+                {t('Log In')}
+            </Button>
             <LoginModal onClose={onCloseModal} isOpen={isAuthModalOpen} />
         </header>
     );

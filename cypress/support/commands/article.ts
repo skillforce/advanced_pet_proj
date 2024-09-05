@@ -8,21 +8,21 @@ const defaultArticle = {
     views: 1022,
     createdAt: '26.02.2022',
     userId: '1',
-    type: [
-        'ECONOMICS',
-    ],
+    type: ['ECONOMICS'],
     blocks: [],
 };
 
-export function createArticle(newArticle?:Article) {
-    return cy.request({
-        method: 'POST',
-        url: 'http://localhost:8000/articles',
-        headers: {
-            Authorization: `Bearer ${AUTH_USER_LOCAL_STORAGE}`,
-        },
-        body: newArticle ?? defaultArticle,
-    }).then((resp) => resp.body);
+export function createArticle(newArticle?: Article) {
+    return cy
+        .request({
+            method: 'POST',
+            url: 'http://localhost:8000/articles',
+            headers: {
+                Authorization: `Bearer ${AUTH_USER_LOCAL_STORAGE}`,
+            },
+            body: newArticle ?? defaultArticle,
+        })
+        .then((resp) => resp.body);
 }
 
 export function removeArticle(articleId: string) {
@@ -38,8 +38,8 @@ export function removeArticle(articleId: string) {
 declare global {
     namespace Cypress {
         interface Chainable {
-            createArticle(newArticle?:Article): Chainable<Article>
-            removeArticle(articleId: string): Chainable<void>
+            createArticle(newArticle?: Article): Chainable<Article>;
+            removeArticle(articleId: string): Chainable<void>;
         }
     }
 }

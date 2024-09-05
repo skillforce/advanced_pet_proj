@@ -1,12 +1,11 @@
 import { ArticlesBlocksType, ArticlesType } from '../consts/consts';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
-import { articleDetailsActions, articleDetailsReducer } from '../slice/articleDetailsSlice';
 import {
-    Article,
-} from '../types/article';
-import {
-    ArticleDetailsSchema,
-} from '../types/articleDetailsSchema';
+    articleDetailsActions,
+    articleDetailsReducer,
+} from '../slice/articleDetailsSlice';
+import { Article } from '../types/article';
+import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
 const article: Article = {
     id: '1',
@@ -36,32 +35,48 @@ const article: Article = {
 };
 describe('ArticleSlice test', () => {
     test('set is loading', () => {
-        const state: DeepPartial<ArticleDetailsSchema> = { isLoading: undefined };
-        expect(articleDetailsReducer(state as ArticleDetailsSchema, articleDetailsActions.setIsLoading(true)))
-            .toEqual({ isLoading: true });
+        const state: DeepPartial<ArticleDetailsSchema> = {
+            isLoading: undefined,
+        };
+        expect(
+            articleDetailsReducer(
+                state as ArticleDetailsSchema,
+                articleDetailsActions.setIsLoading(true),
+            ),
+        ).toEqual({ isLoading: true });
     });
     test('set error test', () => {
         const state: DeepPartial<ArticleDetailsSchema> = { error: undefined };
-        expect(articleDetailsReducer(state as ArticleDetailsSchema, articleDetailsActions.setError('error!')))
-            .toEqual({ error: 'error!' });
+        expect(
+            articleDetailsReducer(
+                state as ArticleDetailsSchema,
+                articleDetailsActions.setError('error!'),
+            ),
+        ).toEqual({ error: 'error!' });
     });
     test('set articles data test', () => {
         const state: DeepPartial<ArticleDetailsSchema> = { data: undefined };
-        expect(articleDetailsReducer(
-            state as ArticleDetailsSchema,
-            articleDetailsActions.setArticleDetailsData(article),
-        )).toEqual({ data: article });
+        expect(
+            articleDetailsReducer(
+                state as ArticleDetailsSchema,
+                articleDetailsActions.setArticleDetailsData(article),
+            ),
+        ).toEqual({ data: article });
     });
     test('test fetch articles pending', () => {
         const state: ArticleDetailsSchema = {
             isLoading: false,
             error: 'Error!',
         };
-        expect(articleDetailsReducer(state as ArticleDetailsSchema, fetchArticleById.pending))
-            .toEqual({
-                error: undefined,
-                isLoading: true,
-            });
+        expect(
+            articleDetailsReducer(
+                state as ArticleDetailsSchema,
+                fetchArticleById.pending,
+            ),
+        ).toEqual({
+            error: undefined,
+            isLoading: true,
+        });
     });
     test('test update articles data fulfilled', () => {
         const state: ArticleDetailsSchema = {
@@ -69,14 +84,15 @@ describe('ArticleSlice test', () => {
             error: 'Error!',
             data: undefined,
         };
-        expect(articleDetailsReducer(
-            state as ArticleDetailsSchema,
-            fetchArticleById.fulfilled(article, '', '', null),
-        ))
-            .toEqual({
-                error: undefined,
-                isLoading: false,
-                data: article,
-            });
+        expect(
+            articleDetailsReducer(
+                state as ArticleDetailsSchema,
+                fetchArticleById.fulfilled(article, '', '', null),
+            ),
+        ).toEqual({
+            error: undefined,
+            isLoading: false,
+            data: article,
+        });
     });
 });

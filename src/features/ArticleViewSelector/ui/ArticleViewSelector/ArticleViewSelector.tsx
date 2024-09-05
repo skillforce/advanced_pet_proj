@@ -9,35 +9,46 @@ import { ArticlesView } from '@/entity/Article';
 
 interface ArticleViewSelectorProps {
     className?: string;
-    view:ArticlesView;
-    onViewClick:(newView:ArticlesView)=>void
+    view: ArticlesView;
+    onViewClick: (newView: ArticlesView) => void;
 }
 const viewTypes = [
     {
         view: ArticlesView.SMALL,
         icon: TiledIcon,
-    }, {
+    },
+    {
         view: ArticlesView.BIG,
         icon: ListIcon,
     },
 ];
 
-export const ArticleViewSelector = memo(({ className, view, onViewClick }: ArticleViewSelectorProps) => {
-    const onClick = (newView:ArticlesView) => () => {
-        onViewClick?.(newView);
-    };
-    return (
-        <div className={classNames(cls.ArticleViewSelectorContainer, {}, [className])}>
-            {viewTypes.map((viewType) => (
-                <Button
-                    className={classNames('', { [cls.selected]: viewType.view === view }, [])}
-                    key={viewType.view}
-                    theme={ButtonTheme.CLEAR}
-                    onClick={onClick(viewType.view)}
-                >
-                    <Icon Svg={viewType.icon} />
-                </Button>
-            ))}
-        </div>
-    );
-});
+export const ArticleViewSelector = memo(
+    ({ className, view, onViewClick }: ArticleViewSelectorProps) => {
+        const onClick = (newView: ArticlesView) => () => {
+            onViewClick?.(newView);
+        };
+        return (
+            <div
+                className={classNames(cls.ArticleViewSelectorContainer, {}, [
+                    className,
+                ])}
+            >
+                {viewTypes.map((viewType) => (
+                    <Button
+                        className={classNames(
+                            '',
+                            { [cls.selected]: viewType.view === view },
+                            [],
+                        )}
+                        key={viewType.view}
+                        theme={ButtonTheme.CLEAR}
+                        onClick={onClick(viewType.view)}
+                    >
+                        <Icon Svg={viewType.icon} />
+                    </Button>
+                ))}
+            </div>
+        );
+    },
+);

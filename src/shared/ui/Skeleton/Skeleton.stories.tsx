@@ -7,16 +7,16 @@ import { Theme } from '@/shared/consts/theme';
 export default {
     title: 'shared/Skeleton',
     component: Skeleton,
-
 } as ComponentMeta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
+const Template: ComponentStory<typeof Skeleton> = (args) => (
+    <Skeleton {...args} />
+);
 
 export const SquareSkeleton = Template.bind({});
 SquareSkeleton.args = {
     width: 200,
     height: 400,
-
 };
 export const CircleSkeleton = Template.bind({});
 CircleSkeleton.args = {

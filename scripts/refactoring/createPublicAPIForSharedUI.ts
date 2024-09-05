@@ -17,7 +17,7 @@ const sharedUIDirectory = project.getDirectory(sharedUIPath);
 const componentsDirs = sharedUIDirectory?.getDirectories();
 
 // detect only absolute imports related to our own code
-function isAbsolute(value:string) {
+function isAbsolute(value: string) {
     const layers = ['app', 'entity', 'features', 'pages', 'shared', 'widgets'];
     return layers.some((path) => value.startsWith(path));
 }
@@ -27,7 +27,9 @@ componentsDirs?.forEach((dir) => {
     const indexFile = dir.getSourceFile(indexFileName);
     if (!indexFile) {
         const sourceCode = `export * from './${dir.getBaseName()}';`;
-        const file = dir.createSourceFile(indexFileName, sourceCode, { overwrite: true });
+        const file = dir.createSourceFile(indexFileName, sourceCode, {
+            overwrite: true,
+        });
         file.save();
     }
 });

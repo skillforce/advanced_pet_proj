@@ -7,7 +7,6 @@ import { Theme } from '@/shared/consts/theme';
 export default {
     title: 'shared/Text',
     component: Text,
-
 } as ComponentMeta<typeof Text>;
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
@@ -21,7 +20,6 @@ PrimaryText.args = {
 export const onlyTitle = Template.bind({});
 onlyTitle.args = {
     title: 'Test',
-
 };
 export const onlyBodyText = Template.bind({});
 onlyBodyText.args = {

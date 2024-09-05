@@ -12,22 +12,22 @@ import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
-    className?: string
-    data?:Profile
-    error?:string
-    isLoading?:boolean
-    readonly?:boolean
-    onChangeLastName?:(value?:string)=>void
-    onChangeFirstName?:(value?:string)=>void
-    onChangeCity?:(value?:string)=>void
-    onChangeAge?:(value?:string)=>void
-    onChangeUserName?:(value?:string)=>void
-    onChangeAvatar?:(value?:string)=>void
-    onChangeCurrency?:(value?:Currency)=>void
-    onChangeCountry?:(value?:Country)=>void
+    className?: string;
+    data?: Profile;
+    error?: string;
+    isLoading?: boolean;
+    readonly?: boolean;
+    onChangeLastName?: (value?: string) => void;
+    onChangeFirstName?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeUserName?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
+    onChangeCurrency?: (value?: Currency) => void;
+    onChangeCountry?: (value?: Country) => void;
 }
 
-export const ProfileCard = (props : ProfileCardProps) => {
+export const ProfileCard = (props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
     const {
         className,
@@ -45,7 +45,7 @@ export const ProfileCard = (props : ProfileCardProps) => {
         onChangeCountry,
     } = props;
 
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.editing]: !readonly,
     };
 
@@ -54,7 +54,10 @@ export const ProfileCard = (props : ProfileCardProps) => {
             <HStack
                 max
                 justify="center"
-                className={classNames(cls.profileCardContainer, {}, [className, cls.loading])}
+                className={classNames(cls.profileCardContainer, {}, [
+                    className,
+                    cls.loading,
+                ])}
             >
                 <Loader />
             </HStack>
@@ -65,7 +68,10 @@ export const ProfileCard = (props : ProfileCardProps) => {
             <HStack
                 max
                 justify="center"
-                className={classNames(cls.profileCardContainer, {}, [className, cls.error])}
+                className={classNames(cls.profileCardContainer, {}, [
+                    className,
+                    cls.error,
+                ])}
             >
                 <Text
                     title={t('Error was occurred during profile uploading')}
@@ -83,15 +89,9 @@ export const ProfileCard = (props : ProfileCardProps) => {
             max
             className={classNames(cls.profileCardContainer, mods, [className])}
         >
-            <HStack
-                max
-                justify="center"
-            >
+            <HStack max justify="center">
                 {data?.avatar && (
-                    <Avatar
-                        alt="profilePageAvatarIcon"
-                        src={data?.avatar}
-                    />
+                    <Avatar alt="profilePageAvatarIcon" src={data?.avatar} />
                 )}
             </HStack>
             <Input

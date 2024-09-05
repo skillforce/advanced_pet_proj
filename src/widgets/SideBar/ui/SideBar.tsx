@@ -10,7 +10,7 @@ import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 
 interface SideBarProps {
-    className?: string
+    className?: string;
 }
 
 export const SideBar = memo(({ className }: SideBarProps) => {
@@ -20,18 +20,26 @@ export const SideBar = memo(({ className }: SideBarProps) => {
     };
     const sideBarItemsList = useSelector(getSidebarItems);
 
-    const itemsList = useMemo(() => sideBarItemsList.map((item) => (
-        <SideBarItem
-            item={item}
-            isAuthOnly={item.authOnly}
-            collapsed={collapsed}
-            key={item.path}
-        />
-    )), [collapsed, sideBarItemsList]);
+    const itemsList = useMemo(
+        () =>
+            sideBarItemsList.map((item) => (
+                <SideBarItem
+                    item={item}
+                    isAuthOnly={item.authOnly}
+                    collapsed={collapsed}
+                    key={item.path}
+                />
+            )),
+        [collapsed, sideBarItemsList],
+    );
     return (
         <section
             data-testid="sideBar"
-            className={classNames(cls.sideBarContainer, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(
+                cls.sideBarContainer,
+                { [cls.collapsed]: collapsed },
+                [className],
+            )}
         >
             <Button
                 className={cls.toggleCollapseBtn}
@@ -44,18 +52,13 @@ export const SideBar = memo(({ className }: SideBarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <VStack
-                role="navigation"
-                className={cls.links}
-                gap="16"
-            >
+            <VStack role="navigation" className={cls.links} gap="16">
                 {itemsList}
             </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LanguageSwitcher className={cls.langSwitcher} />
             </div>
-
         </section>
     );
 });

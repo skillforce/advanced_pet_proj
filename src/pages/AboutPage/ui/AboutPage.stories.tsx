@@ -9,29 +9,26 @@ import { Theme } from '@/shared/consts/theme';
 export default {
     title: 'pages/AboutPage',
     component: AboutPage,
-
 } as ComponentMeta<typeof AboutPage>;
 
 const initialStateMock = {
     counter: { value: 0 },
     user: {
-        authData:
-            {
-                id: '123',
-                username: 'Denis',
-            },
+        authData: {
+            id: '123',
+            username: 'Denis',
+        },
     },
     loginForm: {
         password: '',
         login: '',
         isLoading: false,
     },
-    ui: { scroll: { 'test': 0 } },
+    ui: { scroll: { test: 0 } },
     [rtkApi.reducerPath]: rtkApi.reducer as any,
-
 };
 
-const Template: ComponentStory <typeof AboutPage> = () => (
+const Template: ComponentStory<typeof AboutPage> = () => (
     <StoreProvider initialState={initialStateMock}>
         <AboutPage />
     </StoreProvider>

@@ -3,7 +3,7 @@ import { ArticlesBlocksType, ArticlesType } from '../../consts/consts';
 import { fetchArticleById } from '../fetchArticleById/fetchArticleById';
 import { Article } from '../../types/article';
 
-const article:Article = {
+const article: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',

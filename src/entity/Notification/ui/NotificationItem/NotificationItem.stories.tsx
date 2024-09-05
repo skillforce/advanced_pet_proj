@@ -11,10 +11,11 @@ const notificationItemMock = {
 export default {
     title: 'entity/Notification/NotificationItem',
     component: NotificationItem,
-
 } as ComponentMeta<typeof NotificationItem>;
 
-const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
+const Template: ComponentStory<typeof NotificationItem> = (args) => (
+    <NotificationItem {...args} />
+);
 
 export const PrimaryNotificationItem = Template.bind({});
 PrimaryNotificationItem.args = {

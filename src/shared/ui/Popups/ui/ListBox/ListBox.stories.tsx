@@ -12,10 +12,11 @@ export default {
             </div>
         ),
     ],
-
 } as ComponentMeta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: ComponentStory<typeof ListBox> = (args) => (
+    <ListBox {...args} />
+);
 
 export const TopLeft = Template.bind({});
 TopLeft.args = {

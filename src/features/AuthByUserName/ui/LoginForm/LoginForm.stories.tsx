@@ -8,47 +8,57 @@ import { Theme } from '@/shared/consts/theme';
 export default {
     title: 'features/LoginForm',
     component: LoginForm,
-
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+    <LoginForm {...args} />
+);
 
 export const LoginFormPrimary = Template.bind({});
 
 LoginFormPrimary.args = {};
-LoginFormPrimary.decorators = [StoreDecorator({
-    loginForm: {
-        login: 'Denis',
-        password: '12345',
-    },
-})];
+LoginFormPrimary.decorators = [
+    StoreDecorator({
+        loginForm: {
+            login: 'Denis',
+            password: '12345',
+        },
+    }),
+];
 
 export const PrimaryWithError = Template.bind({});
 
 PrimaryWithError.args = {};
-PrimaryWithError.decorators = [StoreDecorator({
-    loginForm: {
-        login: 'Denis',
-        password: '12345',
-        error: 'ERROR TEXT!',
-    },
-})];
+PrimaryWithError.decorators = [
+    StoreDecorator({
+        loginForm: {
+            login: 'Denis',
+            password: '12345',
+            error: 'ERROR TEXT!',
+        },
+    }),
+];
 export const PrimaryLoading = Template.bind({});
 
 PrimaryLoading.args = {};
-PrimaryLoading.decorators = [StoreDecorator({
-    loginForm: {
-        login: 'Denis',
-        password: '12345',
-        isLoading: true,
-    },
-})];
+PrimaryLoading.decorators = [
+    StoreDecorator({
+        loginForm: {
+            login: 'Denis',
+            password: '12345',
+            isLoading: true,
+        },
+    }),
+];
 
 export const LoginFormDark = Template.bind({});
 LoginFormDark.args = {};
-LoginFormDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    loginForm: {
-        login: 'Denis',
-        password: '12345',
-    },
-})];
+LoginFormDark.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        loginForm: {
+            login: 'Denis',
+            password: '12345',
+        },
+    }),
+];

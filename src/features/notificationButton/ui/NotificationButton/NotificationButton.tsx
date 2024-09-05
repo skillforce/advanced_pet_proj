@@ -10,46 +10,51 @@ import { Drawer } from '@/shared/ui/Drawer';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
-    className?: string
+    className?: string;
 }
 
-export const NotificationButton = memo(({ className }: NotificationButtonProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+export const NotificationButton = memo(
+    ({ className }: NotificationButtonProps) => {
+        const [isOpen, setIsOpen] = useState(false);
 
-    const onOpen = useCallback(() => {
-        setIsOpen(true);
-    }, []);
+        const onOpen = useCallback(() => {
+            setIsOpen(true);
+        }, []);
 
-    const onClose = useCallback(() => {
-        setIsOpen(false);
-    }, []);
+        const onClose = useCallback(() => {
+            setIsOpen(false);
+        }, []);
 
-    const trigger = (
-        <Button theme={ButtonTheme.CLEAR} onClick={onOpen}>
-            <Icon inverted Svg={notificationIcon} />
-        </Button>
-    );
+        const trigger = (
+            <Button theme={ButtonTheme.CLEAR} onClick={onOpen}>
+                <Icon inverted Svg={notificationIcon} />
+            </Button>
+        );
 
-    return (
-        <div>
+        return (
             <div>
-                <BrowserView>
-                    <Popover
-                        direction="bottom left"
-                        className={classNames(cls.NotificationButtonContainer, {}, [className])}
-                        trigger={trigger}
-                    >
-                        <NotificationList className={cls.notifications} />
-                    </Popover>
-                </BrowserView>
-                <MobileView>
-                    {trigger}
-                    <Drawer onClose={onClose} isOpen={isOpen}>
-                        <NotificationList />
-                    </Drawer>
-                </MobileView>
+                <div>
+                    <BrowserView>
+                        <Popover
+                            direction="bottom left"
+                            className={classNames(
+                                cls.NotificationButtonContainer,
+                                {},
+                                [className],
+                            )}
+                            trigger={trigger}
+                        >
+                            <NotificationList className={cls.notifications} />
+                        </Popover>
+                    </BrowserView>
+                    <MobileView>
+                        {trigger}
+                        <Drawer onClose={onClose} isOpen={isOpen}>
+                            <NotificationList />
+                        </Drawer>
+                    </MobileView>
+                </div>
             </div>
-        </div>
-
-    );
-});
+        );
+    },
+);

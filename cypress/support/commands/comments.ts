@@ -1,6 +1,6 @@
 import { UserScheme } from '../../../src/entity/User';
 
-export function addComment(message:string) {
+export function addComment(message: string) {
     cy.getByTestId('AddCommentForm.Input').type(message);
     cy.getByTestId('AddCommentForm.Button').click();
 }
@@ -8,7 +8,7 @@ export function addComment(message:string) {
 declare global {
     namespace Cypress {
         interface Chainable {
-            addComment(message: string): Chainable<UserScheme>
+            addComment(message: string): Chainable<UserScheme>;
         }
     }
 }

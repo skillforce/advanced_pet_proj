@@ -10,31 +10,34 @@ const notificationsMock = [
         title: 'TitleTest1',
         description: 'DescriptionTest1',
         userId: '2',
-    }, {
+    },
+    {
         id: '2',
         title: 'TitleTest2',
         description: 'DescriptionTest1',
         userId: '2',
-    }, {
+    },
+    {
         id: '3',
         title: 'TitleTest3',
         description: 'DescriptionTest1',
         userId: '3',
-    }, {
+    },
+    {
         id: '4',
         title: 'TitleTest4',
         description: 'DescriptionTest1',
         userId: '1',
     },
-
 ];
 export default {
     title: 'entity/Notification/NotificationList',
     component: NotificationList,
-
 } as ComponentMeta<typeof NotificationList>;
 
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+    <NotificationList {...args} />
+);
 
 export const PrimaryNotificationList = Template.bind({});
 PrimaryNotificationList.args = {};

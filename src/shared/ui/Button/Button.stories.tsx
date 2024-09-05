@@ -7,7 +7,6 @@ import { Theme } from '@/shared/consts/theme';
 export default {
     title: 'shared/Button',
     component: Button,
-
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;

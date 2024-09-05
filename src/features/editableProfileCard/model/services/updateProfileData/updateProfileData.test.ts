@@ -5,7 +5,7 @@ import { Profile } from '@/entity/Profile';
 import { ValidateProfileError } from '../../consts/consts';
 import { updateProfileData } from './updateProfileData';
 
-const profileDataMock:Profile = {
+const profileDataMock: Profile = {
     currency: Currency.USD,
     country: Country.Ukraine,
     firstName: 'Deniska',
@@ -24,7 +24,9 @@ describe('updateProfileData.test', () => {
             },
         });
 
-        thunk.api.put.mockReturnValue(Promise.resolve({ data: profileDataMock }));
+        thunk.api.put.mockReturnValue(
+            Promise.resolve({ data: profileDataMock }),
+        );
         const result = await thunk.callThunk();
 
         expect(thunk.api.put).toHaveBeenCalled();
@@ -45,15 +47,16 @@ describe('updateProfileData.test', () => {
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toEqual([
-            ValidateProfileError.SERVER_ERROR,
-        ]);
+        expect(result.payload).toEqual([ValidateProfileError.SERVER_ERROR]);
     });
     test('test updateProfileData thunk validate error', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
                 form: {
-                    ...profileDataMock, firstName: '', lastName: '', age: NaN,
+                    ...profileDataMock,
+                    firstName: '',
+                    lastName: '',
+                    age: NaN,
                 },
             },
         });

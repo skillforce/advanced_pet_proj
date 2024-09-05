@@ -4,8 +4,8 @@ import { BuildPaths } from '../build/types/config';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 
-module.exports = ({ config }:{ config: webpack.Configuration }) => {
-    const paths:BuildPaths = {
+module.exports = ({ config }: { config: webpack.Configuration }) => {
+    const paths: BuildPaths = {
         entry: '',
         build: '',
         html: '',
@@ -25,7 +25,7 @@ module.exports = ({ config }:{ config: webpack.Configuration }) => {
     config.module!.rules!.push(buildCssLoaders(true));
     // для корректной работы svg и storybook
     // eslint-disable-next-line no-param-reassign
-    config.module!.rules = rules.map((rule:webpack.RuleSetRule) => {
+    config.module!.rules = rules.map((rule: webpack.RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {
             return { ...rule, exclude: /\.svg$/i };
         }
@@ -37,7 +37,6 @@ module.exports = ({ config }:{ config: webpack.Configuration }) => {
             __IS_DEV__: true,
             __API__: JSON.stringify('https://jsonplaceholder.ru'),
             __PROJECT__: JSON.stringify('storybook'),
-
         }),
     );
 
