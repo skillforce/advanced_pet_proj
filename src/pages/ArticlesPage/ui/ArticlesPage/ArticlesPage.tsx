@@ -11,6 +11,7 @@ import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlePageReducer } from '../../model/slices/ArticlePageSlice';
 import cls from './ArticlesPage.module.scss';
+import { useArticleItemById } from '../../model/selectors/articlePageSelectors/articlePageSelectors';
 
 interface ArticlesPageProps {
     className?: string;
@@ -22,10 +23,13 @@ const reducers: ReducersListSchema = {
 
 const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
-
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
+
+    // just show how works build selector with additional args
+    const data = useArticleItemById('3');
+    console.log(data);
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
