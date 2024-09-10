@@ -14,6 +14,8 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/articleRating';
 import { Page } from '@/widgets/Page';
+import { getFeatureFlag } from '@/shared/lib/features';
+import { Counter } from '@/entity/Counter';
 
 const reducers: ReducersListSchema = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -25,6 +27,8 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const queryParams = useParams<{ id: string }>();
     const { id } = queryParams;
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+    const isCounterEnabled = getFeatureFlag('isCounterEnabled');
 
     if (!id) {
         return null;
@@ -40,7 +44,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <ArticleRating articleId={id} />
+                    {isCounterEnabled && <Counter />}
+                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
                     <ArticleRecommendationList />
                     <ArticleDetailsComments id={id} />
                 </VStack>

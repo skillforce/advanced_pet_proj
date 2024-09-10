@@ -439,16 +439,24 @@
     "users": [
         {
             "id": "1",
-            "username": "Denis",
+            "username": "Deniska",
             "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png",
             "password": "12345",
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isCounterEnabled": true
+            },
             "roles": ["ADMIN"]
         },
         {
-            "id": "1",
+            "id": "2",
             "username": "Denis",
             "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png",
             "password": "12345",
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isCounterEnabled": false
+            },
             "roles": ["ADMIN"]
         },
         {
@@ -456,6 +464,10 @@
             "username": "Manager",
             "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg",
             "password": "12345",
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isCounterEnabled": false
+            },
             "role": ["MANAGER"]
         },
         {
@@ -463,6 +475,10 @@
             "username": "testUser",
             "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg",
             "password": "12345",
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isCounterEnabled": true
+            },
             "role": ["USER"]
         }
     ],
