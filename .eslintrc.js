@@ -35,6 +35,7 @@ module.exports = {
         // 'react/jsx-indent-props': [2, 4],
         // indent: [2, 4],
         'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
+
         'max-len': [
             2,
             {
@@ -106,6 +107,7 @@ module.exports = {
                 argsIgnorePattern: '^_',
             },
         ],
+        'react/no-unstable-nested-components': 'warn',
     },
     globals: {
         __IS_DEV__: true,
