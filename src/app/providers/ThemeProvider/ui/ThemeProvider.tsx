@@ -6,11 +6,8 @@ import React, {
     useState,
 } from 'react';
 import { Theme } from '@/shared/consts/theme';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localStorage';
 import { ThemeContext } from '@/shared/lib/context/ThemeContext';
-
-export const defaultTheme =
-    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+import { useJsonSettings } from '@/entity/User';
 
 interface ThemeProviderProps {
     initialTheme?: Theme;
@@ -21,7 +18,17 @@ export const ThemeProvider: FC<PropsWithChildren & ThemeProviderProps> = ({
     children,
     initialTheme,
 }) => {
-    const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme);
+    const { theme: defaultTheme = Theme.LIGHT } = useJsonSettings();
+    const [isThemeInited, setIsThemeInited] = useState(false);
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+
+    useEffect(() => {
+        if (!isThemeInited) {
+            setTheme(defaultTheme);
+            setIsThemeInited(true);
+        }
+    }, [defaultTheme, isThemeInited]);
+
     // установка корректной темы после перезагрузки страницы
     useEffect(() => {
         document.body.className = theme;
