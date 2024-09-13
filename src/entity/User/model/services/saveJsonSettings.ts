@@ -3,7 +3,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { JsonSettings } from '../types/jsonSettings';
 import { getUserAuthData } from '../selectors/getUserAuthData/getUserAuthData';
 import { getJsonSettings } from '../selectors/jsonSettings';
-import { setJsonSettings } from '../../api/userApi';
+import { setJsonSettingsMutation } from '../../api/userApi';
 
 export const saveJsonSettings = createAsyncThunk<
     Partial<JsonSettings>,
@@ -18,7 +18,7 @@ export const saveJsonSettings = createAsyncThunk<
     }
     try {
         const response = await dispatch(
-            setJsonSettings({
+            setJsonSettingsMutation({
                 jsonSettings: {
                     ...currentSettings,
                     ...newJsonSettings,

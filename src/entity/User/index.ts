@@ -13,6 +13,8 @@ import {
 } from './model/selectors/roleSelector';
 import { saveJsonSettings } from './model/services/saveJsonSettings';
 
+export { initAuthData } from './model/services/initAuthData';
+
 export { getIsInited } from './model/selectors/getIsInited/getIsInited';
 
 export type {
