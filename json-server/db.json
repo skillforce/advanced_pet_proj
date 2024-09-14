@@ -479,7 +479,8 @@
       "jsonSettings": {
         "theme": "app_orange_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlePageWasOpened": true
       },
       "features": {
         "isArticleRatingEnabled": true,
@@ -519,7 +520,8 @@
       "jsonSettings": {
         "theme": "app_light_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlePageWasOpened": true
       },
       "role": [
         "MANAGER"
@@ -557,7 +559,7 @@
       "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png"
     },
     {
-      "id": "4",
+      "id": "2",
       "firstName": "Denis123",
       "lastName": "Tatarinov234",
       "age": 22231,
@@ -568,7 +570,29 @@
       "avatar": "https://carnegiemnh.org/wp-content/uploads/2019/08/efcb18c281253ee89c538dd9758aee8836cd1d71.png"
     },
     {
-      "id": "2",
+      "id": "3",
+      "firstName": "Andrey",
+      "lastName": "Tatarkin",
+      "age": 27,
+      "currency": "USD",
+      "country": "Belarus",
+      "city": "Minsk",
+      "userName": "sarcasm1613",
+      "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg"
+    },
+    {
+      "id": "4",
+      "firstName": "Andrey",
+      "lastName": "Tatarkin",
+      "age": 27,
+      "currency": "USD",
+      "country": "Belarus",
+      "city": "Minsk",
+      "userName": "sarcasm1613",
+      "avatar": "https://www.shutterstock.com/shutterstock/photos/619868057/display_1500/stock-vector-darts-target-with-heart-in-the-centere-619868057.jpg"
+    },
+    {
+      "id": "5",
       "firstName": "Andrey",
       "lastName": "Tatarkin",
       "age": 27,
